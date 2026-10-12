@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+  <linearGradient id="rim" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffe9a3"/><stop offset="0.5" stop-color="#e2ae3c"/><stop offset="1" stop-color="#7a5410"/></linearGradient>
+  <linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232830"/><stop offset="1" stop-color="#101318"/></linearGradient>
+  <linearGradient id="met" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#ffe9a3"/><stop offset="1" stop-color="#e2ae3c"/></linearGradient>
+  <style>.ins{fill:url(#met);stroke:#7a5410;stroke-width:1.6;stroke-linejoin:round} .cut{fill:#14171c}</style>
+</defs>
+
+<path d="M64.00 8.00 L112.50 36.00 L112.50 92.00 L64.00 120.00 L15.50 92.00 L15.50 36.00 Z" fill="url(#rim)"/>
+<path d="M64.00 8.00 L112.50 36.00 L112.50 92.00 L64.00 120.00 L15.50 92.00 L15.50 36.00 Z" fill="url(#face)" transform="translate(64 64) scale(0.86) translate(-64 -64)"/>
+<path d="M64.00 8.00 L112.50 36.00 L112.50 92.00 L64.00 120.00 L15.50 92.00 L15.50 36.00 Z" fill="none" stroke="#e2ae3c" stroke-opacity="0.45" stroke-width="1.5" transform="translate(64 64) scale(0.78) translate(-64 -64)"/>
+<g transform="translate(64 52) scale(0.8) translate(-64 -56)"><rect x="46" y="32" width="13" height="46" rx="2" class="ins"/><rect x="69" y="32" width="13" height="46" rx="2" class="ins"/></g>
+<circle cx="45.0" cy="92" r="3.3" fill="#ffe9a3" stroke="#7a5410" stroke-width="1.2"/><circle cx="54.5" cy="92" r="3.3" fill="#ffe9a3" stroke="#7a5410" stroke-width="1.2"/><circle cx="64.0" cy="92" r="3.3" fill="#ffe9a3" stroke="#7a5410" stroke-width="1.2"/><circle cx="73.5" cy="92" r="3.3" fill="#ffe9a3" stroke="#7a5410" stroke-width="1.2"/><circle cx="83.0" cy="92" r="3.3" fill="#ffe9a3" stroke="#7a5410" stroke-width="1.2"/>
+</svg>

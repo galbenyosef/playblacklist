@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-adsense-account" content="ca-pub-5455017629067849">
+  <title>Play Blacklist</title>
+  <meta name="theme-color" content="#0e1013">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css?v=20261009a">
+  <link rel="stylesheet" href="/css/play.css?v=20261007b">
+</head>
+<body class="player">
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+
+  <div id="loader" class="overlay">
+    <div class="loader-box">
+      <span class="wordmark">BLACK<span>LIST</span></span>
+      <div class="bar"><div class="fill" id="fill"></div></div>
+      <div class="loader-row">
+        <span id="phase">Connecting...</span>
+        <span id="pct">0%</span>
+      </div>
+      <p class="hint" id="hint">The first load takes a moment - after that the game starts from your browser cache.</p>
+    </div>
+  </div>
+
+  <div id="error" class="overlay" hidden>
+    <div class="loader-box">
+      <span class="wordmark">BLACK<span>LIST</span></span>
+      <h2 id="error-title">Couldn't start the game</h2>
+      <p id="error-text"></p>
+      <div class="error-actions">
+        <a class="btn btn-primary" href="/play">Try again</a>
+        <a class="btn btn-ghost" href="/">Back</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="banner" class="banner" aria-live="polite"></div>
+
+  <div class="hud" id="hud" hidden>
+    <a class="hud-btn" href="/" title="Leave game" aria-label="Leave game">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <button class="hud-btn" id="fullscreen" title="Fullscreen" aria-label="Fullscreen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+    </button>
+  </div>
+
+  <script nonce="ao/JTI7EdMWpM06siAC7Hg==" src="/js/ads.js?v=20261009a" data-ads-mode="off"></script>
+  <script nonce="ao/JTI7EdMWpM06siAC7Hg==" src="/js/play.js?v=20261007b"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+  <linearGradient id="rim" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffe2a8"/><stop offset="0.5" stop-color="#f0a230"/><stop offset="1" stop-color="#6f4208"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset="0.5" stop-color="#e2b84a"/><stop offset="1" stop-color="#7a5a12"/></linearGradient>
+  <linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15181d"/><stop offset="1" stop-color="#07080a"/></linearGradient>
+  <linearGradient id="met" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#ffe2a8"/><stop offset="1" stop-color="#f0a230"/></linearGradient>
+  <style>.ins{fill:url(#met);stroke:#6f4208;stroke-width:1.6;stroke-linejoin:round} .cut{fill:#0b0d10} .wing{fill:url(#gold);stroke:#7a5a12;stroke-width:1;stroke-linejoin:round} .crn{fill:url(#gold);stroke:#7a5a12;stroke-width:1.2;stroke-linejoin:round}</style>
+</defs>
+<polygon points="28.00,62.50 -6.00,37.50 -8.00,42.45 24.00,67.90" class="wing"/><polygon points="28.00,73.00 0.00,52.00 -2.00,56.40 24.00,77.80" class="wing"/><polygon points="28.00,82.50 7.00,66.05 5.00,69.90 24.00,86.70" class="wing"/><polygon points="100.00,62.50 134.00,37.50 136.00,42.45 104.00,67.90" class="wing"/><polygon points="100.00,73.00 128.00,52.00 130.00,56.40 104.00,77.80" class="wing"/><polygon points="100.00,82.50 121.00,66.05 123.00,69.90 104.00,86.70" class="wing"/>
+
+<path d="M64 12 L104 24 L104 62 C104 88 86 104 64 114 C42 104 24 88 24 62 L24 24 Z" fill="none" stroke="#f0a230" stroke-opacity="0.3" stroke-width="10" transform="translate(64 64) scale(1.04) translate(-64 -64)"/>
+<path d="M64 12 L104 24 L104 62 C104 88 86 104 64 114 C42 104 24 88 24 62 L24 24 Z" fill="url(#rim)"/>
+<path d="M64 12 L104 24 L104 62 C104 88 86 104 64 114 C42 104 24 88 24 62 L24 24 Z" fill="none" stroke="url(#gold)" stroke-width="2.6" transform="translate(64 64) scale(0.9) translate(-64 -64)"/>
+<path d="M64 12 L104 24 L104 62 C104 88 86 104 64 114 C42 104 24 88 24 62 L24 24 Z" fill="url(#face)" transform="translate(64 64) scale(0.82) translate(-64 -64)"/>
+<path d="M64 12 L104 24 L104 62 C104 88 86 104 64 114 C42 104 24 88 24 62 L24 24 Z" fill="none" stroke="#f0a230" stroke-opacity="0.5" stroke-width="1.5" transform="translate(64 64) scale(0.74) translate(-64 -64)"/>
+<g transform="translate(64 58) scale(0.66) translate(-64 -56)"><g transform="translate(-13 0)"><path d="M60 20 L46 56 L60 54 L50 92 L74 48 L60 50 L70 20 Z" class="ins"/></g><g transform="translate(13 0)"><path d="M60 20 L46 56 L60 54 L50 92 L74 48 L60 50 L70 20 Z" class="ins"/></g></g>
+<circle cx="45.0" cy="100" r="3.3" fill="#ffe2a8" stroke="#6f4208" stroke-width="1.2"/><circle cx="54.5" cy="100" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="64.0" cy="100" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="73.5" cy="100" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="83.0" cy="100" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+  <linearGradient id="rim" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffd0e8"/><stop offset="0.5" stop-color="#f05aa8"/><stop offset="1" stop-color="#6d1946"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset="0.5" stop-color="#e2b84a"/><stop offset="1" stop-color="#7a5a12"/></linearGradient>
+  <linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15181d"/><stop offset="1" stop-color="#07080a"/></linearGradient>
+  <linearGradient id="met" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#ffd0e8"/><stop offset="1" stop-color="#f05aa8"/></linearGradient>
+  <style>.ins{fill:url(#met);stroke:#6d1946;stroke-width:1.6;stroke-linejoin:round} .cut{fill:#0b0d10} .wing{fill:url(#gold);stroke:#7a5a12;stroke-width:1;stroke-linejoin:round} .crn{fill:url(#gold);stroke:#7a5a12;stroke-width:1.2;stroke-linejoin:round}</style>
+</defs>
+<polygon points="28.00,62.50 -6.00,37.50 -8.00,42.45 24.00,67.90" class="wing"/><polygon points="28.00,73.00 0.00,52.00 -2.00,56.40 24.00,77.80" class="wing"/><polygon points="28.00,82.50 7.00,66.05 5.00,69.90 24.00,86.70" class="wing"/><polygon points="100.00,62.50 134.00,37.50 136.00,42.45 104.00,67.90" class="wing"/><polygon points="100.00,73.00 128.00,52.00 130.00,56.40 104.00,77.80" class="wing"/><polygon points="100.00,82.50 121.00,66.05 123.00,69.90 104.00,86.70" class="wing"/>
+<path d="M44 20 L50 4 L57 18 L64 0 L71 18 L78 4 L84 20 Z" class="crn"/><rect x="44" y="18" width="40" height="5" rx="1.5" class="crn"/>
+<path d="M64 10 L82 18 L108 16 L102 60 C100 88 86 104 64 116 C42 104 28 88 26 60 L20 16 L46 18 Z" fill="none" stroke="#f05aa8" stroke-opacity="0.3" stroke-width="10" transform="translate(64 64) scale(1.04) translate(-64 -64)"/>
+<path d="M64 10 L82 18 L108 16 L102 60 C100 88 86 104 64 116 C42 104 28 88 26 60 L20 16 L46 18 Z" fill="url(#rim)"/>
+<path d="M64 10 L82 18 L108 16 L102 60 C100 88 86 104 64 116 C42 104 28 88 26 60 L20 16 L46 18 Z" fill="none" stroke="url(#gold)" stroke-width="2.6" transform="translate(64 64) scale(0.9) translate(-64 -64)"/>
+<path d="M64 10 L82 18 L108 16 L102 60 C100 88 86 104 64 116 C42 104 28 88 26 60 L20 16 L46 18 Z" fill="url(#face)" transform="translate(64 64) scale(0.82) translate(-64 -64)"/>
+<path d="M64 10 L82 18 L108 16 L102 60 C100 88 86 104 64 116 C42 104 28 88 26 60 L20 16 L46 18 Z" fill="none" stroke="#f05aa8" stroke-opacity="0.5" stroke-width="1.5" transform="translate(64 64) scale(0.74) translate(-64 -64)"/>
+<g transform="translate(64 58) scale(0.66) translate(-64 -56)"><rect x="61" y="40" width="6" height="52" rx="2" class="ins"/><path d="M60 44 L68 44 L64 22 Z" class="ins"/><path d="M40 30 L46 30 L48 50 C54 54 60 52 62 48 L62 56 C54 60 46 58 42 50 Z" class="ins"/><path d="M88 30 L82 30 L80 50 C74 54 68 52 66 48 L66 56 C74 60 82 58 86 50 Z" class="ins"/></g>
+<circle cx="45.0" cy="100" r="3.3" fill="#ffd0e8" stroke="#6d1946" stroke-width="1.2"/><circle cx="54.5" cy="100" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="64.0" cy="100" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="73.5" cy="100" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="83.0" cy="100" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/>
+</svg>

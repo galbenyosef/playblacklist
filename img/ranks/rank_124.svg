@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+  <linearGradient id="rim" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#bdf5d2"/><stop offset="0.5" stop-color="#2fc272"/><stop offset="1" stop-color="#0d5a30"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset="0.5" stop-color="#e2b84a"/><stop offset="1" stop-color="#7a5a12"/></linearGradient>
+  <linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15181d"/><stop offset="1" stop-color="#07080a"/></linearGradient>
+  <linearGradient id="met" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#bdf5d2"/><stop offset="1" stop-color="#2fc272"/></linearGradient>
+  <style>.ins{fill:url(#met);stroke:#0d5a30;stroke-width:1.6;stroke-linejoin:round} .cut{fill:#0b0d10} .wing{fill:url(#gold);stroke:#7a5a12;stroke-width:1;stroke-linejoin:round} .crn{fill:url(#gold);stroke:#7a5a12;stroke-width:1.2;stroke-linejoin:round}</style>
+</defs>
+<polygon points="28.00,62.50 -6.00,37.50 -8.00,42.45 24.00,67.90" class="wing"/><polygon points="28.00,73.00 0.00,52.00 -2.00,56.40 24.00,77.80" class="wing"/><polygon points="28.00,82.50 7.00,66.05 5.00,69.90 24.00,86.70" class="wing"/><polygon points="100.00,62.50 134.00,37.50 136.00,42.45 104.00,67.90" class="wing"/><polygon points="100.00,73.00 128.00,52.00 130.00,56.40 104.00,77.80" class="wing"/><polygon points="100.00,82.50 121.00,66.05 123.00,69.90 104.00,86.70" class="wing"/>
+
+<path d="M64.00 12.00 L100.77 27.23 L116.00 64.00 L100.77 100.77 L64.00 116.00 L27.23 100.77 L12.00 64.00 L27.23 27.23 Z" fill="none" stroke="#2fc272" stroke-opacity="0.3" stroke-width="10" transform="translate(64 64) scale(1.04) translate(-64 -64)"/>
+<path d="M64.00 12.00 L100.77 27.23 L116.00 64.00 L100.77 100.77 L64.00 116.00 L27.23 100.77 L12.00 64.00 L27.23 27.23 Z" fill="url(#rim)"/>
+<path d="M64.00 12.00 L100.77 27.23 L116.00 64.00 L100.77 100.77 L64.00 116.00 L27.23 100.77 L12.00 64.00 L27.23 27.23 Z" fill="none" stroke="url(#gold)" stroke-width="2.6" transform="translate(64 64) scale(0.9) translate(-64 -64)"/>
+<path d="M64.00 12.00 L100.77 27.23 L116.00 64.00 L100.77 100.77 L64.00 116.00 L27.23 100.77 L12.00 64.00 L27.23 27.23 Z" fill="url(#face)" transform="translate(64 64) scale(0.82) translate(-64 -64)"/>
+<path d="M64.00 12.00 L100.77 27.23 L116.00 64.00 L100.77 100.77 L64.00 116.00 L27.23 100.77 L12.00 64.00 L27.23 27.23 Z" fill="none" stroke="#2fc272" stroke-opacity="0.5" stroke-width="1.5" transform="translate(64 64) scale(0.74) translate(-64 -64)"/>
+<g transform="translate(64 58) scale(0.66) translate(-64 -56)"><circle cx="64" cy="54" r="28" fill="none" stroke="url(#met)" stroke-width="7"/><circle cx="64" cy="48" r="9" class="ins"/><path d="M58 52 L70 52 L74 76 L54 76 Z" class="ins"/></g>
+<circle cx="45.0" cy="102" r="3.3" fill="#bdf5d2" stroke="#0d5a30" stroke-width="1.2"/><circle cx="54.5" cy="102" r="3.3" fill="#bdf5d2" stroke="#0d5a30" stroke-width="1.2"/><circle cx="64.0" cy="102" r="3.3" fill="#bdf5d2" stroke="#0d5a30" stroke-width="1.2"/><circle cx="73.5" cy="102" r="3.3" fill="#bdf5d2" stroke="#0d5a30" stroke-width="1.2"/><circle cx="83.0" cy="102" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/>
+</svg>

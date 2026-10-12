@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+  <linearGradient id="rim" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#f0b98a"/><stop offset="0.5" stop-color="#c98450"/><stop offset="1" stop-color="#6e3f1d"/></linearGradient>
+  <linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232830"/><stop offset="1" stop-color="#101318"/></linearGradient>
+  <linearGradient id="met" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#f0b98a"/><stop offset="1" stop-color="#c98450"/></linearGradient>
+  <style>.ins{fill:url(#met);stroke:#6e3f1d;stroke-width:1.6;stroke-linejoin:round} .cut{fill:#14171c}</style>
+</defs>
+
+<path d="M64 8 L110 22 L110 62 C110 92 90 110 64 121 C38 110 18 92 18 62 L18 22 Z" fill="url(#rim)"/>
+<path d="M64 8 L110 22 L110 62 C110 92 90 110 64 121 C38 110 18 92 18 62 L18 22 Z" fill="url(#face)" transform="translate(64 64) scale(0.86) translate(-64 -64)"/>
+<path d="M64 8 L110 22 L110 62 C110 92 90 110 64 121 C38 110 18 92 18 62 L18 22 Z" fill="none" stroke="#c98450" stroke-opacity="0.45" stroke-width="1.5" transform="translate(64 64) scale(0.78) translate(-64 -64)"/>
+<g transform="translate(64 52) scale(0.8) translate(-64 -56)"><path d="M36.0 58.0 L64 38.0 L92.0 58.0 L92.0 66.0 L64 46.0 L36.0 66.0 Z" class="ins"/><path d="M36.0 74.0 L64 54.0 L92.0 74.0 L92.0 82.0 L64 62.0 L36.0 82.0 Z" class="ins"/></g>
+<circle cx="45.0" cy="91" r="3.3" fill="#f0b98a" stroke="#6e3f1d" stroke-width="1.2"/><circle cx="54.5" cy="91" r="3.3" fill="#f0b98a" stroke="#6e3f1d" stroke-width="1.2"/><circle cx="64.0" cy="91" r="3.3" fill="#f0b98a" stroke="#6e3f1d" stroke-width="1.2"/><circle cx="73.5" cy="91" r="3.3" fill="#f0b98a" stroke="#6e3f1d" stroke-width="1.2"/><circle cx="83.0" cy="91" r="3.3" fill="#f0b98a" stroke="#6e3f1d" stroke-width="1.2"/>
+</svg>

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-adsense-account" content="ca-pub-5455017629067849">
+  <title>Blacklist - Tactical multiplayer FPS</title>
+  <meta name="description" content="Blacklist is a free tactical multiplayer FPS that runs in your browser. Team deathmatch, deathmatch and bomb defusal, bots that fill empty rooms, and a full arsenal with skins.">
+  <meta name="theme-color" content="#0e1013">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css?v=20261009a">
+  <!-- launch gate: rankings blurred until the launch (first paint; js/launch.js then follows /api/launch) -->
+  <script>if (Date.now() < Date.parse('2026-10-10T13:00:00Z')) document.documentElement.classList.add('prelaunch');</script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="wordmark" href="/">BLACK<span>LIST</span></a>
+      <nav>
+        <a class="nav-keep" href="/leaderboard">Leaderboard</a>
+        <a href="/about">About</a>
+        <a class="nav-keep nav-discord" href="https://discord.gg/sVcyYBGAP" target="_blank" rel="noopener"><svg class="ico" viewBox="0 -28.5 256 256" fill="currentColor" aria-hidden="true"><path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"/></svg>Discord</a>
+        <a class="nav-keep nav-account" href="/account" data-account-link><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span class="acc-label">Log in</span></a>
+        <a class="nav-play" href="/play">Play</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <!-- geometry layer (decoration): dot grid, nested squares, hexagon, turning reticle rings, crosshair, corner brackets -->
+      <div class="hero-geo" aria-hidden="true">
+        <svg viewBox="0 0 800 800" focusable="false">
+          <defs>
+            <pattern id="geo-dots" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#fff"/></pattern>
+          </defs>
+          <rect class="g-dots" width="800" height="800" fill="url(#geo-dots)"/>
+          <g transform="translate(400 400)">
+            <rect class="g-line" x="-290" y="-290" width="580" height="580" transform="rotate(45)"/>
+            <rect class="g-line g-faint" x="-228" y="-228" width="456" height="456" transform="rotate(45)"/>
+            <rect class="g-line g-faint" x="-160" y="-160" width="320" height="320"/>
+            <circle class="g-ticks g-spin" r="276"/>
+            <circle class="g-dash g-spin g-rev" r="248"/>
+            <polygon class="g-accent" points="0,-200 173.2,-100 173.2,100 0,200 -173.2,100 -173.2,-100"/>
+            <polygon class="g-line g-faint" points="0,-120 103.9,60 -103.9,60"/>
+            <circle class="g-ring g-spin" r="132"/>
+            <circle class="g-line" r="78"/>
+            <path class="g-line" d="M-360 0H-150M150 0H360M0 -360V-150M0 150V360"/>
+            <path class="g-accent" d="M-26 0H-10M10 0H26M0 -26V-10M0 10V26"/>
+            <rect class="g-fill" x="-6" y="-6" width="12" height="12" transform="translate(0 -200) rotate(45)"/>
+            <rect class="g-fill" x="-6" y="-6" width="12" height="12" transform="translate(173.2 100) rotate(45)"/>
+            <rect class="g-fill" x="-6" y="-6" width="12" height="12" transform="translate(-173.2 100) rotate(45)"/>
+            <circle class="g-fill" cx="0" cy="0" r="3.5"/>
+          </g>
+          <path class="g-line" d="M60 130V60H130M670 60H740V130M740 670V740H670M130 740H60V670"/>
+        </svg>
+      </div>
+      <!-- round 285: a squad from the game (TF341 characters, gold Barrett M107, AK-74M, Mk 16), drawn from the game's own
+           models and textures (_port_tools/promo); decoration, faded into the dark on the left and at the bottom -->
+      <img class="hero-squad" src="/img/hero-squad.webp" alt="" aria-hidden="true" width="1550" height="1295" decoding="async">
+      <div class="wrap">
+        <p class="kicker">Tactical multiplayer FPS</p>
+        <h1 class="wordmark">BLACK<span>LIST</span></h1>
+        <div class="rule"></div>
+        <div class="hero-cd" data-countdown aria-live="polite">
+          <p class="cd-label">Launching <span data-cd-when>Saturday 10 October, 13:00 UTC (GMT)</span></p>
+          <div class="cd cd-hero">
+            <div class="cd-cell"><b data-cd="d">--</b><span>Days</span></div>
+            <div class="cd-cell"><b data-cd="h">--</b><span>Hours</span></div>
+            <div class="cd-cell"><b data-cd="m">--</b><span>Minutes</span></div>
+            <div class="cd-cell"><b data-cd="s">--</b><span>Seconds</span></div>
+          </div>
+        </div>
+        <p class="lead">Fast rounds, real gunfights. Jump into a match straight from your browser - no download, no install.</p>
+        <div class="actions">
+          <a class="btn btn-primary" data-play href="/play">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg>
+            Play now
+          </a>
+          <a class="btn btn-ghost" href="#modes">What's inside</a>
+          <a class="btn btn-ghost btn-discord" href="https://discord.gg/sVcyYBGAP" target="_blank" rel="noopener"><svg class="ico" viewBox="0 -28.5 256 256" fill="currentColor" aria-hidden="true"><path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"/></svg>Join the Discord</a>
+        </div>
+        <p class="meta"><span class="status"><span class="dot" id="build-dot"></span><span id="build-status">Checking game build...</span></span></p>
+      </div>
+    </section>
+
+    <!-- round 240: until launch - promote the game, get the Community Leader card + 1,000 points + 100 gold -->
+    <section class="block leader-promo" id="community-leader">
+      <div class="wrap">
+        <a class="leader-banner" href="https://discord.gg/sVcyYBGAP" target="_blank" rel="noopener">
+          <img src="/img/community-leader-1200.jpg" srcset="/img/community-leader-1200.jpg 1200w, /img/community-leader.jpg 2400w" sizes="(max-width: 1240px) 100vw, 1200px"
+               width="1200" height="500" loading="lazy"
+               alt="Become a Community Leader before launch: post about Blacklist, share it in our Discord, and get the exclusive Community Leader badge, 1,000 points and 100 gold.">
+        </a>
+        <p class="leader-note">Post about Blacklist before launch, share the link in our Discord and the team adds the exclusive <b>Community Leader</b> badge, <b>1,000 points</b> and <b>100 gold</b> to your account. One badge per player.</p>
+      </div>
+    </section>
+
+    <section class="block" id="trailer">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Trailer</h2>
+          <p>See it in action. More on <a class="see-all" href="https://www.youtube.com/@Blacklist-inc" target="_blank" rel="noopener">our YouTube channel &rarr;</a></p>
+        </div>
+        <div class="video">
+          <iframe src="https://www.youtube-nocookie.com/embed/wlPMM5RYygo?rel=0" title="Blacklist Trailer" loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="top">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Top players</h2>
+          <p>All-time standings by XP. <a class="see-all" href="/leaderboard">Full leaderboard &rarr;</a></p>
+        </div>
+        <div class="top-grid" data-lock>
+          <div class="table-wrap">
+            <table class="lb">
+              <thead><tr><th class="n">#</th><th>Player</th><th class="hide-s">Rank</th><th class="r">XP</th><th class="r hide-xs">K/D</th></tr></thead>
+              <tbody id="top-players"><tr class="msg"><td colspan="5">Loading...</td></tr></tbody>
+            </table>
+          </div>
+          <div class="table-wrap">
+            <table class="lb">
+              <thead><tr><th class="n">#</th><th>Clan</th><th class="r">Members</th><th class="r">XP</th></tr></thead>
+              <tbody id="top-clans"><tr class="msg"><td colspan="4">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="modes">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Modes</h2>
+          <p>Create a room, pick the rules, and play - with friends, strangers or bots.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Teams</span>
+            <h3>Team deathmatch</h3>
+            <p>Two squads, one scoreboard. Spawns are picked away from the enemy, so fights happen on the map - not on your back.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Solo</span>
+            <h3>Deathmatch</h3>
+            <p>Everyone against everyone. Headshots and positioning decide it: torso, arm and leg hits all deal different damage.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Rounds</span>
+            <h3>Bomb defusal</h3>
+            <p>Terrorists plant at site A or B; Counter-Terrorists defuse it at the bomb before the 40-second fuse runs out. No respawns mid-round, sides swap at half. On Forge and Zook.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Always a match</span>
+            <h3>Bot fill</h3>
+            <p>Quiet server? Bots join empty slots and make way when real players arrive. Toggle it per room.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="arsenal">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Arsenal</h2>
+          <p>A pick from the arsenal. Build your loadout across five slots, then make it yours with weapon skins, characters and gloves.</p>
+        </div>
+        <!-- a weapon per class; the tier (Common .. Legendary) is the game's own (Assets/Scripts/Rarity.cs) -->
+        <div class="arsenal">
+          <figure class="gun" style="--c: var(--epic)"><div class="gun-img"><span class="gun-tier">epic</span><img src="/img/weapons/mk16.png" width="230" height="76" loading="lazy" alt="Mk 16 SCAR-L"></div><figcaption><b>Assault rifles</b><span>Mk 16 SCAR-L</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--uncommon)"><div class="gun-img"><span class="gun-tier">uncommon</span><img src="/img/weapons/m4a1.png" width="230" height="70" loading="lazy" alt="M4A1"></div><figcaption><b>Carbines</b><span>M4A1</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--epic)"><div class="gun-img"><span class="gun-tier">epic</span><img src="/img/weapons/mp5n-urban.png" width="230" height="93" loading="lazy" alt="MP5N Urban"></div><figcaption><b>SMGs</b><span>MP5N Urban</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--common)"><div class="gun-img"><span class="gun-tier">common</span><img src="/img/weapons/m870.png" width="230" height="74" loading="lazy" alt="M870"></div><figcaption><b>Shotguns</b><span>M870</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--epic)"><div class="gun-img"><span class="gun-tier">epic</span><img src="/img/weapons/m249-acid.png" width="230" height="51" loading="lazy" alt="M249 Acid"></div><figcaption><b>LMGs</b><span>M249 Acid</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--legendary)"><div class="gun-img"><span class="gun-tier">legendary</span><img src="/img/weapons/m700-galaxy.png" width="230" height="45" loading="lazy" alt="M700 Galaxy"></div><figcaption><b>Snipers</b><span>M700 Galaxy</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--rare)"><div class="gun-img"><span class="gun-tier">rare</span><img src="/img/weapons/combat44.png" width="163" height="100" loading="lazy" alt=".44 Combat"></div><figcaption><b>Revolvers</b><span>.44 Combat</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--epic)"><div class="gun-img"><span class="gun-tier">epic</span><img src="/img/weapons/mac11-hazard.png" width="88" height="100" loading="lazy" alt="MAC-11 Hazard"></div><figcaption><b>Machine pistols</b><span>MAC-11 Hazard</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--epic)"><div class="gun-img"><span class="gun-tier">epic</span><img src="/img/weapons/m32-urban.png" width="230" height="88" loading="lazy" alt="M32 Urban"></div><figcaption><b>Grenades &amp; launchers</b><span>M32 Urban</span></figcaption></figure>
+          <figure class="gun" style="--c: var(--legendary)"><div class="gun-img"><span class="gun-tier">legendary</span><img src="/img/weapons/fireaxe-gold.png" width="230" height="89" loading="lazy" alt="Gold Axe"></div><figcaption><b>Melee</b><span>Gold Axe</span></figcaption></figure>
+        </div>
+        <p class="arsenal-more"><b>And many more.</b> Every class has more weapons and skins to unlock in the game, from Common standard issue to Legendary.</p>
+      </div>
+    </section>
+
+    <section class="block maps" id="maps">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Maps</h2>
+          <p>Classic layouts rebuilt for Blacklist, all with bot support.</p>
+        </div>
+        <div class="grid">
+          <article class="card map"><img src="/img/maps/orbital.jpg" width="960" height="500" loading="lazy" alt="Orbital"><div class="map-body"><h3>Orbital</h3><p>Multi-level arena - control the stairs, control the fight.</p></div></article>
+          <article class="card map"><img src="/img/maps/ancient.jpg" width="960" height="500" loading="lazy" alt="Ancient"><div class="map-body"><h3>Ancient</h3><p>Sandstone ruins - fight between the columns.</p></div></article>
+          <article class="card map"><img src="/img/maps/urban-warfare.jpg" width="960" height="500" loading="lazy" alt="Urban Warfare"><div class="map-body"><h3>Urban Warfare</h3><p>Street fighting around a locked-down city block.</p></div></article>
+          <article class="card map"><img src="/img/maps/greywoot.jpg" width="960" height="500" loading="lazy" alt="Greywoot"><div class="map-body"><h3>Greywoot</h3><p>Concrete courtyard around a granite obelisk.</p></div></article>
+          <article class="card map"><img src="/img/maps/shipment.jpg" width="960" height="500" loading="lazy" alt="Shipment"><div class="map-body"><h3>Shipment</h3><p>A tight square of shipping containers - nonstop close-range action.</p></div></article>
+          <article class="card map"><img src="/img/maps/forge.jpg" width="960" height="500" loading="lazy" alt="Forge"><span class="map-tag">Bomb</span><div class="map-body"><h3>Forge</h3><p>Brick yards and warehouses under the power lines, with two bomb sites.</p></div></article>
+          <article class="card map"><img src="/img/maps/zook.jpg" width="960" height="500" loading="lazy" alt="Zook"><span class="map-tag">Bomb</span><div class="map-body"><h3>Zook</h3><p>Old brick fort with gravel yards, cobbled lanes and two bomb sites.</p></div></article>
+          <article class="card map"><img src="/img/maps/hangar.jpg" width="960" height="500" loading="lazy" alt="Hangar"><div class="map-body"><h3>Hangar</h3><p>Container lanes and crate stacks inside a concrete hangar.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="requirements">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Before you play</h2>
+        </div>
+        <ul class="reqs">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            <div><b>Desktop browser</b><span>Chrome, Edge or Firefox with WebGL 2. Phones and tablets aren't supported yet.</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 11h.01M10 11h.01M14 11h.01M18 11h.01M7 14h10"/></svg>
+            <div><b>Keyboard &amp; mouse</b><span>Click the game to lock the cursor; press Esc to get it back.</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+            <div><b>One-time download</b><span id="req-size">The first load downloads the game; after that it starts from your browser cache.</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2>Ready up</h2>
+        <p>Pick a name, join a room, and find out who's on the list.</p>
+        <div class="actions">
+          <a class="btn btn-primary" data-play href="/play">Play now</a>
+          <a class="btn btn-ghost btn-discord" href="https://discord.gg/sVcyYBGAP" target="_blank" rel="noopener"><svg class="ico" viewBox="0 -28.5 256 256" fill="currentColor" aria-hidden="true"><path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"/></svg>Join the Discord</a>
+        </div>
+        <p class="cta-sub">Updates, matches and the team are on Discord.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="wordmark" href="/">BLACK<span>LIST</span></a>
+      <span id="footer-version">Browser build</span>
+      <span class="foot-links"><a href="/leaderboard">Leaderboard</a> · <a href="/about">About</a> · <a class="foot-discord" href="https://discord.gg/sVcyYBGAP" target="_blank" rel="noopener"><svg class="ico" viewBox="0 -28.5 256 256" fill="currentColor" aria-hidden="true"><path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"/></svg>Discord</a> · <a href="/play">Play now</a></span>
+    </div>
+  </footer>
+
+  <script src="/js/site.js?v=20261007b" defer></script>
+  <script src="/js/launch.js?v=20261007b" defer></script>
+  <script src="/js/nav.js?v=20261008a" defer></script>
+</body>
+</html>

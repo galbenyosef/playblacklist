@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-adsense-account" content="ca-pub-5455017629067849">
+  <title>Leaderboard - Blacklist</title>
+  <meta name="description" content="Top Blacklist players and clans: XP, kills, K/D, headshots and wins.">
+  <meta name="theme-color" content="#0e1013">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css?v=20261009a">
+  <!-- launch gate: rankings blurred until the launch (first paint; js/launch.js then follows /api/launch) -->
+  <script>if (Date.now() < Date.parse('2026-10-10T13:00:00Z')) document.documentElement.classList.add('prelaunch');</script>
+</head>
+<body class="page">
+  <header class="topbar">
+    <div class="wrap">
+      <a class="wordmark" href="/">BLACK<span>LIST</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a class="nav-keep active" href="/leaderboard">Leaderboard</a>
+        <a href="/about">About</a>
+        <a class="nav-keep nav-discord" href="https://discord.gg/sVcyYBGAP" target="_blank" rel="noopener"><svg class="ico" viewBox="0 -28.5 256 256" fill="currentColor" aria-hidden="true"><path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"/></svg>Discord</a>
+        <a class="nav-keep nav-account" href="/account" data-account-link><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span class="acc-label">Log in</span></a>
+        <a class="nav-play" href="/play">Play</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap board">
+    <div class="board-head">
+      <div>
+        <p class="kicker">All-time standings</p>
+        <h1>Leaderboard</h1>
+      </div>
+      <div class="tabs" role="tablist">
+        <button role="tab" data-tab="players" aria-selected="true">Players</button>
+        <button role="tab" data-tab="clans" aria-selected="false">Clans</button>
+      </div>
+    </div>
+
+    <section id="players-panel">
+      <div class="chips" id="sorts">
+        <button data-sort="xp" class="on">XP</button>
+        <button data-sort="kills">Kills</button>
+        <button data-sort="kd">K/D</button>
+        <button data-sort="headshots">Headshots</button>
+        <button data-sort="wins">Wins</button>
+        <span class="chip-note" id="sort-note"></span>
+      </div>
+      <div class="table-wrap" data-lock>
+        <table class="lb">
+          <thead>
+            <tr><th class="n">#</th><th>Player</th><th class="hide-s">Rank</th><th class="r">XP</th><th class="r hide-xs">Kills</th><th class="r hide-s">Deaths</th><th class="r">K/D</th><th class="r hide-s">HS</th><th class="r hide-s">Wins</th></tr>
+          </thead>
+          <tbody id="players"></tbody>
+        </table>
+      </div>
+      <button class="btn btn-ghost more" id="more-players" hidden>Show more</button>
+    </section>
+
+    <section id="clans-panel" hidden>
+      <div class="table-wrap" data-lock>
+        <table class="lb">
+          <thead>
+            <tr><th class="n">#</th><th>Clan</th><th class="r">Members</th><th class="r">XP</th><th class="r">Kills</th><th class="r hide-s">Deaths</th><th class="r">K/D</th></tr>
+          </thead>
+          <tbody id="clans"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="board-foot">
+      Only kills confirmed by both players count - kills on guests and bots don't. XP: 100 per kill, +25 for a headshot,
+      150 for finishing a match, 250 for a win. <a href="/play">Sign in and play</a> to get on the board.
+    </p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="wordmark" href="/">BLACK<span>LIST</span></a>
+      <span>Updated live</span>
+      <span class="foot-links"><a href="/about">About</a> · <a class="foot-discord" href="https://discord.gg/sVcyYBGAP" target="_blank" rel="noopener"><svg class="ico" viewBox="0 -28.5 256 256" fill="currentColor" aria-hidden="true"><path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"/></svg>Discord</a> · <a href="/play">Play now</a></span>
+    </div>
+  </footer>
+
+  <script src="/js/leaderboard.js?v=20261008b" defer></script>
+  <script src="/js/launch.js?v=20261007b" defer></script>
+  <script src="/js/nav.js?v=20261008a" defer></script>
+</body>
+</html>

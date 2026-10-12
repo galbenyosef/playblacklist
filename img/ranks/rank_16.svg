@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+  <linearGradient id="rim" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#f4f7fb"/><stop offset="0.5" stop-color="#b9c2ce"/><stop offset="1" stop-color="#5d6672"/></linearGradient>
+  <linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232830"/><stop offset="1" stop-color="#101318"/></linearGradient>
+  <linearGradient id="met" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#f4f7fb"/><stop offset="1" stop-color="#b9c2ce"/></linearGradient>
+  <style>.ins{fill:url(#met);stroke:#5d6672;stroke-width:1.6;stroke-linejoin:round} .cut{fill:#14171c}</style>
+</defs>
+
+<path d="M64 8 L110 22 L110 62 C110 92 90 110 64 121 C38 110 18 92 18 62 L18 22 Z" fill="url(#rim)"/>
+<path d="M64 8 L110 22 L110 62 C110 92 90 110 64 121 C38 110 18 92 18 62 L18 22 Z" fill="url(#face)" transform="translate(64 64) scale(0.86) translate(-64 -64)"/>
+<path d="M64 8 L110 22 L110 62 C110 92 90 110 64 121 C38 110 18 92 18 62 L18 22 Z" fill="none" stroke="#b9c2ce" stroke-opacity="0.45" stroke-width="1.5" transform="translate(64 64) scale(0.78) translate(-64 -64)"/>
+<g transform="translate(64 52) scale(0.8) translate(-64 -56)"><path d="M36.0 50.0 L64 30.0 L92.0 50.0 L92.0 58.0 L64 38.0 L36.0 58.0 Z" class="ins"/><path d="M36.0 65.0 L64 45.0 L92.0 65.0 L92.0 73.0 L64 53.0 L36.0 73.0 Z" class="ins"/><path d="M36.0 80.0 L64 60.0 L92.0 80.0 L92.0 88.0 L64 68.0 L36.0 88.0 Z" class="ins"/></g>
+<circle cx="45.0" cy="91" r="3.3" fill="#f4f7fb" stroke="#5d6672" stroke-width="1.2"/><circle cx="54.5" cy="91" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="64.0" cy="91" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="73.5" cy="91" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="83.0" cy="91" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/>
+</svg>

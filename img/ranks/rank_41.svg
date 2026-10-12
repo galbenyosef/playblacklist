@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<defs>
+  <linearGradient id="rim" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#e9f1ff"/><stop offset="0.5" stop-color="#9fb6dc"/><stop offset="1" stop-color="#4a5b7c"/></linearGradient>
+  <linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232830"/><stop offset="1" stop-color="#101318"/></linearGradient>
+  <linearGradient id="met" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#e9f1ff"/><stop offset="1" stop-color="#9fb6dc"/></linearGradient>
+  <style>.ins{fill:url(#met);stroke:#4a5b7c;stroke-width:1.6;stroke-linejoin:round} .cut{fill:#14171c}</style>
+</defs>
+
+<path d="M64 6 L84 14 L116 12 L110 60 C108 92 90 110 64 122 C38 110 20 92 18 60 L12 12 L44 14 Z" fill="url(#rim)"/>
+<path d="M64 6 L84 14 L116 12 L110 60 C108 92 90 110 64 122 C38 110 20 92 18 60 L12 12 L44 14 Z" fill="url(#face)" transform="translate(64 64) scale(0.86) translate(-64 -64)"/>
+<path d="M64 6 L84 14 L116 12 L110 60 C108 92 90 110 64 122 C38 110 20 92 18 60 L12 12 L44 14 Z" fill="none" stroke="#9fb6dc" stroke-opacity="0.45" stroke-width="1.5" transform="translate(64 64) scale(0.78) translate(-64 -64)"/>
+<g transform="translate(64 52) scale(0.8) translate(-64 -56)"><path d="M58 50 L20 41 L26 47 L58 57 Z" class="ins"/><path d="M58 60 L26 51 L32 57 L58 67 Z" class="ins"/><path d="M58 70 L34 61 L40 67 L58 77 Z" class="ins"/><g transform="translate(128 0) scale(-1 1)"><path d="M58 50 L20 41 L26 47 L58 57 Z" class="ins"/><path d="M58 60 L26 51 L32 57 L58 67 Z" class="ins"/><path d="M58 70 L34 61 L40 67 L58 77 Z" class="ins"/></g><polygon points="64.00,34.00 75.00,56.00 64.00,78.00 53.00,56.00" class="ins"/></g>
+<circle cx="45.0" cy="91" r="3.3" fill="#e9f1ff" stroke="#4a5b7c" stroke-width="1.2"/><circle cx="54.5" cy="91" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="64.0" cy="91" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="73.5" cy="91" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/><circle cx="83.0" cy="91" r="3.3" fill="#2a2f37" stroke="#3a404a" stroke-width="1.2"/>
+</svg>
