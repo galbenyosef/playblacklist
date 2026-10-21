@@ -158,6 +158,7 @@ and the loader still starts (non-streaming wasm compilation).
 node tools/verify.mjs     # re-hash the capture against the manifest
 node tools/audit.js       # derived-layer integrity gate
 node tools/check-exports.mjs   # the derived layer still exports every public name
+node tools/derive.mjs --check          # the derived layer is current? (compares a fresh rebuild; writes NOTHING)
 ```
 
 Last run: `384 files checked, 0 problems` and `AUDIT PASS`.
