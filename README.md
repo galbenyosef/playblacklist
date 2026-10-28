@@ -244,6 +244,27 @@ off-origin requests were Google Fonts and Unity Services telemetry.
   GitHub searches for "blacklist tactical fps" / "playblacklist" find nothing —
   the origin publishes the deployment only, so the mirror stands.
 
+## Boot test (2026-10-27)
+
+- Entry: `http://127.0.0.1:4911/play` served by `tools/serve.mjs` with the network blocked (`MAP * 127.0.0.1`).
+- Outcome: **rendered** — the Unity build booted from the mirror's own bytes
+  to the BLACKLIST sign-in screen (`V2.1.8 · UNITY 6 BUILD`), and the local
+  guest flow reached the CHOOSE A SERVER screen (EUROPE-1, EUROPE-2, USA-1).
+- Evidence: body 0 chars (the whole UI is canvas-rendered); canvas 1262x568;
+  0 console errors; 6 failed same-origin requests, 28 blocked cross-origin;
+  screenshot `docs/boot-2026-10-27.png` (the guest server picker).
+- Gaps seen: same-origin `/api/v1/guest/check` (1) and `/api/v1/servers` (5)
+  answered 404 — the account backend this mirror records as not mirrored; the
+  client tolerates it (guest-only, servers shown `STATUS UNKNOWN`). Blocked
+  cross-origin, expected under the offline rule: Google Fonts (2), Unity
+  Services config/telemetry (4 + 22). The game runtime closure itself is
+  complete — `/play`, `/api/build` and all four `game/Build` payloads served
+  200. The JOIN control was not pressed: it hands off to the external realtime
+  backend.
+- Claim check: confirms the documented offline behaviour for the
+  sign-in → guest → server-picker stages; it refutes no existing claim. The
+  lobby was not entered (that needs the live realtime service).
+
 ## Mirror conventions
 
 - **Capture layer** — the captured files are byte-exact copies of what the
