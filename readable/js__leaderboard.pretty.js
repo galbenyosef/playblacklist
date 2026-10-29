@@ -38,11 +38,12 @@
     GS_Korea: "Korea",
     GS_Shipment: "Shipment",
     GS_Hangar: "Hangar",
+    GS_Paris: "Paris",
   };
   const mapName = (m) => MAPS[m] || String(m || "").replace(/^GS_|^RT2_/, "");
   // the API stores Deathmatch as "ffa": players see DM
   const modeName = (m) =>
-    ({ ffa: "DM", tdm: "TDM", bomb: "BOMB" })[m] ||
+    ({ ffa: "DM", tdm: "TDM", bomb: "BOMB", elim: "ELIM" })[m] ||
     String(m || "").toUpperCase();
   const hours = (sec) =>
     sec >= 3600

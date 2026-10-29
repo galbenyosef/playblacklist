@@ -1,5 +1,5 @@
 // js__account 01 — password
-// Lines 1-361 of readable/js__account.pretty.js (statement-aligned).
+// Lines 1-362 of readable/js__account.pretty.js (statement-aligned).
 // /account: log in with the game account (api/web.js - the session is an HttpOnly cookie this script never sees),
 // then the player's rank, stats, cards and recent matches, and the account settings (email, password, sign out).
 (() => {
@@ -53,9 +53,10 @@
     GS_Korea: "Korea",
     GS_Shipment: "Shipment",
     GS_Hangar: "Hangar",
+    GS_Paris: "Paris",
   };
   const mapName = (m) => MAPS[m] || String(m || "").replace(/^GS_|^RT2_/, "");
-  const MODES = { tdm: "TDM", ffa: "DM", bomb: "BOMB" };
+  const MODES = { tdm: "TDM", ffa: "DM", bomb: "BOMB", elim: "ELIM" };
   const TIER_CLASS = [
     "t-common",
     "t-uncommon",

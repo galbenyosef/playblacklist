@@ -1,0 +1,1004 @@
+{
+  "origin": "https://playblacklist.com",
+  "checked": 384,
+  "changed": 166,
+  "missing": 0,
+  "rows": [
+    {
+      "file": "game/Build/game.data.br",
+      "state": "changed",
+      "mirror": "d4ef38ad711a",
+      "live": "be379da6cccd"
+    },
+    {
+      "file": "game/Build/game.framework.js.br",
+      "state": "changed",
+      "mirror": "a7842848366e",
+      "live": "254a022d1aba"
+    },
+    {
+      "file": "game/Build/game.loader.js",
+      "state": "changed",
+      "mirror": "64cc1acc53da",
+      "live": "442a71053f53"
+    },
+    {
+      "file": "game/Build/game.wasm.br",
+      "state": "changed",
+      "mirror": "15c2b60cf8ad",
+      "live": "2aad7a308edd"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/gs_ancient.bundle",
+      "state": "changed",
+      "mirror": "c7f1963e48cf",
+      "live": "7ad48d18c214"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/gs_desnowoot.bundle",
+      "state": "changed",
+      "mirror": "8bfac2262d7c",
+      "live": "5b6bf1796117"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/gs_forge.bundle",
+      "state": "changed",
+      "mirror": "a761f15814ea",
+      "live": "493f1578d929"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/gs_hangar.bundle",
+      "state": "changed",
+      "mirror": "a28da92ccfc8",
+      "live": "92554c839d0c"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/gs_orbital.bundle",
+      "state": "changed",
+      "mirror": "db204370c849",
+      "live": "96e79bcd2adf"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/gs_shipment.bundle",
+      "state": "changed",
+      "mirror": "9d9826eef574",
+      "live": "952a44220a93"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/gs_urbanwarfare.bundle",
+      "state": "changed",
+      "mirror": "e3d4dddd45d8",
+      "live": "f9ffec788706"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/gs_zook.bundle",
+      "state": "changed",
+      "mirror": "825980e6e891",
+      "live": "325af22443be"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/maps.json",
+      "state": "changed",
+      "mirror": "e9917a479534",
+      "live": "a4cc1cc4f11e"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_0.bundle",
+      "state": "changed",
+      "mirror": "29e3b35cfcd6",
+      "live": "8f532967bf7a"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_1.bundle",
+      "state": "changed",
+      "mirror": "7ecb882166db",
+      "live": "9d6235320314"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_10.bundle",
+      "state": "changed",
+      "mirror": "318506650d1e",
+      "live": "8d75c8fb3566"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_11.bundle",
+      "state": "changed",
+      "mirror": "f22ddd2c61d9",
+      "live": "0180781cdcc7"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_12.bundle",
+      "state": "changed",
+      "mirror": "8342e2cc8d2e",
+      "live": "cf61e5ef6d44"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_13.bundle",
+      "state": "changed",
+      "mirror": "7918aca63443",
+      "live": "aa07afc73f34"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_14.bundle",
+      "state": "changed",
+      "mirror": "2d79109bd3f2",
+      "live": "7ada5b90beed"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_15.bundle",
+      "state": "changed",
+      "mirror": "3b73ede910a3",
+      "live": "3b0edaf0ce00"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_16.bundle",
+      "state": "changed",
+      "mirror": "b69c1e9bc71a",
+      "live": "067469d509dc"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_17.bundle",
+      "state": "changed",
+      "mirror": "345e4bc2a479",
+      "live": "41d9f2c1eb67"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_18.bundle",
+      "state": "changed",
+      "mirror": "d9205070d625",
+      "live": "920365f19221"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_19.bundle",
+      "state": "changed",
+      "mirror": "5f89707fd42c",
+      "live": "571763c707fa"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_2.bundle",
+      "state": "changed",
+      "mirror": "40cabfc0b4d5",
+      "live": "ee2e5df2b3ce"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_20.bundle",
+      "state": "changed",
+      "mirror": "faa23282f4b2",
+      "live": "47f4e6611db2"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_4.bundle",
+      "state": "changed",
+      "mirror": "ab48404749e9",
+      "live": "f30e2073513e"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_5.bundle",
+      "state": "changed",
+      "mirror": "19032b33c295",
+      "live": "f03b7464ebb5"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_6.bundle",
+      "state": "changed",
+      "mirror": "a0b9fa5b3772",
+      "live": "4678ca8ebae2"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_7.bundle",
+      "state": "changed",
+      "mirror": "b84ef83bf058",
+      "live": "7acac308c33b"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_8.bundle",
+      "state": "changed",
+      "mirror": "b5114c5b481d",
+      "live": "be844f124ffb"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w1_9.bundle",
+      "state": "changed",
+      "mirror": "99d2c168eedf",
+      "live": "783700ff570d"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w2_0.bundle",
+      "state": "changed",
+      "mirror": "da5672cb40e1",
+      "live": "69aa9b31e8f8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w2_13.bundle",
+      "state": "changed",
+      "mirror": "f5655d76221d",
+      "live": "a4400b903f5e"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w2_14.bundle",
+      "state": "changed",
+      "mirror": "00fd5ad70caf",
+      "live": "e7d59c4e469d"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w2_15.bundle",
+      "state": "changed",
+      "mirror": "39a17f7cb5a7",
+      "live": "777dfde1c23d"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w2_16.bundle",
+      "state": "changed",
+      "mirror": "f326358eeb67",
+      "live": "73b510e40c70"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_0.bundle",
+      "state": "changed",
+      "mirror": "d04f033983d9",
+      "live": "155af4a30ece"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_1.bundle",
+      "state": "changed",
+      "mirror": "eeacce80656b",
+      "live": "fab20b635970"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_12.bundle",
+      "state": "changed",
+      "mirror": "146dd0a93e76",
+      "live": "ae2c7d7c9874"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_13.bundle",
+      "state": "changed",
+      "mirror": "35d1fdf8f35e",
+      "live": "f8ac8b4a9ef8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_14.bundle",
+      "state": "changed",
+      "mirror": "c0f7b5f594f5",
+      "live": "6b4b1733eebd"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_15.bundle",
+      "state": "changed",
+      "mirror": "f6c71fe68bc6",
+      "live": "8463cd70cf74"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_16.bundle",
+      "state": "changed",
+      "mirror": "f39f768754b5",
+      "live": "5e590bf6893c"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_17.bundle",
+      "state": "changed",
+      "mirror": "5d7fcf8f421b",
+      "live": "99f438357887"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_18.bundle",
+      "state": "changed",
+      "mirror": "e72593179011",
+      "live": "58d1effcac3a"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_19.bundle",
+      "state": "changed",
+      "mirror": "a7630fd396e5",
+      "live": "9cf1c604edc7"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_20.bundle",
+      "state": "changed",
+      "mirror": "7f584246c05c",
+      "live": "c27eec1ab907"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_21.bundle",
+      "state": "changed",
+      "mirror": "56e67528d9f9",
+      "live": "83c802dfb04c"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_22.bundle",
+      "state": "changed",
+      "mirror": "13b57b82c48e",
+      "live": "1e9eedbd108f"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_23.bundle",
+      "state": "changed",
+      "mirror": "cc79a06eccef",
+      "live": "04678f9b281b"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_24.bundle",
+      "state": "changed",
+      "mirror": "0488ad396928",
+      "live": "e7fcd659da6a"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_25.bundle",
+      "state": "changed",
+      "mirror": "bd2e39c3eaef",
+      "live": "cda96fe49bd3"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_26.bundle",
+      "state": "changed",
+      "mirror": "7f49350ce686",
+      "live": "930e0fff8662"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_27.bundle",
+      "state": "changed",
+      "mirror": "9f7b7886391d",
+      "live": "fcf0d50178bd"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_28.bundle",
+      "state": "changed",
+      "mirror": "b8d71f3c38e6",
+      "live": "e5355315f68d"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_29.bundle",
+      "state": "changed",
+      "mirror": "f3eab623d507",
+      "live": "66f5d0ccb263"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_3.bundle",
+      "state": "changed",
+      "mirror": "15330c33d5d2",
+      "live": "4741d02c37b8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_30.bundle",
+      "state": "changed",
+      "mirror": "8400e447f13e",
+      "live": "bcecf791ee13"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_31.bundle",
+      "state": "changed",
+      "mirror": "00623b426534",
+      "live": "6e1d8ff5c66b"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_33.bundle",
+      "state": "changed",
+      "mirror": "f156e9b441e2",
+      "live": "b34c43dbba16"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_34.bundle",
+      "state": "changed",
+      "mirror": "7b0106514cfb",
+      "live": "28c60b31b357"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_36.bundle",
+      "state": "changed",
+      "mirror": "04b5babae3df",
+      "live": "2c0cafab4efc"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_37.bundle",
+      "state": "changed",
+      "mirror": "00a775ae90fa",
+      "live": "403d59abfd9d"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_38.bundle",
+      "state": "changed",
+      "mirror": "dc4be932423c",
+      "live": "f9ee6697e780"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_39.bundle",
+      "state": "changed",
+      "mirror": "156819182923",
+      "live": "a432cb07f077"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_4.bundle",
+      "state": "changed",
+      "mirror": "322dba5458b1",
+      "live": "f24f20ed7d78"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_40.bundle",
+      "state": "changed",
+      "mirror": "8abacb0a0a0c",
+      "live": "a86aec2cbe96"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_41.bundle",
+      "state": "changed",
+      "mirror": "b910603504b5",
+      "live": "fad3e82c7704"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_42.bundle",
+      "state": "changed",
+      "mirror": "ff5c9d379f55",
+      "live": "ef3bba9f12a7"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_43.bundle",
+      "state": "changed",
+      "mirror": "b24a934213b9",
+      "live": "25463669574f"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_48.bundle",
+      "state": "changed",
+      "mirror": "8fd4659b4189",
+      "live": "e22a78e252a8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_5.bundle",
+      "state": "changed",
+      "mirror": "70c84d13ce99",
+      "live": "0db7305fc44a"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w3_8.bundle",
+      "state": "changed",
+      "mirror": "80c41189afb0",
+      "live": "6d870e28f8c3"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_0.bundle",
+      "state": "changed",
+      "mirror": "f115b0a9ca1f",
+      "live": "c0962523a585"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_1.bundle",
+      "state": "changed",
+      "mirror": "7e8f2da25990",
+      "live": "83f9a2c57372"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_100.bundle",
+      "state": "changed",
+      "mirror": "b20ec4e63be0",
+      "live": "08162e52eb58"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_102.bundle",
+      "state": "changed",
+      "mirror": "f354690e81f4",
+      "live": "24493dad7004"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_103.bundle",
+      "state": "changed",
+      "mirror": "e81f160289e6",
+      "live": "352fc0d3e2fd"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_104.bundle",
+      "state": "changed",
+      "mirror": "8a4ebb19f2b1",
+      "live": "715290f429cb"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_105.bundle",
+      "state": "changed",
+      "mirror": "2dc6f57a195c",
+      "live": "e212b9d32c8e"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_106.bundle",
+      "state": "changed",
+      "mirror": "24cc066e324d",
+      "live": "5c421f57eabf"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_107.bundle",
+      "state": "changed",
+      "mirror": "9737f0abd6a9",
+      "live": "fe1c5542a983"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_13.bundle",
+      "state": "changed",
+      "mirror": "f0dd135c94ac",
+      "live": "fc1b288941c8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_20.bundle",
+      "state": "changed",
+      "mirror": "92c4e91c6539",
+      "live": "bb77e140951f"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_25.bundle",
+      "state": "changed",
+      "mirror": "a45e01945029",
+      "live": "12efa1ef25eb"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_26.bundle",
+      "state": "changed",
+      "mirror": "83e3d576f0f5",
+      "live": "157b50111858"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_27.bundle",
+      "state": "changed",
+      "mirror": "ac0c61770c33",
+      "live": "fe7b90b949b8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_28.bundle",
+      "state": "changed",
+      "mirror": "32c9ae573244",
+      "live": "5d4755e88fe9"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_29.bundle",
+      "state": "changed",
+      "mirror": "a7408cfce78f",
+      "live": "db623862b0f6"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_3.bundle",
+      "state": "changed",
+      "mirror": "913a2826a175",
+      "live": "f40737158543"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_32.bundle",
+      "state": "changed",
+      "mirror": "01d57ee53b79",
+      "live": "8734a1188ba7"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_33.bundle",
+      "state": "changed",
+      "mirror": "49c63a329bfb",
+      "live": "d42d58b9ba88"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_34.bundle",
+      "state": "changed",
+      "mirror": "084e23cc41bd",
+      "live": "b7b18921fbb8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_35.bundle",
+      "state": "changed",
+      "mirror": "57fbf5bcbcb7",
+      "live": "eab3c92f9af0"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_36.bundle",
+      "state": "changed",
+      "mirror": "44fa7d1802a3",
+      "live": "111bff864b01"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_37.bundle",
+      "state": "changed",
+      "mirror": "ca8b7d22b531",
+      "live": "49010283af7d"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_38.bundle",
+      "state": "changed",
+      "mirror": "700d1e1a61df",
+      "live": "11d8d517fd37"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_39.bundle",
+      "state": "changed",
+      "mirror": "8e2c76744944",
+      "live": "320fa5c96b06"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_5.bundle",
+      "state": "changed",
+      "mirror": "af0ecfbf93a9",
+      "live": "987999018bc4"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_6.bundle",
+      "state": "changed",
+      "mirror": "07b17ab7e0cf",
+      "live": "279cb00cc384"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_65.bundle",
+      "state": "changed",
+      "mirror": "5ac6f26f81bb",
+      "live": "1e20b95313ac"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_66.bundle",
+      "state": "changed",
+      "mirror": "1df9ddd4634e",
+      "live": "1133b1b4d7da"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_67.bundle",
+      "state": "changed",
+      "mirror": "6816522215ca",
+      "live": "4585f3ab4d62"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_68.bundle",
+      "state": "changed",
+      "mirror": "1af9178c97a5",
+      "live": "3fd0d96da077"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_69.bundle",
+      "state": "changed",
+      "mirror": "87b9608fb576",
+      "live": "91e9b1337dfa"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_70.bundle",
+      "state": "changed",
+      "mirror": "d0152c0de7ae",
+      "live": "8ad70f6db804"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_71.bundle",
+      "state": "changed",
+      "mirror": "ec9879b2506d",
+      "live": "bc17817c8d1d"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_72.bundle",
+      "state": "changed",
+      "mirror": "ade6cc2e2b2b",
+      "live": "40b4a67751e0"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_73.bundle",
+      "state": "changed",
+      "mirror": "e759cf280146",
+      "live": "48e371981914"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_74.bundle",
+      "state": "changed",
+      "mirror": "398e259991fc",
+      "live": "0ccc25b9dd04"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_76.bundle",
+      "state": "changed",
+      "mirror": "e1ba24025081",
+      "live": "5c392946864e"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_77.bundle",
+      "state": "changed",
+      "mirror": "36d9936d9588",
+      "live": "da6da2608c11"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_78.bundle",
+      "state": "changed",
+      "mirror": "cf0b9d5bd92f",
+      "live": "55b78a8c320c"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_79.bundle",
+      "state": "changed",
+      "mirror": "89bda86930b1",
+      "live": "7dc07b2d90f3"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_80.bundle",
+      "state": "changed",
+      "mirror": "fb476354fc64",
+      "live": "6a20ff08f3ce"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_81.bundle",
+      "state": "changed",
+      "mirror": "4f98a94e6794",
+      "live": "7bc0208b8900"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_82.bundle",
+      "state": "changed",
+      "mirror": "ced692879050",
+      "live": "ad6872e610a4"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_83.bundle",
+      "state": "changed",
+      "mirror": "a8c957c2e3cc",
+      "live": "4739f2238487"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_84.bundle",
+      "state": "changed",
+      "mirror": "26a3f346096d",
+      "live": "1d22728e232a"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_86.bundle",
+      "state": "changed",
+      "mirror": "d5ac4f222e37",
+      "live": "1a0d6792f3c3"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_87.bundle",
+      "state": "changed",
+      "mirror": "1913d9ea75a3",
+      "live": "0f7be9928ef8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_88.bundle",
+      "state": "changed",
+      "mirror": "722345f8195b",
+      "live": "8a9127d43105"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_89.bundle",
+      "state": "changed",
+      "mirror": "296be5582c7f",
+      "live": "e2c5ec66216b"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_94.bundle",
+      "state": "changed",
+      "mirror": "71dbe7459f7d",
+      "live": "f6a28dbd0ed2"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_95.bundle",
+      "state": "changed",
+      "mirror": "f346fb3111fd",
+      "live": "96c0d9de4fec"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_96.bundle",
+      "state": "changed",
+      "mirror": "6495814ab017",
+      "live": "34efb30dcfd7"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_97.bundle",
+      "state": "changed",
+      "mirror": "5d074582873a",
+      "live": "371c04bc4180"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w4_98.bundle",
+      "state": "changed",
+      "mirror": "53ab5e84db73",
+      "live": "f2715e228ef8"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_0.bundle",
+      "state": "changed",
+      "mirror": "35acb94263f7",
+      "live": "1abfdf5925c1"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_1.bundle",
+      "state": "changed",
+      "mirror": "9790f8190a41",
+      "live": "5380fdef3ed7"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_15.bundle",
+      "state": "changed",
+      "mirror": "8690d4cba78c",
+      "live": "39332f396c19"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_16.bundle",
+      "state": "changed",
+      "mirror": "f6257ee6e0e8",
+      "live": "d408d72b23b5"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_17.bundle",
+      "state": "changed",
+      "mirror": "634aa3b9e838",
+      "live": "b0f383fe14b3"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_18.bundle",
+      "state": "changed",
+      "mirror": "efb1890b563c",
+      "live": "b0f3555cdc98"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_19.bundle",
+      "state": "changed",
+      "mirror": "6924eba17311",
+      "live": "2292704f3d41"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_21.bundle",
+      "state": "changed",
+      "mirror": "4c817ee9bddf",
+      "live": "4e150e782b02"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_22.bundle",
+      "state": "changed",
+      "mirror": "3816607a32af",
+      "live": "6a2d51d6c687"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/w5_7.bundle",
+      "state": "changed",
+      "mirror": "ce933c2e2722",
+      "live": "64980ab53ae7"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/weapons",
+      "state": "changed",
+      "mirror": "58695078a168",
+      "live": "237188f51e64"
+    },
+    {
+      "file": "game/StreamingAssets/Bundles/weapons/weapons_common.bundle",
+      "state": "changed",
+      "mirror": "a43595b42131",
+      "live": "426d8d2e0566"
+    },
+    {
+      "file": "img/backdrop.jpg",
+      "state": "changed",
+      "mirror": "b7ab2335e4d0",
+      "live": "20476ca77001"
+    },
+    {
+      "file": "img/community-leader-1200.jpg",
+      "state": "changed",
+      "mirror": "a1646b84488d",
+      "live": "cccc38d2294a"
+    },
+    {
+      "file": "img/community-leader.jpg",
+      "state": "changed",
+      "mirror": "37e6b03852b7",
+      "live": "1d2a46f09de8"
+    },
+    {
+      "file": "img/hero-squad.webp",
+      "state": "changed",
+      "mirror": "a741936245f6",
+      "live": "a0a2b977f7f8"
+    },
+    {
+      "file": "img/maps/ancient.jpg",
+      "state": "changed",
+      "mirror": "abd2a44298ab",
+      "live": "8ec30b2df8f4"
+    },
+    {
+      "file": "img/maps/forge.jpg",
+      "state": "changed",
+      "mirror": "bbaee031b385",
+      "live": "db282957480c"
+    },
+    {
+      "file": "img/maps/greywoot.jpg",
+      "state": "changed",
+      "mirror": "f69ad74e266a",
+      "live": "b55c55af377e"
+    },
+    {
+      "file": "img/maps/hangar.jpg",
+      "state": "changed",
+      "mirror": "57bd9ce14f5e",
+      "live": "40000cb84f07"
+    },
+    {
+      "file": "img/maps/orbital.jpg",
+      "state": "changed",
+      "mirror": "904992fe7878",
+      "live": "e3cb126c6cf6"
+    },
+    {
+      "file": "img/maps/shipment.jpg",
+      "state": "changed",
+      "mirror": "0ba8a8735870",
+      "live": "feefc2434261"
+    },
+    {
+      "file": "img/maps/urban-warfare.jpg",
+      "state": "changed",
+      "mirror": "6b0fdd2701ab",
+      "live": "dd27a77f96ed"
+    },
+    {
+      "file": "img/maps/zook.jpg",
+      "state": "changed",
+      "mirror": "f96e311fa5a0",
+      "live": "15752ba32041"
+    },
+    {
+      "file": "img/weapons/combat44.png",
+      "state": "changed",
+      "mirror": "77782ed8f8ba",
+      "live": "16f15ae6093d"
+    },
+    {
+      "file": "img/weapons/fireaxe-gold.png",
+      "state": "changed",
+      "mirror": "a0974a787cbb",
+      "live": "98b92884074d"
+    },
+    {
+      "file": "img/weapons/m249-acid.png",
+      "state": "changed",
+      "mirror": "be89cc4bfff6",
+      "live": "7629a99491a8"
+    },
+    {
+      "file": "img/weapons/m32-urban.png",
+      "state": "changed",
+      "mirror": "6a19b52db6db",
+      "live": "2396d1d4cc9a"
+    },
+    {
+      "file": "img/weapons/m4a1.png",
+      "state": "changed",
+      "mirror": "069e549b848f",
+      "live": "737329fc8708"
+    },
+    {
+      "file": "img/weapons/m700-galaxy.png",
+      "state": "changed",
+      "mirror": "a1bb4f9b1f78",
+      "live": "074f9ceb095f"
+    },
+    {
+      "file": "img/weapons/m870.png",
+      "state": "changed",
+      "mirror": "7af823870332",
+      "live": "812f79101147"
+    },
+    {
+      "file": "img/weapons/mac11-hazard.png",
+      "state": "changed",
+      "mirror": "133336eb2507",
+      "live": "093e8aeec217"
+    },
+    {
+      "file": "img/weapons/mk16.png",
+      "state": "changed",
+      "mirror": "3d9573e4c976",
+      "live": "10931a4c3327"
+    },
+    {
+      "file": "img/weapons/mp5n-urban.png",
+      "state": "changed",
+      "mirror": "30905e91c34f",
+      "live": "bb275acdb404"
+    },
+    {
+      "file": "js/account.js",
+      "state": "changed",
+      "mirror": "7fc846df083e",
+      "live": "f5dde47b06af"
+    },
+    {
+      "file": "js/leaderboard.js",
+      "state": "changed",
+      "mirror": "25dc158ba464",
+      "live": "f0c920da0bbf"
+    }
+  ]
+}

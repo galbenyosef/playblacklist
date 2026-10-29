@@ -14,10 +14,10 @@
     return Math.round(s / 86400) + ' d ago';
   };
   // match rows store the game's scene name; show the map's display name (the game's MapCatalog)
-  const MAPS = { GS_Zook: 'Zook', GS_UrbanWarfare: 'Urban Warfare', GS_DeSnowoot: 'Greywoot', GS_Orbital: 'Orbital', GS_Ancient: 'Ancient', GS_Forge: 'Forge', GS_Enlightment: 'Zonnieville', GS_Backyard: 'Backyard', GS_Korea: 'Korea', GS_Shipment: 'Shipment', GS_Hangar: 'Hangar' };
+  const MAPS = { GS_Zook: 'Zook', GS_UrbanWarfare: 'Urban Warfare', GS_DeSnowoot: 'Greywoot', GS_Orbital: 'Orbital', GS_Ancient: 'Ancient', GS_Forge: 'Forge', GS_Enlightment: 'Zonnieville', GS_Backyard: 'Backyard', GS_Korea: 'Korea', GS_Shipment: 'Shipment', GS_Hangar: 'Hangar', GS_Paris: 'Paris' };
   const mapName = (m) => MAPS[m] || String(m || '').replace(/^GS_|^RT2_/, '');
   // the API stores Deathmatch as "ffa": players see DM
-  const modeName = (m) => ({ ffa: 'DM', tdm: 'TDM', bomb: 'BOMB' }[m] || String(m || '').toUpperCase());
+  const modeName = (m) => ({ ffa: 'DM', tdm: 'TDM', bomb: 'BOMB', elim: 'ELIM' }[m] || String(m || '').toUpperCase());
   const hours = (sec) => (sec >= 3600 ? (sec / 3600).toFixed(1) + ' h' : Math.round(sec / 60) + ' min');
   // round 327: a player's equipped title and held achievement cards in the profile, coloured by tier (as on /account)
   const TIER_CLASS = ['t-common', 't-uncommon', 't-rare', 't-epic', 't-legendary', 't-staff'];

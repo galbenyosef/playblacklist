@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T21:36:58.975Z",
+  "generated": "2026-10-29T15:05:53.227Z",
   "origin": "https://playblacklist.com",
   "files": {
     "about/index.html": {
@@ -12,12 +12,12 @@
     },
     "api/build": {
       "bytes": 398,
-      "sha256": "3952b95523c80fc779940e8f3ead8879b7d582c25051bb72f386030f9ceb8414",
+      "sha256": "6bc2d98ccc068ef90e02cf8c65d2a8c09b4734615fc3fe9e9c86ea81a04362fe",
       "dynamic": true
     },
     "api/launch": {
       "bytes": 84,
-      "sha256": "4082add2e57698baad4b26f955465eb1ebf5a7afbe4b549e54c0d2e107b33e73",
+      "sha256": "0912a6a2b6b4c22374862aca6d3fffc3ca0a539714735014a3b4c5247441dde2",
       "dynamic": true
     },
     "css/play.css": {
@@ -33,632 +33,652 @@
       "sha256": "a070afbc2275f58d9663971a12380a7c8b0db236afc2f19d85537e2467d6fa81"
     },
     "game/Build/game.data.br": {
-      "bytes": 67904010,
-      "sha256": "d4ef38ad711a7974b88cffd14d1a2cd273a6d78f07105348504c61947fb09e52"
+      "bytes": 71312713,
+      "sha256": "be379da6cccdde1aaa747d81b1134959a08c4185d955a808a504ed67a92feb48"
     },
     "game/Build/game.framework.js.br": {
-      "bytes": 372370,
-      "sha256": "a7842848366e6df68d67648de49f5b48c70080257d59cb50389d840984bbdc59"
+      "bytes": 376524,
+      "sha256": "254a022d1abab85bbe735cd1c31edee5b25209dc3d56960a83fbeb7c55951e12"
     },
     "game/Build/game.loader.js": {
       "bytes": 27221,
-      "sha256": "64cc1acc53da86b9eb97888f3112a8ad2fda6e8e6a5e4fed1e4cd47c91a7447c"
+      "sha256": "442a71053f53a13f62a3d7f5bcfe63dd29d80b18db8c02b8537fc88cec71ea13"
     },
     "game/Build/game.wasm.br": {
-      "bytes": 50554146,
-      "sha256": "15c2b60cf8adc646637b0ec3c54359d518d9c650c62d9ee8f8e9bbfd03a51ae1"
+      "bytes": 50778051,
+      "sha256": "2aad7a308edd1392f99df516ce02616996ab14b58719b4633c71888f0dd4c4fc"
     },
     "game/StreamingAssets/Bundles/gs_ancient.bundle": {
-      "bytes": 16447377,
-      "sha256": "c7f1963e48cf3ed67742ece84649fbb47de2dff2b5bb9e5b2af9a2aaee48c87e"
+      "bytes": 877263,
+      "sha256": "7ad48d18c2148cacc6ee82d8476e3bf66ac7f23a2e1e3422fa2505e4a0fb5124"
     },
     "game/StreamingAssets/Bundles/gs_desnowoot.bundle": {
-      "bytes": 19674650,
-      "sha256": "8bfac2262d7cdf49ea42bf104e891ee94a59384ee8b92b298310986befdc033d"
+      "bytes": 2841262,
+      "sha256": "5b6bf179611776a99fcf1ee597d3052e8907c6267596df7c6a944c27b27426fc"
     },
     "game/StreamingAssets/Bundles/gs_forge.bundle": {
-      "bytes": 19445725,
-      "sha256": "a761f15814ea26673ef53ecd408bd93ba9a87de610580f5da25154000e322229"
+      "bytes": 3625358,
+      "sha256": "493f1578d9295bbea283be0676b30b669631f0c14da5862e40d41733aaa38cab"
     },
     "game/StreamingAssets/Bundles/gs_hangar.bundle": {
-      "bytes": 26177774,
-      "sha256": "a28da92ccfc86c3bf4fa04c654d12d39e7f7336bc53daf3c91e0464d0fc9c527"
+      "bytes": 9310381,
+      "sha256": "92554c839d0cd776b54b384f3c1a3eeba59e30a3a294726d2f2726b85e9b600d"
     },
     "game/StreamingAssets/Bundles/gs_orbital.bundle": {
-      "bytes": 18110662,
-      "sha256": "db204370c8496cb2e181caebd07d037b4646d41855957f5066da57178c9e8618"
+      "bytes": 2339655,
+      "sha256": "96e79bcd2adf4b59bc8b4a863d9d8cdf8ce3e265156fd8dfafd9bf636590d2aa"
+    },
+    "game/StreamingAssets/Bundles/gs_paris.bundle": {
+      "bytes": 26894992,
+      "sha256": "29a990e421e1474879803aab209cb0e59ff6da6991117e2d2705ef122f250ec1"
     },
     "game/StreamingAssets/Bundles/gs_shipment.bundle": {
-      "bytes": 18756684,
-      "sha256": "9d9826eef574af28041594937b5f5404d009b58f70d51cf552b7b80fb26dbd1d"
-    },
-    "game/StreamingAssets/Bundles/gs_urbanwarfare.bundle": {
-      "bytes": 20622900,
-      "sha256": "e3d4dddd45d8f470dc86755572104b75a85c55fbe1234c5aca391bf5ad70a236"
+      "bytes": 20295425,
+      "sha256": "952a44220a932beabf313d6ba2bf0ac1c335d113d2946ded968a05110223b46e"
     },
     "game/StreamingAssets/Bundles/gs_zook.bundle": {
-      "bytes": 17848584,
-      "sha256": "825980e6e891fba2476066ac9736cc4fc4691cdb15a3bf9732d8bf6d043b4429"
+      "bytes": 2538339,
+      "sha256": "325af22443bed143c982b543cd44ee061e0a7a0e96f28bc3ddc2da9d2ac2515a"
+    },
+    "game/StreamingAssets/Bundles/maps_common.bundle": {
+      "bytes": 26727545,
+      "sha256": "ce4e13c919c01699883da9c1b5aed6a9c55f50a728bf6b741b543d8b35bb9c2a"
     },
     "game/StreamingAssets/Bundles/maps.json": {
-      "bytes": 333,
-      "sha256": "e9917a479534cff01cd75c7469b37d273f9e596be1c245170b1079d39d8bf1df"
+      "bytes": 365,
+      "sha256": "a4cc1cc4f11ecbc2c2bf5ac7d2ff1e99dd20283aefb2caa64fd1e8d98bf6b1fd"
     },
     "game/StreamingAssets/Bundles/weapons/w1_0.bundle": {
-      "bytes": 371747,
-      "sha256": "29e3b35cfcd6b724cde2d1973ac0876ccc84abfcc6e084e2272338f4b6f329a3"
+      "bytes": 826671,
+      "sha256": "8f532967bf7ace3fd13cea172a3b94588feaf665a635e71f661ce8f9ca001e38"
     },
     "game/StreamingAssets/Bundles/weapons/w1_1.bundle": {
-      "bytes": 925375,
-      "sha256": "7ecb882166db997f18b344a7537a3f259d8df3bea58d4681950c9d8a2c469c9f"
+      "bytes": 925864,
+      "sha256": "9d623532031432a792b2ca36377c1ba57d415eca4e739b30c1dabc8097a10c11"
     },
     "game/StreamingAssets/Bundles/weapons/w1_10.bundle": {
-      "bytes": 367823,
-      "sha256": "318506650d1e6ab43eea5aaa12f4e94d55c9696b61d9a8910c79d80d7d42617b"
+      "bytes": 1057516,
+      "sha256": "8d75c8fb35668ebeed0175c868c7eca1e01d2c4d29c81acd57cb14e8087c78d3"
     },
     "game/StreamingAssets/Bundles/weapons/w1_11.bundle": {
-      "bytes": 430666,
-      "sha256": "f22ddd2c61d9b6d017a3d94d8ff603b62b38a7ec1b5a6c70b6b1db7a1c716eeb"
+      "bytes": 1128742,
+      "sha256": "0180781cdcc76b1fb7252b97cce03586729bb1bd7bb7ee5d64b0ef4d082222b3"
     },
     "game/StreamingAssets/Bundles/weapons/w1_12.bundle": {
-      "bytes": 290546,
-      "sha256": "8342e2cc8d2e4e2fa12ab717cea4b312bf044253753dfc4310649101d5fa28e1"
+      "bytes": 770571,
+      "sha256": "cf61e5ef6d44e14f6d52c17b5da8c89a3b3e55f363abd0fa5fd4dd99d9faa4ff"
     },
     "game/StreamingAssets/Bundles/weapons/w1_13.bundle": {
-      "bytes": 379656,
-      "sha256": "7918aca63443afdf320c7922a4fd2a3b172535016fb1db6257881796554f8386"
+      "bytes": 1124912,
+      "sha256": "aa07afc73f342d60969690e38e6110355880d61fe038e7e647378b24f49b57e1"
     },
     "game/StreamingAssets/Bundles/weapons/w1_14.bundle": {
-      "bytes": 444512,
-      "sha256": "2d79109bd3f28e8192f120c861d478fb19fab23ea372cac15a6e01b426073145"
+      "bytes": 1191554,
+      "sha256": "7ada5b90beed813908c311e94816644f29833968a8bb7db7c1c3476582231fea"
     },
     "game/StreamingAssets/Bundles/weapons/w1_15.bundle": {
-      "bytes": 306228,
-      "sha256": "3b73ede910a3d181825df72b1bbd0f10d12bc746a865532e6b7fa6c3f77711fd"
+      "bytes": 844232,
+      "sha256": "3b0edaf0ce0090022338cf3696707da074d5b5939c18251a154ff798d3ebcb6e"
     },
     "game/StreamingAssets/Bundles/weapons/w1_16.bundle": {
-      "bytes": 364351,
-      "sha256": "b69c1e9bc71a0dec110895e9912364532a28ec200e45fbaaedc7ff0c1246cea1"
+      "bytes": 1098752,
+      "sha256": "067469d509dc886097bf9b861becfc3dd52eb1608fa253a70e8f2485419a3ec3"
     },
     "game/StreamingAssets/Bundles/weapons/w1_17.bundle": {
-      "bytes": 322073,
-      "sha256": "345e4bc2a479bfeae2f1c579daa5496b54222c7ae14528aba02d8177dfd83314"
+      "bytes": 935198,
+      "sha256": "41d9f2c1eb67e6734326d02e13045a0716a5108d7c332a5dd183618e7c1c8489"
     },
     "game/StreamingAssets/Bundles/weapons/w1_18.bundle": {
-      "bytes": 435786,
-      "sha256": "d9205070d625d5c740d97f2c361731061cc25e7ddcd1329da2b40298cd8c7a60"
+      "bytes": 1152487,
+      "sha256": "920365f1922136d320e8f61b6ac798d1726c40e7e180ee7a69c26a5303e24ec6"
     },
     "game/StreamingAssets/Bundles/weapons/w1_19.bundle": {
-      "bytes": 613400,
-      "sha256": "5f89707fd42c460bc5211751b3f94d9067034d53885c6a777e82f52fee338203"
+      "bytes": 939456,
+      "sha256": "571763c707fa70964d33e7f743c256723fc6f573006f853c0cc0f414ba964b06"
     },
     "game/StreamingAssets/Bundles/weapons/w1_2.bundle": {
-      "bytes": 829390,
-      "sha256": "40cabfc0b4d562759056897cdbecaddb55918068e0eb81f7f66b011bca144f9e"
+      "bytes": 829432,
+      "sha256": "ee2e5df2b3ce605b4eb608dc53e3a9333174bd23ccccd49d39417d069aa93a53"
     },
     "game/StreamingAssets/Bundles/weapons/w1_20.bundle": {
-      "bytes": 501157,
-      "sha256": "faa23282f4b29b61e75c7df260c0f56d4f599f7449afd016c902333a34d5913c"
+      "bytes": 986223,
+      "sha256": "47f4e6611db2f049fed2f5d82b81be9513bbcb483753cd24c65798cf98e61df9"
     },
     "game/StreamingAssets/Bundles/weapons/w1_3.bundle": {
       "bytes": 124477,
       "sha256": "98dfa7323f668b9650403d1268c3c18cd4f50c256b0e83d7920de75e46464314"
     },
     "game/StreamingAssets/Bundles/weapons/w1_4.bundle": {
-      "bytes": 383636,
-      "sha256": "ab48404749e9189474170504d99f09176441aab92e1219d2507a1f60f2571e69"
+      "bytes": 1039975,
+      "sha256": "f30e2073513e6f6121dc11029d85ff4281afeba4d79eeca6ffb1e911668e467b"
     },
     "game/StreamingAssets/Bundles/weapons/w1_5.bundle": {
-      "bytes": 423684,
-      "sha256": "19032b33c29500383ff9cdb8581cc08162e0f2ee80b33da111816dbec090b109"
+      "bytes": 1094378,
+      "sha256": "f03b7464ebb56902a20f8972d7deb2258109bfa1906f46f140e216621ddc17a9"
     },
     "game/StreamingAssets/Bundles/weapons/w1_6.bundle": {
-      "bytes": 435813,
-      "sha256": "a0b9fa5b3772bdf98579ec0b8dfda7d4c011cf7765b01a8ec72924785edfb6e2"
+      "bytes": 1141839,
+      "sha256": "4678ca8ebae2f8729db697d65626c063c76f7d87639b7a8b821bfd6065ee08bb"
     },
     "game/StreamingAssets/Bundles/weapons/w1_7.bundle": {
-      "bytes": 435492,
-      "sha256": "b84ef83bf0588c0fea60fafada40d9d96405b63c5b914c7d6b8904ad4cea0f62"
+      "bytes": 1111743,
+      "sha256": "7acac308c33ba4789c820c468637bcf6f491c38bb69cde51c6e35043376ac010"
     },
     "game/StreamingAssets/Bundles/weapons/w1_8.bundle": {
-      "bytes": 359650,
-      "sha256": "b5114c5b481dc5c2bc20a43b670146de6b62bb829e8c6b9895471d1f6a0ca0f7"
+      "bytes": 1047203,
+      "sha256": "be844f124ffb97e66aaa245683cae54fd3ce86bce926606de688217f8a93ad99"
     },
     "game/StreamingAssets/Bundles/weapons/w1_9.bundle": {
-      "bytes": 366362,
-      "sha256": "99d2c168eedfa8ce859bf5114a0378db8e7f6a9c4b0f437dc269dfec3ed233f2"
+      "bytes": 1055170,
+      "sha256": "783700ff570dafa305c7b02c5aa133c74f616551a2253fe186a2ad5cfdafb41d"
     },
     "game/StreamingAssets/Bundles/weapons/w2_0.bundle": {
-      "bytes": 596907,
-      "sha256": "da5672cb40e1f1febd6809c2b886a1486b1fa76e6b2103a18c0dffbc29e15adc"
+      "bytes": 724142,
+      "sha256": "69aa9b31e8f81b7106583a5053b38c35eb1a523379b48d85e7075eea0d7a50e7"
     },
     "game/StreamingAssets/Bundles/weapons/w2_13.bundle": {
-      "bytes": 923850,
-      "sha256": "f5655d76221d2b2f6b343858c76b961d26d3223895a18bd87bf91e7ff0c144be"
+      "bytes": 1630316,
+      "sha256": "a4400b903f5ed4ffc1443dde411a6bf23656794ff3061d289a084cf37da014f4"
     },
     "game/StreamingAssets/Bundles/weapons/w2_14.bundle": {
-      "bytes": 1396387,
-      "sha256": "00fd5ad70cafba646032e1d0c917c555dda1f22398bb2a3bb47eccf4046776db"
+      "bytes": 2879859,
+      "sha256": "e7d59c4e469d444e5c170b8b5c5d4fd2df34ca9f1e15d0e27af831b1c6aebc5d"
     },
     "game/StreamingAssets/Bundles/weapons/w2_15.bundle": {
-      "bytes": 219225,
-      "sha256": "39a17f7cb5a751cd8a036f037ea827209f4d6a49cda25f92b0132e653ed17b2f"
+      "bytes": 374736,
+      "sha256": "777dfde1c23d00b78dec0f5f8f10478c96e315231f58e46a1efb109cb855ebda"
     },
     "game/StreamingAssets/Bundles/weapons/w2_16.bundle": {
-      "bytes": 903042,
-      "sha256": "f326358eeb67086ff0f2e8bdd62ef1026b3b1a8aa035387e940a517c756aadf3"
+      "bytes": 1620438,
+      "sha256": "73b510e40c70c6055474f478236111cae3bac27b59d0f98095dcd4b654845c79"
+    },
+    "game/StreamingAssets/Bundles/weapons/w2_17.bundle": {
+      "bytes": 886544,
+      "sha256": "e6c94857df203d1b0099f0479a275068ccce7d6dd4debe15595282de89619b9a"
     },
     "game/StreamingAssets/Bundles/weapons/w3_0.bundle": {
-      "bytes": 950314,
-      "sha256": "d04f033983d95d9fdf6e74c7e1c1310eb6162507c050da82862f82b3dd46c1f6"
+      "bytes": 950548,
+      "sha256": "155af4a30ecee8868aaff144050f765b5dab62133bf4b1db98f71c5ec8cae997"
     },
     "game/StreamingAssets/Bundles/weapons/w3_1.bundle": {
-      "bytes": 1012188,
-      "sha256": "eeacce80656b02348cc76d68b2dca22ac6466fb701d110cfcb6a96416f44c0be"
+      "bytes": 1012347,
+      "sha256": "fab20b635970d1381451555a6cd8a05c4df2a1617e8ea7b43a3d6b0fb8d51c9c"
     },
     "game/StreamingAssets/Bundles/weapons/w3_12.bundle": {
-      "bytes": 557044,
-      "sha256": "146dd0a93e76fdb2d44cdb4aa389c6338e260395a65f37ea61bb7c95febcd2e5"
+      "bytes": 1329115,
+      "sha256": "ae2c7d7c987422fc920d2d677f6891b9c5a98f806341d80ad48708521dbce860"
     },
     "game/StreamingAssets/Bundles/weapons/w3_13.bundle": {
-      "bytes": 324561,
-      "sha256": "35d1fdf8f35e118a9a30e05b5298843893180e39311301d9f6734f497abfbeb9"
+      "bytes": 1080517,
+      "sha256": "f8ac8b4a9ef8ff53c03ad749ebd6a8b9a92727f8e29cf2b57cd44c8945af5195"
     },
     "game/StreamingAssets/Bundles/weapons/w3_14.bundle": {
-      "bytes": 554803,
-      "sha256": "c0f7b5f594f57d71e57ac289f09a6e6e6cfd45b497d6aafb4f59eb4c1c41b036"
+      "bytes": 1186261,
+      "sha256": "6b4b1733eebd2e756fc617028702404672d160488586b15c313324e9bfa69fda"
     },
     "game/StreamingAssets/Bundles/weapons/w3_15.bundle": {
-      "bytes": 472567,
-      "sha256": "f6c71fe68bc6f2c575db4074ddd1f0378e75c4cc908e1960002e1c329121455b"
+      "bytes": 1020323,
+      "sha256": "8463cd70cf7495cc1a073cabe5f38acd1e82c0d174474ee31d4e9e64ff549f41"
     },
     "game/StreamingAssets/Bundles/weapons/w3_16.bundle": {
-      "bytes": 611482,
-      "sha256": "f39f768754b5e3331d71f9a7cf51d0b2b9048513d094d0c2506cc12dbd93e0ba"
+      "bytes": 1266969,
+      "sha256": "5e590bf6893c3b33a60435b0f9869deaeea1052a80c4c0428cf3f5d7334bd3ef"
     },
     "game/StreamingAssets/Bundles/weapons/w3_17.bundle": {
-      "bytes": 641840,
-      "sha256": "5d7fcf8f421b14b08aa8884025ed8add6b9e833e041ef97894632f0508726433"
+      "bytes": 1339011,
+      "sha256": "99f438357887df49a6a6faaa221c2524d629d72c19a3b786b111f19e5f347c04"
     },
     "game/StreamingAssets/Bundles/weapons/w3_18.bundle": {
-      "bytes": 709424,
-      "sha256": "e725931790118b688d64fc91b484c734482518a5b3adf5974c798cd61ca7b1ee"
+      "bytes": 1305469,
+      "sha256": "58d1effcac3a502555e81c6315366a73e348fe9da3850871f679359907c8f5f6"
     },
     "game/StreamingAssets/Bundles/weapons/w3_19.bundle": {
-      "bytes": 679121,
-      "sha256": "a7630fd396e59e88ddcfcf835f4cced3e161cea2067a0cf57d7d89d375b69576"
+      "bytes": 1299084,
+      "sha256": "9cf1c604edc750f41e8c600b73a00872bb24deb72032fc7d3f4e51067ee64492"
     },
     "game/StreamingAssets/Bundles/weapons/w3_20.bundle": {
-      "bytes": 607194,
-      "sha256": "7f584246c05c072d45b7757a0d402dbaf00012c78e39b718ae4bdd00ca3c1525"
+      "bytes": 1237889,
+      "sha256": "c27eec1ab907c9e6f2ec5c32fb88b59e2ea6d8b69fed0a406d40a00825e8689e"
     },
     "game/StreamingAssets/Bundles/weapons/w3_21.bundle": {
-      "bytes": 563825,
-      "sha256": "56e67528d9f9b6a500f40394a40fefd64c91aea89c69eb04c213ee87c8c0729d"
+      "bytes": 1332168,
+      "sha256": "83c802dfb04c291221aae9bb94d6107c40f5b33963c355e6e55ee46842eda747"
     },
     "game/StreamingAssets/Bundles/weapons/w3_22.bundle": {
-      "bytes": 326709,
-      "sha256": "13b57b82c48e2eca3b90a57f7bde816affd406cb0863392d80ba5fe1208d6a2b"
+      "bytes": 1082681,
+      "sha256": "1e9eedbd108f088d2bbe3dd8ba72d63c1ac980fb62c13f9fec06d532c0989c0e"
     },
     "game/StreamingAssets/Bundles/weapons/w3_23.bundle": {
-      "bytes": 537156,
-      "sha256": "cc79a06eccefe2a1cae08390b2b3d6bb622267a94ff4cfeaad8f8c7d556c015a"
+      "bytes": 1147826,
+      "sha256": "04678f9b281b0be46a91f18d2463367aab85df474f03d4560038e37d1377bc52"
     },
     "game/StreamingAssets/Bundles/weapons/w3_24.bundle": {
-      "bytes": 429802,
-      "sha256": "0488ad396928f976bf9cf9451f181754661ae524e88f35c960b3f0e6c2e01286"
+      "bytes": 723693,
+      "sha256": "e7fcd659da6ae5e10bf4880e9b4e311721e4106577dcd20a5eb1835691ef609d"
     },
     "game/StreamingAssets/Bundles/weapons/w3_25.bundle": {
-      "bytes": 437348,
-      "sha256": "bd2e39c3eaefb5f9d4e4528087e678b55fc73d64962431505cb0bdc12c64d39a"
+      "bytes": 740013,
+      "sha256": "cda96fe49bd3f6769934904e1fd4cb0fba3c081a95a70850c2203712c672b0a0"
     },
     "game/StreamingAssets/Bundles/weapons/w3_26.bundle": {
-      "bytes": 297694,
-      "sha256": "7f49350ce686329f41a407ff2b901271a786f2689a39063215fd6c2f2bd5c0d5"
+      "bytes": 298020,
+      "sha256": "930e0fff8662c9dd00c1e46bbb437329ba8f915868e60c6492e00bae3b48d456"
     },
     "game/StreamingAssets/Bundles/weapons/w3_27.bundle": {
-      "bytes": 299500,
-      "sha256": "9f7b7886391d465953a9db43ac0263def1bb3917869dd7d2f24a153ae05144d5"
+      "bytes": 300257,
+      "sha256": "fcf0d50178bd68326fd9e30e831d8d0a86cf821a26636a7f07fc0a2f6f389481"
     },
     "game/StreamingAssets/Bundles/weapons/w3_28.bundle": {
-      "bytes": 313820,
-      "sha256": "b8d71f3c38e6a245d4e93cd6ae103afb97728f837b33788882bc63764a91c939"
+      "bytes": 314684,
+      "sha256": "e5355315f68dfedbf129f17dda61c598acc587915db9b4bcf2ec92755bf15275"
     },
     "game/StreamingAssets/Bundles/weapons/w3_29.bundle": {
-      "bytes": 316638,
-      "sha256": "f3eab623d507fe6ba4690da35386729c5b6c97caef41f57524eee673af8c98e2"
+      "bytes": 317286,
+      "sha256": "66f5d0ccb2631e3ea067f93ed0697315bc94e0d589a2a0d35d56379dc1894f7d"
     },
     "game/StreamingAssets/Bundles/weapons/w3_3.bundle": {
-      "bytes": 486005,
-      "sha256": "15330c33d5d2ce0115787ca25c7c768cd9e5439c8b199cd5500fb4fbde5ff0e5"
+      "bytes": 486008,
+      "sha256": "4741d02c37b89a09fc236b5815a7bc33a508438ff25c935b32bdc675f22a450e"
     },
     "game/StreamingAssets/Bundles/weapons/w3_30.bundle": {
-      "bytes": 310538,
-      "sha256": "8400e447f13ead8e84cca6739872392664d82808fa65dd5744ff74156f285ec1"
+      "bytes": 1059017,
+      "sha256": "bcecf791ee13357f00d785d14b2e68f53856567cc7cdf0c3759b7464f769c1d6"
     },
     "game/StreamingAssets/Bundles/weapons/w3_31.bundle": {
-      "bytes": 312958,
-      "sha256": "00623b426534de8deede7706282a5b59ede5439a25f91c43d745567fe060bd56"
+      "bytes": 1043280,
+      "sha256": "6e1d8ff5c66b063e24506753607dcd5d9923c56c47f7e2d0b6f4e4e53227ae67"
     },
     "game/StreamingAssets/Bundles/weapons/w3_33.bundle": {
-      "bytes": 286040,
-      "sha256": "f156e9b441e2a2927183d595fcd9e6e2fd4ae10a65e2b7e2da3fbdf67c59eccf"
+      "bytes": 920683,
+      "sha256": "b34c43dbba16c4c4e8444bb542eb2dde14c3e95748c46270e1070f07f41b1649"
     },
     "game/StreamingAssets/Bundles/weapons/w3_34.bundle": {
-      "bytes": 260133,
-      "sha256": "7b0106514cfbee515bac7583360ecd1a9e2b05efc8ca1240b8d6b73f2d85e9d3"
+      "bytes": 816839,
+      "sha256": "28c60b31b35796bde0eb33d5bce87d7233e4b575a63ffbec80110cbd59b20e35"
     },
     "game/StreamingAssets/Bundles/weapons/w3_36.bundle": {
-      "bytes": 386565,
-      "sha256": "04b5babae3df1f50125c4a9e405ca966aae9dcf9c4f349a1a5b39f54cacc9019"
+      "bytes": 1206633,
+      "sha256": "2c0cafab4efc008e947ec7e7f69570787a613b424c710ab4203a5acc027bd650"
     },
     "game/StreamingAssets/Bundles/weapons/w3_37.bundle": {
-      "bytes": 328022,
-      "sha256": "00a775ae90fa3108736b158fbfc2e5b93f7a420beca703cb808d3f9eb5433693"
+      "bytes": 1027876,
+      "sha256": "403d59abfd9da7f0bc2dacbd7ecc20efb218819572f7b25bb1a93b650d247579"
     },
     "game/StreamingAssets/Bundles/weapons/w3_38.bundle": {
-      "bytes": 304445,
-      "sha256": "dc4be932423c37323d0856142ddb1b0b43e22103b8be343d6e62d69855b528f3"
+      "bytes": 1025517,
+      "sha256": "f9ee6697e780a2ac3fbaf25884353928422b6b7d681db0d7fd509f781c441657"
     },
     "game/StreamingAssets/Bundles/weapons/w3_39.bundle": {
-      "bytes": 297616,
-      "sha256": "15681918292343a5e47cee35ce9a6c9fd3a15cee77b835881fc8e3f0c779f4d8"
+      "bytes": 679119,
+      "sha256": "a432cb07f077c12daae48ea6bf8f45840e642a1fd23599a1815355f150a54cb5"
     },
     "game/StreamingAssets/Bundles/weapons/w3_4.bundle": {
-      "bytes": 533147,
-      "sha256": "322dba5458b179ec1f4ce44456e618d4df4d7bd8c43f6fa22f4a74ab00cb13c5"
+      "bytes": 533150,
+      "sha256": "f24f20ed7d787e57ac3a1ebeeecceb44b8068995214b0ba5873ce196009563ee"
     },
     "game/StreamingAssets/Bundles/weapons/w3_40.bundle": {
-      "bytes": 348342,
-      "sha256": "8abacb0a0a0c02c831418c40d03831bcbdb174059a0bcd83b7ced90ee48e0921"
+      "bytes": 1065472,
+      "sha256": "a86aec2cbe96b62a0e65227410fff0c5c735ff3275860476d74eadf47b46487f"
     },
     "game/StreamingAssets/Bundles/weapons/w3_41.bundle": {
-      "bytes": 348826,
-      "sha256": "b910603504b5ea0d19d2bcd81183d9a1a340e03314e0235647f80704a51d36b2"
+      "bytes": 1077876,
+      "sha256": "fad3e82c7704a0fe41a36c3965d470ef1f8063e764ae96e496274e103776bc6a"
     },
     "game/StreamingAssets/Bundles/weapons/w3_42.bundle": {
-      "bytes": 353918,
-      "sha256": "ff5c9d379f55f9c82505cba7d6016de26d5ebdb0a8e983d420f534b6006ba35e"
+      "bytes": 1076775,
+      "sha256": "ef3bba9f12a7c4355fdeaa9e871fbe3d535cb0d1df88577f72e13af06a61f216"
     },
     "game/StreamingAssets/Bundles/weapons/w3_43.bundle": {
-      "bytes": 354036,
-      "sha256": "b24a934213b982095554abc79e286ea9ae1377222cb815de512e407e596235b4"
+      "bytes": 1066759,
+      "sha256": "25463669574fae26d3a89c3904edc56b56d02bb0d7ca4529bb7a65120059ba75"
     },
     "game/StreamingAssets/Bundles/weapons/w3_48.bundle": {
-      "bytes": 291905,
-      "sha256": "8fd4659b418914dfef734db67626d0f05a347a6633cdd1d909e1c2e63e03ad2d"
+      "bytes": 915807,
+      "sha256": "e22a78e252a8bf5a7b7ec55ef7e1916ef791b16f602c2c3aa94b578e4c0397a7"
     },
     "game/StreamingAssets/Bundles/weapons/w3_5.bundle": {
-      "bytes": 553880,
-      "sha256": "70c84d13ce99ffe6ab9e69e786c6bbdd0e7280de2b5a76cd143350c6d331a5f4"
+      "bytes": 553883,
+      "sha256": "0db7305fc44a3434a54357792b8174596aca51cc047b808ab3a5236249dd743a"
     },
     "game/StreamingAssets/Bundles/weapons/w3_8.bundle": {
-      "bytes": 497831,
-      "sha256": "80c41189afb06b2bcd2e3470ee621c303ed6ef237dffb11983b138af2a281544"
+      "bytes": 1086971,
+      "sha256": "6d870e28f8c3d09ce3b28dc87194f8e773954914d3982ba3914dcb74fed8ffe6"
     },
     "game/StreamingAssets/Bundles/weapons/w4_0.bundle": {
-      "bytes": 1353379,
-      "sha256": "f115b0a9ca1fe643d35bd81c978f938ea9518b9812e6390bf2c8c2b1f4dc6481"
+      "bytes": 1354040,
+      "sha256": "c0962523a5851dfa7906394f705017c548e51aa39a7bdcb88db3a96516439813"
     },
     "game/StreamingAssets/Bundles/weapons/w4_1.bundle": {
-      "bytes": 921705,
-      "sha256": "7e8f2da2599095c269648844185b9ba8802cecac1f6ff5958b8a54a6c94132a9"
+      "bytes": 923978,
+      "sha256": "83f9a2c57372adc58150c280ec63263e6667228bb4573c702a661977cd0b9661"
     },
     "game/StreamingAssets/Bundles/weapons/w4_100.bundle": {
-      "bytes": 327786,
-      "sha256": "b20ec4e63be0323db26c819f7bf2abb96c253136b00922b1d4cefaaa07bf073d"
+      "bytes": 758570,
+      "sha256": "08162e52eb588a4aa4ed07d4b1af4d8c1a0539268575d8fcb229576261a2f38e"
     },
     "game/StreamingAssets/Bundles/weapons/w4_102.bundle": {
-      "bytes": 502553,
-      "sha256": "f354690e81f45f2da8c6b6823a3e9f914a31966eaa95815a62cf782ea12df0d3"
+      "bytes": 1015915,
+      "sha256": "24493dad7004de92f4c6a78ad907488c6a0ae239bb8ba7dc1dcc4a5958fc862b"
     },
     "game/StreamingAssets/Bundles/weapons/w4_103.bundle": {
-      "bytes": 435577,
-      "sha256": "e81f160289e6a2dd4d6eabc976271f4798f0979281b41f4981316f2554defac9"
+      "bytes": 850820,
+      "sha256": "352fc0d3e2fdca5cbc486768b69168bbc46ee30311a7e589cb87fe5ae2a09d46"
     },
     "game/StreamingAssets/Bundles/weapons/w4_104.bundle": {
-      "bytes": 536027,
-      "sha256": "8a4ebb19f2b1091583d9ae325fcf416d2d111a079622bdfa8082dcca38059ff8"
+      "bytes": 1054148,
+      "sha256": "715290f429cb7d08a4ce477b4a85a2fc8a614c380b1791b5cb5e3de659475c6e"
     },
     "game/StreamingAssets/Bundles/weapons/w4_105.bundle": {
-      "bytes": 523382,
-      "sha256": "2dc6f57a195c789fe92614b6c65cc4f36b0493d868f7b26cf748ac7a6ac543ef"
+      "bytes": 1038233,
+      "sha256": "e212b9d32c8ec2053e9d982641aa1fb87c00e18ed5002498fa187e96eaefb2b1"
     },
     "game/StreamingAssets/Bundles/weapons/w4_106.bundle": {
-      "bytes": 474268,
-      "sha256": "24cc066e324d175810294ce7d895f9589c9b3829f6804a0b0006c2e1b91d0e11"
+      "bytes": 876432,
+      "sha256": "5c421f57eabfc9528839fcef1ad45dacd11590cadeb7ab1588543eb885770c40"
     },
     "game/StreamingAssets/Bundles/weapons/w4_107.bundle": {
-      "bytes": 460024,
-      "sha256": "9737f0abd6a9c3acaa8c5bb165c369c7a77d7e1d67b2f50035253cd733692469"
+      "bytes": 870291,
+      "sha256": "fe1c5542a9833837b306e6215c9499ba4234dd968ff71225583d11e8656f4015"
     },
     "game/StreamingAssets/Bundles/weapons/w4_13.bundle": {
-      "bytes": 878419,
-      "sha256": "f0dd135c94ac0353125478f3673486f4bca8f215bc60dbd491ab28e653290862"
+      "bytes": 1585895,
+      "sha256": "fc1b288941c860ee6c619e25c64b678997a9eccc6803e59e8e2a363f5082aa3c"
     },
     "game/StreamingAssets/Bundles/weapons/w4_2.bundle": {
       "bytes": 313037,
       "sha256": "034944db2c9f4c53855d69055944449302e0309a5a9d353d573763b76bbe31a5"
     },
     "game/StreamingAssets/Bundles/weapons/w4_20.bundle": {
-      "bytes": 694279,
-      "sha256": "92c4e91c653916ddda3c0bb4eeece19e673728026017b852dfd9fa1e580fdefa"
+      "bytes": 1571217,
+      "sha256": "bb77e140951fbca5e4361e67ddb0ed60195729d3a2a34686527aeff95091d46f"
     },
     "game/StreamingAssets/Bundles/weapons/w4_25.bundle": {
-      "bytes": 240183,
-      "sha256": "a45e0194502957ed8e600c292c8986853a7f0470ca819ae36be600b97f5915c0"
+      "bytes": 737423,
+      "sha256": "12efa1ef25eb49540976af24068d87c13082f53abad044f9420243da34f01ce4"
     },
     "game/StreamingAssets/Bundles/weapons/w4_26.bundle": {
-      "bytes": 541996,
-      "sha256": "83e3d576f0f579dadba8119cf173f3617f39c2355702d95bfccc17689ab9ec5c"
+      "bytes": 1155644,
+      "sha256": "157b501118584d5505035deaa42a1502645eae16e53cd102467eed1bb05fc27f"
     },
     "game/StreamingAssets/Bundles/weapons/w4_27.bundle": {
-      "bytes": 231230,
-      "sha256": "ac0c61770c3376d96c5bf9a42c8f45f6d32ec4a09b1cf20bec733ca205edcc1b"
+      "bytes": 768444,
+      "sha256": "fe7b90b949b8e4c6fe1b129be367dfb047720d8044de6962a7d62571fd160d95"
     },
     "game/StreamingAssets/Bundles/weapons/w4_28.bundle": {
-      "bytes": 330896,
-      "sha256": "32c9ae5732443afb9b1b0fe582f02ef05be5b36b292acabe972144428e1ca757"
+      "bytes": 1107955,
+      "sha256": "5d4755e88fe9a5b2e02ed501d3f0fa461451c0bd42c5399188622e40786c0158"
     },
     "game/StreamingAssets/Bundles/weapons/w4_29.bundle": {
-      "bytes": 607644,
-      "sha256": "a7408cfce78f0aecbb6494de0329003ce37d9de739abd80d684276e8d50d83e9"
+      "bytes": 1354563,
+      "sha256": "db623862b0f6cb15a6b2df5a7fdc36088e1d9d2cfc0a1453930bb6f0947fdfd3"
     },
     "game/StreamingAssets/Bundles/weapons/w4_3.bundle": {
-      "bytes": 900633,
-      "sha256": "913a2826a175cb627dae0e3e7f3529eb83eff93748607e45ebd82f3b0e548a28"
+      "bytes": 900627,
+      "sha256": "f40737158543a2ef67e76c1552363873a14c4297280de0ce2fc0707e3537c5eb"
     },
     "game/StreamingAssets/Bundles/weapons/w4_32.bundle": {
-      "bytes": 166681,
-      "sha256": "01d57ee53b79fb1bcfa6a73056d84f8fb48b5479143cf9891147aa4d92e24d3b"
+      "bytes": 574212,
+      "sha256": "8734a1188ba7b35d80eea3eb04f8896c7f288c29e72a2c5deaaf74d42e1ef486"
     },
     "game/StreamingAssets/Bundles/weapons/w4_33.bundle": {
-      "bytes": 243009,
-      "sha256": "49c63a329bfbacc030220067d59dd215a1c3a47bd3b54d04aaef47fa9fd6e58b"
+      "bytes": 736914,
+      "sha256": "d42d58b9ba88f4e7a4d2dcb1e11546d1fbc7449ea1d456c5a38ce4cfda2dd050"
     },
     "game/StreamingAssets/Bundles/weapons/w4_34.bundle": {
-      "bytes": 241067,
-      "sha256": "084e23cc41bd0517f3ebbd51024a6ec92b6ad9d2be66ba67bac3881b3246e0e5"
+      "bytes": 741328,
+      "sha256": "b7b18921fbb89559d4e24b32f221c07a0d97bf973beb5a0a3c1ee459643f0496"
     },
     "game/StreamingAssets/Bundles/weapons/w4_35.bundle": {
-      "bytes": 168219,
-      "sha256": "57fbf5bcbcb7e210b0411c4b1f66ab754ce40035a74c88986398cb1c4b5e443a"
+      "bytes": 568238,
+      "sha256": "eab3c92f9af005a4cc8b60f2cbbebd4d430d4b7c5596bea287f7bb7ff1728551"
     },
     "game/StreamingAssets/Bundles/weapons/w4_36.bundle": {
-      "bytes": 168921,
-      "sha256": "44fa7d1802a37903d6a49adfb6f86cec23e37c9cbb7f4207928453852bb27882"
+      "bytes": 558561,
+      "sha256": "111bff864b013dcd899f6603c341c120c3e82c9c1cf9f8c62f5fa0837ccf9bdf"
     },
     "game/StreamingAssets/Bundles/weapons/w4_37.bundle": {
-      "bytes": 447848,
-      "sha256": "ca8b7d22b531fe8d245b0c7b8550e3e2552e41eb9fd18c9441b89fffc5973dd7"
+      "bytes": 1548034,
+      "sha256": "49010283af7dadbe2e8dda36d7c44b6aed3bfed28824a98713e1bcf6e3f0b55f"
     },
     "game/StreamingAssets/Bundles/weapons/w4_38.bundle": {
-      "bytes": 605850,
-      "sha256": "700d1e1a61df6f9bab4bdadb6c11bfdf8997f16d1009813cb03d31fcb5228783"
+      "bytes": 1375956,
+      "sha256": "11d8d517fd37618025809c1b71b07b39a439fddfccea2fa591ce23d4cc69883c"
     },
     "game/StreamingAssets/Bundles/weapons/w4_39.bundle": {
-      "bytes": 308178,
-      "sha256": "8e2c76744944469fdba08a2744649b4438242d79dcc56c3f71eb4092f237164c"
+      "bytes": 908975,
+      "sha256": "320fa5c96b06cdac9a0e5832810e496dd04f3936bf8749a99c1ab6331b46354c"
     },
     "game/StreamingAssets/Bundles/weapons/w4_4.bundle": {
       "bytes": 307165,
       "sha256": "2debccf1f35d4af42b46c2e94a93b4a03cf2c44f1b32da2d5d9700f571da1f62"
     },
     "game/StreamingAssets/Bundles/weapons/w4_5.bundle": {
-      "bytes": 1280370,
-      "sha256": "af0ecfbf93a9038e1e723983ad437afa66c8e02a205d4fa0a9c86d1de777accd"
+      "bytes": 1287570,
+      "sha256": "987999018bc4f551609996a887574e1df06280246849433bc2f7077bb31daa8b"
     },
     "game/StreamingAssets/Bundles/weapons/w4_6.bundle": {
-      "bytes": 1318469,
-      "sha256": "07b17ab7e0cfe24a76214c544f2da8941009954538d25f8b8ff81eead38e6467"
+      "bytes": 1321575,
+      "sha256": "279cb00cc384c289adcc9d44e3e5ede74451d69370fd4e4727b9409894fa4ee8"
     },
     "game/StreamingAssets/Bundles/weapons/w4_65.bundle": {
-      "bytes": 407923,
-      "sha256": "5ac6f26f81bb0886470eb6b00e3a45214e4e4e36ccc1542d87e55fb7fe1bfaad"
+      "bytes": 489662,
+      "sha256": "1e20b95313ac990c91fb5d1f33a5c330fe5d97b1be86e40707b99bc2a526cf61"
     },
     "game/StreamingAssets/Bundles/weapons/w4_66.bundle": {
-      "bytes": 327311,
-      "sha256": "1df9ddd4634e0c40fcc4fdfa356cf91f48eea1bceceeeaafc9ddf5e26c79ccb0"
+      "bytes": 329530,
+      "sha256": "1133b1b4d7da4fb724ce9251d3fc2277a7dfd832865e61fc07a39252d670a755"
     },
     "game/StreamingAssets/Bundles/weapons/w4_67.bundle": {
-      "bytes": 340292,
-      "sha256": "6816522215cac695935a43216960138c19fe09db1a89c8bf67ba622b835705d3"
+      "bytes": 341052,
+      "sha256": "4585f3ab4d62481914fafa8769c547cae6fcc26f0f9e698b3c8a940b78f86467"
     },
     "game/StreamingAssets/Bundles/weapons/w4_68.bundle": {
-      "bytes": 330479,
-      "sha256": "1af9178c97a5876297ec87be3e9b36ab4c8321278fee3cbc71c3879adf873c21"
+      "bytes": 331195,
+      "sha256": "3fd0d96da0775df920dc4df051bfcb5bf357773f86490e15b71c8275f716714e"
     },
     "game/StreamingAssets/Bundles/weapons/w4_69.bundle": {
-      "bytes": 483220,
-      "sha256": "87b9608fb576062aabf1a39601bebc4aeea41d230c1c2f59f0ff765eed9b9b14"
+      "bytes": 883676,
+      "sha256": "91e9b1337dfa4b77544c8dba3bab1f7dd4c65860d6aab17f4cc3f36d79c9e22d"
     },
     "game/StreamingAssets/Bundles/weapons/w4_70.bundle": {
-      "bytes": 320488,
-      "sha256": "d0152c0de7aef3449195041ff5dbdded13f2358b5df84b1145abd143ade70808"
+      "bytes": 320810,
+      "sha256": "8ad70f6db80477b27cb9c38aa6556cef56c3e03a702d2fa702432c8affe9cf99"
     },
     "game/StreamingAssets/Bundles/weapons/w4_71.bundle": {
-      "bytes": 526091,
-      "sha256": "ec9879b2506d688206af1f6d8eaf9411d29a625d31b78db5ec89170fd36ca3e5"
+      "bytes": 926898,
+      "sha256": "bc17817c8d1d99816b20ec2865b5accdce2db23fa11786b1d8908cc95781ec3c"
     },
     "game/StreamingAssets/Bundles/weapons/w4_72.bundle": {
-      "bytes": 639028,
-      "sha256": "ade6cc2e2b2b87e5329ceb4baa69967b0ba3883567ffdcb852438123dc916ec1"
+      "bytes": 1301385,
+      "sha256": "40b4a67751e07be040de443832d8ca7e1b0fd9372e7fa84a58a8a62aaba357a1"
     },
     "game/StreamingAssets/Bundles/weapons/w4_73.bundle": {
-      "bytes": 355669,
-      "sha256": "e759cf2801465a2b56921f2ec747df9486330b2b068c7dd6e10a3198d7c397d7"
+      "bytes": 356152,
+      "sha256": "48e371981914873f9999c41cfab6e660edeaf224af0570455fc0340da8c3ad4c"
     },
     "game/StreamingAssets/Bundles/weapons/w4_74.bundle": {
-      "bytes": 345247,
-      "sha256": "398e259991fccf3359d5ac17d695e4e7bea95ba42d8906849fcfc007a5935cbc"
+      "bytes": 345632,
+      "sha256": "0ccc25b9dd04009e4539cf963abe982bb662982ed85b1c6eb8abb46460870bf1"
     },
     "game/StreamingAssets/Bundles/weapons/w4_76.bundle": {
-      "bytes": 289943,
-      "sha256": "e1ba240250817802d37bb9ddc0d70fb185b32fecc22ca40a9e51a9c6c9330c8b"
+      "bytes": 691160,
+      "sha256": "5c392946864e4b01b436a5a3f5f0f86868c9322003f8e67fa8e8b969f2ac9333"
     },
     "game/StreamingAssets/Bundles/weapons/w4_77.bundle": {
-      "bytes": 317588,
-      "sha256": "36d9936d95881fae60b956327e34e26779bfe1143e77bf8b7efc3d98ac4524c1"
+      "bytes": 711019,
+      "sha256": "da6da2608c110215fe682cc9bf15aae6a94ad9d8130b8129d98dd69ad53d31e1"
     },
     "game/StreamingAssets/Bundles/weapons/w4_78.bundle": {
-      "bytes": 543117,
-      "sha256": "cf0b9d5bd92fb5f502bfc328797da42304d7344d730ba439b0e39e9fe577e6d7"
+      "bytes": 1379736,
+      "sha256": "55b78a8c320cdd0b406a996ae201a8ddda3e84a3c4005fd1ac98a25d9dc9a0a3"
     },
     "game/StreamingAssets/Bundles/weapons/w4_79.bundle": {
-      "bytes": 287481,
-      "sha256": "89bda86930b12f96e75a6e82f0b582ff7182fc56ef4ecccbf4125164937cbdc3"
+      "bytes": 643931,
+      "sha256": "7dc07b2d90f3f4a75b0c9d58cdf0587f3b09744c4241c98e36509f9525bdb998"
     },
     "game/StreamingAssets/Bundles/weapons/w4_80.bundle": {
-      "bytes": 383736,
-      "sha256": "fb476354fc645a3d18a59069b8ecda766c9f043eefcc9e91382096224ef331c9"
+      "bytes": 1073009,
+      "sha256": "6a20ff08f3cead198dc3765c3bff3d9e0386261b529b82ba9cd09469264cc012"
     },
     "game/StreamingAssets/Bundles/weapons/w4_81.bundle": {
-      "bytes": 301223,
-      "sha256": "4f98a94e67949e9c1c24cb02580c52f57f09351137a70c1927d473a730ec38f5"
+      "bytes": 912334,
+      "sha256": "7bc0208b89002fa599ec646ca15ddad112a078c75011da1789a76a627ef9acda"
     },
     "game/StreamingAssets/Bundles/weapons/w4_82.bundle": {
-      "bytes": 362494,
-      "sha256": "ced692879050ae4593032dadbe24de737538979d289e7403c937286eded860d6"
+      "bytes": 1116379,
+      "sha256": "ad6872e610a468726cb29bcf96a7a712dd8fbaadbdbb4c2a74576310b9c53b94"
     },
     "game/StreamingAssets/Bundles/weapons/w4_83.bundle": {
-      "bytes": 380700,
-      "sha256": "a8c957c2e3ccec47f7ca839f5d58e3d2bf8efda6cf54c9e847cbba858d0484b0"
+      "bytes": 1193376,
+      "sha256": "4739f2238487f4b4d7bc38944601c9d33bcda1089809a3fda20c66974ffe7014"
     },
     "game/StreamingAssets/Bundles/weapons/w4_84.bundle": {
-      "bytes": 218447,
-      "sha256": "26a3f346096dc98162423827e128e6d78198c3bea62b08b2bb209a6151e466db"
+      "bytes": 687070,
+      "sha256": "1d22728e232aec76f0f0468eb713842fae9f8b98fac014afb1f1b2691f68cbf7"
     },
     "game/StreamingAssets/Bundles/weapons/w4_86.bundle": {
-      "bytes": 292096,
-      "sha256": "d5ac4f222e37f71e80b982864d960f9bcf6ea3b2e9d89840b6772b84175a3fe8"
+      "bytes": 940232,
+      "sha256": "1a0d6792f3c355986bba8efd0bd10f5a5bbd47f7a93b6cda310b6cf1b9e92a50"
     },
     "game/StreamingAssets/Bundles/weapons/w4_87.bundle": {
-      "bytes": 362563,
-      "sha256": "1913d9ea75a3da0ed30c52f500ead91f9a9385161e1933057da747145c9cfdc3"
+      "bytes": 1051063,
+      "sha256": "0f7be9928ef8d2498f544a05563bd0a04b23ca33185ec6425d7e2f43803e78e9"
     },
     "game/StreamingAssets/Bundles/weapons/w4_88.bundle": {
-      "bytes": 252705,
-      "sha256": "722345f8195bf6a18705d976946f461a178f97c853fe2ca3fef01bd22732ce12"
+      "bytes": 815313,
+      "sha256": "8a9127d4310535897381d7f0df564b10c4372a9fb12d5cdbb90fbbd012c6f089"
     },
     "game/StreamingAssets/Bundles/weapons/w4_89.bundle": {
-      "bytes": 315048,
-      "sha256": "296be5582c7f30ea355d7243bda1a018e8c36f485c23780e723904101d8ccf4a"
+      "bytes": 955280,
+      "sha256": "e2c5ec66216bb578c2bf8b2d19d2117dcc4b9f747e7632a91a3a25f5cd069e25"
     },
     "game/StreamingAssets/Bundles/weapons/w4_94.bundle": {
-      "bytes": 300985,
-      "sha256": "71dbe7459f7df9089131b8383cf05eb72659a797fe9983c83b1e6ae806f9cef3"
+      "bytes": 701298,
+      "sha256": "f6a28dbd0ed2113bf1ee9f7cf4fb837746f40fc27b9f6361a8968480f484be8e"
     },
     "game/StreamingAssets/Bundles/weapons/w4_95.bundle": {
-      "bytes": 460758,
-      "sha256": "f346fb3111fd2c5461db1d0be8e072788782ca2f3176a92db9b96187e729f19c"
+      "bytes": 1568231,
+      "sha256": "96c0d9de4fec21f87eb525b32751e8913e49de3cf69e47bdddc4f2ee99bd157f"
     },
     "game/StreamingAssets/Bundles/weapons/w4_96.bundle": {
-      "bytes": 307948,
-      "sha256": "6495814ab017414b30734af233241c912964468ad1772f3e191586b73358d3c6"
+      "bytes": 681870,
+      "sha256": "34efb30dcfd71c9b34f7e94a3b042bdf5856553b8cb4a7b7165a8d1ca2d771af"
     },
     "game/StreamingAssets/Bundles/weapons/w4_97.bundle": {
-      "bytes": 506119,
-      "sha256": "5d074582873aa336ff17e874762e9bec35dc5ff1130f0a88fd0116dc0b283824"
+      "bytes": 1562165,
+      "sha256": "371c04bc418062423402d14701e266807413ed8b01edaad43082ebb886dba587"
     },
     "game/StreamingAssets/Bundles/weapons/w4_98.bundle": {
-      "bytes": 368835,
-      "sha256": "53ab5e84db73874cfc84fc018afd8e09bc7afcac6669f5e04b1e86333e897168"
+      "bytes": 1178152,
+      "sha256": "f2715e228ef8ddb8b43bf5a2acdd75b447c88414206366dec9c249d8eb29f728"
     },
     "game/StreamingAssets/Bundles/weapons/w5_0.bundle": {
-      "bytes": 1149596,
-      "sha256": "35acb94263f76e731876368119e01889dac7b46947af5df7d97e2c64b1741090"
+      "bytes": 1149619,
+      "sha256": "1abfdf5925c14cfbfd40ae88b01cd97cfb094787b4755eb056aab3a5bbc382bd"
     },
     "game/StreamingAssets/Bundles/weapons/w5_1.bundle": {
-      "bytes": 901508,
-      "sha256": "9790f8190a4164c49c606bafe764d84880a1a97ad8afca26301160830877bc9b"
+      "bytes": 245389,
+      "sha256": "5380fdef3ed7365377b9e000fa5cecd70920a478f18c1e9f35e1250c9198564b"
     },
     "game/StreamingAssets/Bundles/weapons/w5_15.bundle": {
-      "bytes": 670510,
-      "sha256": "8690d4cba78ce21cd19fd43aa1809f84027401ce8d6e14def75cb33ce433afb5"
+      "bytes": 1015664,
+      "sha256": "39332f396c19094fdba5beaa87902f603d322cbacd7173ce27796dedc07cb8d5"
     },
     "game/StreamingAssets/Bundles/weapons/w5_16.bundle": {
-      "bytes": 715062,
-      "sha256": "f6257ee6e0e80d2d41631105bcf7440d86be2a7c3ee8eb6f783c45fb59494d62"
+      "bytes": 1341218,
+      "sha256": "d408d72b23b5bbed36adb473c4b5ee884439227911d9cdc725982ac87d5cfcbe"
     },
     "game/StreamingAssets/Bundles/weapons/w5_17.bundle": {
-      "bytes": 744426,
-      "sha256": "634aa3b9e838429b0eca19bec724afc45dcb0d5c033306265690e866168ff4f0"
+      "bytes": 1688435,
+      "sha256": "b0f383fe14b34cb59d839aa55c21cceb12a5e718d6b8f8865608dfc36248a209"
     },
     "game/StreamingAssets/Bundles/weapons/w5_18.bundle": {
-      "bytes": 239164,
-      "sha256": "efb1890b563cc313164700c2f780b6ac2aadc98fc98a97758f46ce698ca8bcd7"
+      "bytes": 514544,
+      "sha256": "b0f3555cdc98abc91613be9c47381619f0bd54a9730950860faafbaa528bbf36"
     },
     "game/StreamingAssets/Bundles/weapons/w5_19.bundle": {
-      "bytes": 359418,
-      "sha256": "6924eba173115e4ce3f6e4c528199bfc20a9bc783446e487dff463e455d678b9"
+      "bytes": 1095746,
+      "sha256": "2292704f3d41fedf5a32a9d0d7acdaa135c60259b5221db1ab643e13602ceb6a"
     },
     "game/StreamingAssets/Bundles/weapons/w5_21.bundle": {
-      "bytes": 362879,
-      "sha256": "4c817ee9bddf901c1b80a6f765167441820420e94cce984c6b5a146a5e8ff547"
+      "bytes": 865897,
+      "sha256": "4e150e782b02be2ffa1a2fd37912dbd6a617b5946f5abc9a190aa6210e86488a"
     },
     "game/StreamingAssets/Bundles/weapons/w5_22.bundle": {
-      "bytes": 416343,
-      "sha256": "3816607a32af3101dee628a9dd2e3e571a03320751e878344704656ea0fc2f69"
+      "bytes": 1297002,
+      "sha256": "6a2d51d6c687b5ed3cc4bc6a4f14a3f754cdcc94e9039fecf724d35a0f996e8d"
+    },
+    "game/StreamingAssets/Bundles/weapons/w5_23.bundle": {
+      "bytes": 1003665,
+      "sha256": "42c5dd0b3dc2fcd4bd2411ca2daf2e116b4874274309896f32f016d42570cf08"
+    },
+    "game/StreamingAssets/Bundles/weapons/w5_24.bundle": {
+      "bytes": 1372579,
+      "sha256": "c9a39e88d12de5d30f2d28be065f521ccaded3ddc921d1ca74657a1821d0d326"
+    },
+    "game/StreamingAssets/Bundles/weapons/w5_25.bundle": {
+      "bytes": 1466461,
+      "sha256": "b3898a2abe851e6d16e369280cdd80ed73dde1735e8b7bd239433f5e6c334822"
     },
     "game/StreamingAssets/Bundles/weapons/w5_7.bundle": {
-      "bytes": 603564,
-      "sha256": "ce933c2e2722b558c92657c9c5df667ca73c937cf284e24e87e187f79362d651"
+      "bytes": 512626,
+      "sha256": "64980ab53ae7d9ff69347a8b404221bb1fb4a69e44b54469bbf0f69f5228479b"
     },
     "game/StreamingAssets/Bundles/weapons/weapons": {
-      "bytes": 5646,
-      "sha256": "58695078a1682bd237c276d3f98b0c7537fb2c76fbe1032f5b085e41e873953c"
+      "bytes": 5756,
+      "sha256": "237188f51e64bef40ff0a45454e95a4f57d66d9b58c4696b07276d8814a9c85a"
     },
     "game/StreamingAssets/Bundles/weapons/weapons_common.bundle": {
-      "bytes": 20629025,
-      "sha256": "a43595b42131313e529cf99413742634d5999de13450b0650a766a519450b9a2"
+      "bytes": 24902399,
+      "sha256": "426d8d2e05660f0c603258b95b5cfdd5b27e9373f8cd58c940d02ef51ac481fd"
     },
     "img/backdrop.jpg": {
-      "bytes": 51881,
-      "sha256": "b7ab2335e4d04685023acb0e2b4a1aa67b52fcea91415b50d250fecf7e426853"
+      "bytes": 69529,
+      "sha256": "20476ca77001e086a0a7f63d4e20921990b26f2f356356fdddfa303dc5d1256e"
     },
     "img/community-leader-1200.jpg": {
-      "bytes": 106558,
-      "sha256": "a1646b84488d9200ab4f17f1ab5c48c57060c70cf3444285c2aec45a4a4090ab"
+      "bytes": 109844,
+      "sha256": "cccc38d2294a54b867509353d7989ccb6a3a5636043220658603aa43dd10de44"
     },
     "img/community-leader.jpg": {
-      "bytes": 165120,
-      "sha256": "37e6b03852b796d55d69a1b5865d77acfca86cfaac6b3c3c2af0b9d18bc7d8d9"
+      "bytes": 301023,
+      "sha256": "1d2a46f09de8c4eb5c03b04c3be30f9dd116dac97d98f355384300b1738973e5"
     },
     "img/hero-squad.webp": {
-      "bytes": 258682,
-      "sha256": "a741936245f62404ba4c000d3b6e41cae81dab3fba6578c4509dab297147b62f"
+      "bytes": 284026,
+      "sha256": "a0a2b977f7f88f293795c07fe98f1838e8941423db7fc4a73f69dcfa3309efe1"
     },
     "img/maps/ancient.jpg": {
-      "bytes": 97419,
-      "sha256": "abd2a44298abab9dc30e2abffed0ba9fb57817ccb0dde30b7f4e508972258807"
+      "bytes": 91391,
+      "sha256": "8ec30b2df8f407ed02a7f21a70a4f28cbe9a80dc00d546afa63eb184f8f49ca6"
     },
     "img/maps/forge.jpg": {
-      "bytes": 124111,
-      "sha256": "bbaee031b3859261bf38679177211eb8676a4862ef87ab750ecef35d6674f594"
+      "bytes": 114327,
+      "sha256": "db282957480ca65424f380af0b5ad5c1145d387f9528f0c474293060495d74a5"
     },
     "img/maps/greywoot.jpg": {
-      "bytes": 78209,
-      "sha256": "f69ad74e266af67d4c7e669b0fef104f2dd36616ec7958fb525d1978385113f4"
+      "bytes": 73656,
+      "sha256": "b55c55af377ebe4afaca841fa585965e82afa35c8fdc0f68c6cc4e9b8db88db2"
     },
     "img/maps/hangar.jpg": {
-      "bytes": 55982,
-      "sha256": "57bd9ce14f5e0c1eb6cb9947806b60278893cfa1be93b5935928868207251fd7"
+      "bytes": 53843,
+      "sha256": "40000cb84f07b9be3a903b099bdd8b37d8847ced610506ff1e1fa712babb8a60"
     },
     "img/maps/orbital.jpg": {
-      "bytes": 53423,
-      "sha256": "904992fe7878e9dc755873522b01e04e33ba3a1fe1682e6b8a2bf47616dfcc0c"
+      "bytes": 51055,
+      "sha256": "e3cb126c6cf625f964ed3de721ad19ca4a0cb12421b633f1c2cd95a670d7fc75"
     },
     "img/maps/shipment.jpg": {
-      "bytes": 92388,
-      "sha256": "0ba8a87358708f978cedf19d9a6121bf8229b10587f9e6825f00a3a2ff8ae00f"
+      "bytes": 86162,
+      "sha256": "feefc24342619da59884fb26f31261ccf1497e7a7530cc9decd7dc2f08bebc58"
     },
     "img/maps/urban-warfare.jpg": {
-      "bytes": 73093,
-      "sha256": "6b0fdd2701abbc0d0495d3ee1a6d9ec548a2ce37c39a3df38115d18ee2408347"
+      "bytes": 69599,
+      "sha256": "dd27a77f96edd851cf70ae058fc450a722b19d148c05ceb54ce185b20080b4ae"
     },
     "img/maps/zook.jpg": {
-      "bytes": 149763,
-      "sha256": "f96e311fa5a0260361b23c2cfa6de49f4f5e316410b158fa05c3a39dad90c2fa"
+      "bytes": 134516,
+      "sha256": "15752ba320417ea360a764314042bdb3084c963ddc3ca6597320dd6613509e9c"
     },
     "img/ranks/rank_01.svg": {
       "bytes": 1760,
@@ -1461,52 +1481,52 @@
       "sha256": "827ce7711da3b6eed986ed5affbb2a3d193794b7331eab93f8c17b30529c00a7"
     },
     "img/weapons/combat44.png": {
-      "bytes": 21315,
-      "sha256": "77782ed8f8ba86167ec45f51062ca45a0b9735a086eb075be8a71320d074af99"
+      "bytes": 21462,
+      "sha256": "16f15ae6093d5dbab74a7059150ebca9e346aa5e96e3d1f9713c7d83ebfe6be1"
     },
     "img/weapons/fireaxe-gold.png": {
-      "bytes": 17886,
-      "sha256": "a0974a787cbb324863b98042f0faab4af410089acd2a09aa9e29a05fc4d96fe3"
+      "bytes": 16921,
+      "sha256": "98b92884074dab076be0a765ea8bcc3dac1712c6f8747a645dd2af8d94f0b973"
     },
     "img/weapons/m249-acid.png": {
-      "bytes": 17958,
-      "sha256": "be89cc4bfff6bd20c27d32d54a75059f30e054e745e19ffcec90a96ea2eb621c"
+      "bytes": 17971,
+      "sha256": "7629a99491a8cb17af6a39dac4b52178dbb500941be6b44a54c9f0e20f1d3033"
     },
     "img/weapons/m32-urban.png": {
-      "bytes": 19177,
-      "sha256": "6a19b52db6db6aea2609ab8b3ed1a9eec8e320a5ad67d57faf3ce2b167d3099e"
+      "bytes": 21246,
+      "sha256": "2396d1d4cc9ac0ea5df077bfbdee10223953ccfbf2beb0b3b20f446d198a4575"
     },
     "img/weapons/m4a1.png": {
-      "bytes": 17931,
-      "sha256": "069e549b848fd07a4a1e923c56b2600ad5970a84702bf26d7ee4ceca2b6d2cb7"
+      "bytes": 17760,
+      "sha256": "737329fc87085f9e8e19b96751d500e8576e04107536c948619993059593a8e4"
     },
     "img/weapons/m700-galaxy.png": {
-      "bytes": 11886,
-      "sha256": "a1bb4f9b1f7855bca107183468f7bde44bab3a5fdae317660bdd0fa3a896f290"
+      "bytes": 11415,
+      "sha256": "074f9ceb095f32c6b3ccf34f1718cbd8c2b6eadb89a2a646f59ccb4d442af0bd"
     },
     "img/weapons/m870.png": {
-      "bytes": 20499,
-      "sha256": "7af823870332020a48bf840689699f9aff99d1de9ce48f87c11a048bddb9afd2"
+      "bytes": 20134,
+      "sha256": "812f79101147ffb5e414f0f5500ded595695dfc435442639edc3eea45e5be3af"
     },
     "img/weapons/mac11-hazard.png": {
-      "bytes": 8098,
-      "sha256": "133336eb250713d02f7114cec7d5217263e96ffc71966a6a37783f02b281a8b8"
+      "bytes": 7566,
+      "sha256": "093e8aeec21744c30b734cdaa1a96e9931eaff1c92f1277737050a28adcafda4"
     },
     "img/weapons/mk16.png": {
-      "bytes": 18126,
-      "sha256": "3d9573e4c9762f428585b67d465ae92e6562a075bef8c11d0ed3dde367b374f6"
+      "bytes": 17581,
+      "sha256": "10931a4c3327b210fd9efc1afac113e1c4ba6ae894597552259c66c7ccfc95e1"
     },
     "img/weapons/mp5n-urban.png": {
-      "bytes": 24234,
-      "sha256": "30905e91c34ff4eb5b7b1bf5eb5a6099c7cc5c42ba1a9cc40975c7542142c3b7"
+      "bytes": 25066,
+      "sha256": "bb275acdb404278815fede773f6d0c6f21f39a39e52d6c10b80797e0a108174f"
     },
     "index.html": {
       "bytes": 25151,
       "sha256": "7282342c117810a69029165ad90c5d0f76cbc744e5d1c8b72183c6b9a9888796"
     },
     "js/account.js": {
-      "bytes": 10875,
-      "sha256": "7fc846df083ed0cdbec11ca56440f8ef040f4f398e3f029cb7c3a9945b3feb7f"
+      "bytes": 10908,
+      "sha256": "f5dde47b06af91929561fa5b9799ed14562e66df6201a42408403a8e719b1cce"
     },
     "js/ads.js": {
       "bytes": 3213,
@@ -1517,8 +1537,8 @@
       "sha256": "378bdef8cdc6ef6fb2780f90e423989ca1605144fdfafca01c89f0b7ae652b52"
     },
     "js/leaderboard.js": {
-      "bytes": 11411,
-      "sha256": "25dc158ba4642a1ef13727543bbf178a28821aeebcc0e28a5c5b99711741e540"
+      "bytes": 11444,
+      "sha256": "f0c920da0bbfa03fdbdece8d06edbf71ea69034fc98f7892b62b8cde46f6fb48"
     },
     "js/nav.js": {
       "bytes": 1358,
@@ -1538,7 +1558,7 @@
     },
     "play/index.html": {
       "bytes": 2432,
-      "sha256": "91e8c2ed68c377840f1f1c7f1148cc13865d3966ec179ab4051aff3ba6600a96"
+      "sha256": "1e504d208e16f830d8cbab27b59939b1ad5deb107af80bc896788d2975177aa2"
     }
   }
 }

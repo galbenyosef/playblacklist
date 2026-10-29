@@ -1,0 +1,155 @@
+/* /play - the game fills the window */
+html,
+body.player {
+  height: 100%;
+  overflow: hidden;
+}
+body.player {
+  background: #000;
+}
+
+#unity-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background: #000;
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: var(--bg) url("../img/backdrop.jpg") center / cover no-repeat;
+}
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 16, 19, 0.72);
+}
+.overlay[hidden] {
+  display: none;
+}
+.loader-box {
+  position: relative;
+  width: min(460px, 100%);
+  text-align: left;
+}
+.loader-box .wordmark {
+  font-size: 54px;
+  margin-bottom: 30px;
+}
+.bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  box-shadow: 0 0 14px rgba(255, 122, 26, 0.6);
+  transition: width 0.2s ease-out;
+}
+.loader-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--muted);
+}
+.loader-row #pct {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.hint {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+#error h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+#error p {
+  margin: 0 0 26px;
+  color: var(--muted);
+}
+.error-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Unity's showBanner messages */
+.banner {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: grid;
+  gap: 6px;
+  width: min(560px, calc(100% - 32px));
+}
+.banner div {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: rgba(24, 28, 34, 0.95);
+  border-left: 3px solid var(--legendary);
+  font-weight: 600;
+  font-size: 15px;
+}
+.banner div.error {
+  border-left-color: #ff4d4d;
+}
+
+/* back / fullscreen: small, top-right, out of the game's way; hidden in fullscreen */
+.hud {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  display: flex;
+  gap: 6px;
+  opacity: 0.35;
+  transition: opacity 0.15s;
+}
+.hud:hover {
+  opacity: 1;
+}
+.hud[hidden] {
+  display: none;
+}
+.hud-btn {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  background: rgba(14, 16, 19, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+}
+.hud-btn svg {
+  width: 18px;
+  height: 18px;
+}
+:fullscreen .hud {
+  display: none;
+}

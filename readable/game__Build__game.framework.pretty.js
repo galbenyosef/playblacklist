@@ -675,10 +675,10 @@ var unityFramework = (() => {
       function receiveInstance(instance, module) {
         var exports = instance.exports;
         Module["asm"] = exports;
-        wasmMemory = Module["asm"]["wh"];
+        wasmMemory = Module["asm"]["xh"];
         updateMemoryViews();
-        wasmTable = Module["asm"]["Wh"];
-        addOnInit(Module["asm"]["xh"]);
+        wasmTable = Module["asm"]["Xh"];
+        addOnInit(Module["asm"]["yh"]);
         removeRunDependency("wasm-instantiate");
         return exports;
       }
@@ -749,6 +749,59 @@ var unityFramework = (() => {
       } catch (e) {
         return 0;
       }
+    }
+    function _BL_AudioInfo() {
+      var s = "audio: ";
+      try {
+        var A = Module.blAudio,
+          ctx = typeof WEBAudio !== "undefined" && WEBAudio.audioContext;
+        if (!A || !ctx) s += "not started";
+        else {
+          var n = 0,
+            playing = 0,
+            model = "";
+          for (var k in WEBAudio.audioInstances) {
+            var ch = WEBAudio.audioInstances[k];
+            if (ch && ch.panner) {
+              n++;
+              if (ch.source) playing++;
+              model = ch.panner.panningModel;
+            }
+          }
+          s +=
+            (Module.blHrtf ? "HRTF" : "equalpower") +
+            " wanted, last voice " +
+            (model || "-") +
+            ", " +
+            playing +
+            "/" +
+            n +
+            " voices playing, " +
+            A.panners +
+            " patched, listener fwd (" +
+            A.L.fx.toFixed(2) +
+            " " +
+            A.L.fy.toFixed(2) +
+            " " +
+            A.L.fz.toFixed(2) +
+            ") pos (" +
+            A.L.px.toFixed(1) +
+            " " +
+            A.L.py.toFixed(1) +
+            " " +
+            A.L.pz.toFixed(1) +
+            ") [browser space, z mirrored], last cut-off " +
+            Math.round(A.lastCut) +
+            " Hz, context " +
+            ctx.state;
+        }
+      } catch (e) {
+        s += "error " + e;
+      }
+      var n = lengthBytesUTF8(s) + 1,
+        buf = _malloc(n);
+      stringToUTF8(s, buf, n);
+      return buf;
     }
     var UTF8Decoder =
       typeof TextDecoder != "undefined" ? new TextDecoder("utf8") : undefined;
@@ -841,39 +894,6 @@ var unityFramework = (() => {
         p = _malloc(n);
       stringToUTF8(s, p, n);
       return p;
-    }
-    function _BL_DisplayHz() {
-      if (!Module.blHz) {
-        var s = (Module.blHz = { hz: 0, last: 0, d: [] });
-        var tick = function (t) {
-          if (s.last > 0) {
-            var dt = t - s.last;
-            if (dt > 1 && dt < 100) {
-              s.d.push(dt);
-              if (s.d.length > 60) s.d.shift();
-            }
-            if (s.d.length >= 20) {
-              var a = s.d.slice().sort(function (x, y) {
-                return x - y;
-              });
-              s.hz = Math.round(1e3 / a[a.length >> 1]);
-            }
-          }
-          s.last = t;
-          if (s.d.length < 60 || document.hidden) requestAnimationFrame(tick);
-          else s.done = true;
-        };
-        document.addEventListener("visibilitychange", function () {
-          if (!document.hidden && s.done) {
-            s.done = false;
-            s.last = 0;
-            s.d = [];
-            requestAnimationFrame(tick);
-          }
-        });
-        requestAnimationFrame(tick);
-      }
-      return Module.blHz.hz;
     }
     function _BL_FullscreenOnRelease(on) {
       var set = function (v) {
@@ -1000,6 +1020,236 @@ var unityFramework = (() => {
     }
     function _BL_ScreenPixelRatio() {
       return window.devicePixelRatio || 1;
+    }
+    function _BL_SetHrtf(on) {
+      Module.blHrtf = !!on;
+      if (!Module.blAudio)
+        Module.blAudio = {
+          L: { fx: 0, fy: 0, fz: -1, px: 0, py: 0, pz: 0 },
+          panners: 0,
+          lastCut: 0,
+          lastModel: "",
+        };
+      var A = Module.blAudio;
+      var existing = function () {
+        try {
+          if (typeof WEBAudio !== "undefined" && WEBAudio.audioInstances)
+            for (var k in WEBAudio.audioInstances) {
+              var ch = WEBAudio.audioInstances[k];
+              if (ch && ch.panner) {
+                try {
+                  Module.blFixPanner(ch.panner);
+                } catch (e) {}
+                try {
+                  ch.panner.panningModel = Module.blHrtf
+                    ? "HRTF"
+                    : "equalpower";
+                } catch (e) {}
+              }
+            }
+        } catch (e) {}
+      };
+      if (Module.blPannerPatched) {
+        existing();
+        return;
+      }
+      Module.blPannerPatched = true;
+      var mirror = function (obj, map, onSet) {
+        for (var k in map)
+          (function (name, neg) {
+            var p = obj[name];
+            if (!p || typeof p.value === "undefined") return;
+            Object.defineProperty(obj, name, {
+              configurable: true,
+              value: {
+                get value() {
+                  return neg ? -p.value : p.value;
+                },
+                set value(v) {
+                  p.value = neg ? -v : v;
+                  if (onSet) onSet(name, p.value);
+                },
+              },
+            });
+          })(k, map[k]);
+      };
+      var noteL = function (name, v) {
+        var L = A.L;
+        if (name === "forwardX") L.fx = v;
+        else if (name === "forwardY") L.fy = v;
+        else if (name === "forwardZ") L.fz = v;
+        else if (name === "positionX") L.px = v;
+        else if (name === "positionY") L.py = v;
+        else if (name === "positionZ") L.pz = v;
+      };
+      var fixListener = function (l) {
+        if (!l || l.blMirrored) return;
+        l.blMirrored = true;
+        if (l.forwardX)
+          mirror(
+            l,
+            {
+              forwardX: true,
+              forwardY: true,
+              forwardZ: false,
+              upZ: true,
+              positionX: false,
+              positionY: false,
+              positionZ: true,
+            },
+            noteL,
+          );
+        else {
+          var so = l.setOrientation,
+            sp = l.setPosition;
+          if (so)
+            l.setOrientation = function (x, y, z, ux, uy, uz) {
+              A.L.fx = -x;
+              A.L.fy = -y;
+              A.L.fz = z;
+              return so.call(l, -x, -y, z, ux, uy, -uz);
+            };
+          if (sp)
+            l.setPosition = function (x, y, z) {
+              A.L.px = x;
+              A.L.py = y;
+              A.L.pz = -z;
+              return sp.call(l, x, y, -z);
+            };
+        }
+      };
+      var cutoff = function (x, y, z) {
+        var L = A.L,
+          dx = x - L.px,
+          dz = z - L.pz,
+          fx = L.fx,
+          fz = L.fz;
+        var dl = Math.sqrt(dx * dx + dz * dz),
+          fl = Math.sqrt(fx * fx + fz * fz);
+        if (dl < 0.3 || fl < 1e-4) return 2e4;
+        var c = (dx * fx + dz * fz) / (dl * fl);
+        if (c >= 0.2) return 2e4;
+        var t = (0.2 - c) / 1.2;
+        return 2e4 * Math.pow(2800 / 2e4, t);
+      };
+      var fixPanner = (Module.blFixPanner = function (p) {
+        if (!p || p.blMirrored) return;
+        p.blMirrored = true;
+        A.panners++;
+        var F = null;
+        try {
+          F = p.context.createBiquadFilter();
+          F.type = "lowpass";
+          F.frequency.value = 2e4;
+          F.Q.value = 0.5;
+          var oc = p.connect,
+            od = p.disconnect;
+          p.blFilter = F;
+          p.blWired = false;
+          p.connect = function () {
+            if (!p.blWired) {
+              oc.call(p, F);
+              p.blWired = true;
+            }
+            return F.connect.apply(F, arguments);
+          };
+          p.disconnect = function () {
+            return F.disconnect.apply(F, arguments);
+          };
+        } catch (e) {
+          F = null;
+        }
+        var update = function (x, y, z) {
+          if (!F) return;
+          var f = cutoff(x, y, z);
+          A.lastCut = f;
+          try {
+            F.frequency.setTargetAtTime(f, p.context.currentTime, 0.03);
+          } catch (e) {
+            F.frequency.value = f;
+          }
+        };
+        if (p.positionZ) {
+          mirror(p, { positionZ: true });
+          var pz = Object.getOwnPropertyDescriptor(p, "positionZ").value,
+            setz = Object.getOwnPropertyDescriptor(pz, "value").set,
+            getz = Object.getOwnPropertyDescriptor(pz, "value").get;
+          Object.defineProperty(pz, "value", {
+            configurable: true,
+            get: getz,
+            set: function (v) {
+              setz.call(pz, v);
+              update(p.positionX.value, p.positionY.value, -v);
+            },
+          });
+        } else if (p.setPosition) {
+          var sp = p.setPosition;
+          p.setPosition = function (x, y, z) {
+            update(x, y, -z);
+            return sp.call(p, x, y, -z);
+          };
+        }
+      });
+      var hookListener = function (C) {
+        var owner = C && C.prototype,
+          d = null;
+        while (
+          owner &&
+          !(d = Object.getOwnPropertyDescriptor(owner, "listener"))
+        )
+          owner = Object.getPrototypeOf(owner);
+        if (!d || !d.get || d.get.blPatched) return;
+        var g = d.get;
+        var wrapped = function () {
+          var l = g.call(this);
+          try {
+            fixListener(l);
+          } catch (e) {}
+          return l;
+        };
+        wrapped.blPatched = true;
+        Object.defineProperty(owner, "listener", {
+          configurable: true,
+          enumerable: d.enumerable,
+          get: wrapped,
+        });
+      };
+      var patch = function (C) {
+        if (
+          !C ||
+          !C.prototype ||
+          typeof C.prototype.createPanner !== "function" ||
+          C.prototype.createPanner.blPatched
+        )
+          return;
+        var orig = C.prototype.createPanner;
+        var wrapped = function () {
+          var p = orig.apply(this, arguments);
+          if (Module.blHrtf) {
+            try {
+              p.panningModel = "HRTF";
+            } catch (e) {}
+          }
+          try {
+            fixPanner(p);
+          } catch (e) {}
+          return p;
+        };
+        wrapped.blPatched = true;
+        C.prototype.createPanner = wrapped;
+        hookListener(C);
+      };
+      try {
+        patch(window.AudioContext);
+        patch(window.webkitAudioContext);
+      } catch (e) {
+        console.warn("BL_SetHrtf", e);
+      }
+      try {
+        if (typeof WEBAudio !== "undefined" && WEBAudio.audioContext)
+          fixListener(WEBAudio.audioContext.listener);
+      } catch (e) {}
+      existing();
     }
     function _BL_SetPixelRatio(r) {
       Module.devicePixelRatio = r;
@@ -16699,372 +16949,373 @@ var unityFramework = (() => {
       S: _BL_AdAck,
       hb: _BL_AdRequest,
       gb: _BL_AdShowOnRelease,
-      z: _BL_AdState,
+      G: _BL_AdState,
+      ib: _BL_AudioInfo,
       ra: _BL_ClipArm,
       R: _BL_ClipTake,
-      jb: _BL_DisplayHz,
-      G: _BL_FullscreenOnRelease,
+      F: _BL_FullscreenOnRelease,
       fb: _BL_MouseInit,
       eb: _BL_MouseTakeX,
       db: _BL_MouseTakeY,
       cb: _BL_OpenOnRelease,
-      Zc: _BL_ScreenPixelRatio,
-      _c: _BL_SetPixelRatio,
-      ib: _BL_SetRenderBudget,
-      Rd: _GetJSLoadTimeInfo,
-      Sd: _GetJSMemoryInfo,
-      de: _JS_Accelerometer_IsRunning,
+      _c: _BL_ScreenPixelRatio,
+      sa: _BL_SetHrtf,
+      $c: _BL_SetPixelRatio,
+      jb: _BL_SetRenderBudget,
+      Sd: _GetJSLoadTimeInfo,
+      Td: _GetJSMemoryInfo,
+      ee: _JS_Accelerometer_IsRunning,
       Hb: _JS_Accelerometer_Start,
       Gb: _JS_Accelerometer_Stop,
-      va: _JS_CallAsLongAsNoExceptionsSeen,
-      ie: _JS_Cursor_SetImage,
-      Ba: _JS_Cursor_SetShow,
-      Aa: _JS_DOM_MapViewportCoordinateToElementLocalCoordinate,
+      wa: _JS_CallAsLongAsNoExceptionsSeen,
+      je: _JS_Cursor_SetImage,
+      Ca: _JS_Cursor_SetShow,
+      Ba: _JS_DOM_MapViewportCoordinateToElementLocalCoordinate,
       s: _JS_DOM_UnityCanvasSelector,
-      Zg: _JS_DownloadTextFile,
-      Pd: _JS_Eval_OpenURL,
-      Nd: _JS_FileSystem_Initialize,
+      _g: _JS_DownloadTextFile,
+      Qd: _JS_Eval_OpenURL,
+      Od: _JS_FileSystem_Initialize,
       I: _JS_FileSystem_Sync,
-      Qd: _JS_GetRandomBytes,
-      Vc: _JS_Get_WASM_Size,
-      ae: _JS_GravitySensor_IsRunning,
+      Rd: _JS_GetRandomBytes,
+      Wc: _JS_Get_WASM_Size,
+      be: _JS_GravitySensor_IsRunning,
       Db: _JS_GravitySensor_Start,
       Cb: _JS_GravitySensor_Stop,
-      $d: _JS_Gyroscope_IsRunning,
+      ae: _JS_Gyroscope_IsRunning,
       Bb: _JS_Gyroscope_Start,
       Ab: _JS_Gyroscope_Stop,
-      Rc: _JS_Init_ContextMenuHandler,
-      Ud: _JS_Init_CopyPaste,
+      Sc: _JS_Init_ContextMenuHandler,
+      Vd: _JS_Init_CopyPaste,
       ce: _JS_LinearAccelerationSensor_IsRunning,
       Fb: _JS_LinearAccelerationSensor_Start,
       Eb: _JS_LinearAccelerationSensor_Stop,
-      Sc: _JS_Log_Dump,
-      Wc: _JS_Log_StackTrace,
-      Bd: _JS_MobileKeybard_GetIgnoreBlurEvent,
+      Uc: _JS_Log_Dump,
+      Xc: _JS_Log_StackTrace,
+      Cd: _JS_MobileKeybard_GetIgnoreBlurEvent,
       J: _JS_MobileKeyboard_GetKeyboardStatus,
       yb: _JS_MobileKeyboard_GetText,
-      Wd: _JS_MobileKeyboard_GetTextSelection,
+      Xd: _JS_MobileKeyboard_GetTextSelection,
       Y: _JS_MobileKeyboard_Hide,
-      Xd: _JS_MobileKeyboard_SetCharacterLimit,
-      Yd: _JS_MobileKeyboard_SetText,
-      Vd: _JS_MobileKeyboard_SetTextSelection,
+      Yd: _JS_MobileKeyboard_SetCharacterLimit,
+      Zd: _JS_MobileKeyboard_SetText,
+      Wd: _JS_MobileKeyboard_SetTextSelection,
       zb: _JS_MobileKeyboard_Show,
       Xb: _JS_Module_WebGLContextAttributes_PowerPreference,
-      pe: _JS_Module_WebGLContextAttributes_PremultipliedAlpha,
-      oe: _JS_Module_WebGLContextAttributes_PreserveDrawingBuffer,
-      ee: _JS_OrientationSensor_IsRunning,
+      qe: _JS_Module_WebGLContextAttributes_PremultipliedAlpha,
+      pe: _JS_Module_WebGLContextAttributes_PreserveDrawingBuffer,
+      fe: _JS_OrientationSensor_IsRunning,
       Jb: _JS_OrientationSensor_Start,
       Ib: _JS_OrientationSensor_Stop,
       Kb: _JS_RequestDeviceSensorPermissionsOnTouch,
       sd: _JS_RunQuitCallbacks,
-      _d: _JS_ScreenOrientation_DeInit,
-      ge: _JS_ScreenOrientation_Init,
+      $d: _JS_ScreenOrientation_DeInit,
+      he: _JS_ScreenOrientation_Init,
       H: _JS_ScreenOrientation_Lock,
-      Od: _JS_SetMainLoop,
-      Yg: _JS_Sound_Create_Channel,
-      Qg: _JS_Sound_Create_With_Buffer,
+      Pd: _JS_SetMainLoop,
+      Zg: _JS_Sound_Create_Channel,
+      Rg: _JS_Sound_Create_With_Buffer,
       q: _JS_Sound_GetAudioBufferSampleRate,
       j: _JS_Sound_GetAudioContextSampleRate,
       Sg: _JS_Sound_GetData,
-      D: _JS_Sound_GetLength,
-      Tg: _JS_Sound_GetLoadState,
-      Ug: _JS_Sound_GetMetaData,
-      Pg: _JS_Sound_Init,
+      C: _JS_Sound_GetLength,
+      Ug: _JS_Sound_GetLoadState,
+      Vg: _JS_Sound_GetMetaData,
+      Qg: _JS_Sound_Init,
       Ac: _JS_Sound_Load,
       Bc: _JS_Sound_Load_PCM,
-      Ra: _JS_Sound_Play,
+      Sa: _JS_Sound_Play,
       ma: _JS_Sound_ReleaseInstance,
       Lb: _JS_Sound_ResumeIfNeeded,
-      Vg: _JS_Sound_Set3D,
-      Ng: _JS_Sound_SetListenerOrientation,
-      Og: _JS_Sound_SetListenerPosition,
+      Wg: _JS_Sound_Set3D,
+      Og: _JS_Sound_SetListenerOrientation,
+      Pg: _JS_Sound_SetListenerPosition,
       Dc: _JS_Sound_SetLoop,
       Cc: _JS_Sound_SetLoopPoints,
       la: _JS_Sound_SetPaused,
       Ec: _JS_Sound_SetPitch,
-      Xg: _JS_Sound_SetPosition,
-      Wg: _JS_Sound_SetVolume,
+      Yg: _JS_Sound_SetPosition,
+      Xg: _JS_Sound_SetVolume,
       L: _JS_Sound_Stop,
-      pd: _JS_SystemInfo_GetAnimationFrameRate,
+      qd: _JS_SystemInfo_GetAnimationFrameRate,
       vb: _JS_SystemInfo_GetBrowserName,
       ub: _JS_SystemInfo_GetBrowserVersionString,
-      Td: _JS_SystemInfo_GetCanvasClientSize,
+      Ud: _JS_SystemInfo_GetCanvasClientSize,
       ka: _JS_SystemInfo_GetDocumentURL,
       pb: _JS_SystemInfo_GetGPUInfo,
       tb: _JS_SystemInfo_GetLanguage,
       ob: _JS_SystemInfo_GetMatchWebGLToCanvasSize,
       wb: _JS_SystemInfo_GetOS,
       nb: _JS_SystemInfo_GetPreferredDevicePixelRatio,
-      xd: _JS_SystemInfo_GetScreenSize,
+      yd: _JS_SystemInfo_GetScreenSize,
       sb: _JS_SystemInfo_GetStreamingAssetsURL,
-      je: _JS_SystemInfo_HasAstcHdr,
+      ke: _JS_SystemInfo_HasAstcHdr,
       mb: _JS_SystemInfo_HasCursorLock,
-      Ed: _JS_SystemInfo_HasFullscreen,
+      Fd: _JS_SystemInfo_HasFullscreen,
       ca: _JS_SystemInfo_HasWebGL,
       xb: _JS_SystemInfo_HasWebGPU,
-      vd: _JS_UnityEngineShouldQuit,
-      Pc: _JS_WebCamVideo_GetNativeHeight,
-      Qc: _JS_WebCamVideo_GetNativeWidth,
-      _g: _JS_WebCamVideo_GrabFrame,
+      wd: _JS_UnityEngineShouldQuit,
+      Qc: _JS_WebCamVideo_GetNativeHeight,
+      Rc: _JS_WebCamVideo_GetNativeWidth,
+      $g: _JS_WebCamVideo_GrabFrame,
       h: _JS_WebGPU_SetCommandEncoder,
-      bh: _JS_WebGPU_Setup,
-      Ld: _JS_WebPlayer_FinishInitialization,
+      ch: _JS_WebGPU_Setup,
+      Md: _JS_WebPlayer_FinishInitialization,
       Kg: _JS_WebRequest_Abort,
-      Gg: _JS_WebRequest_Create,
-      Hg: _JS_WebRequest_GetResponseMetaData,
-      Ig: _JS_WebRequest_GetResponseMetaDataLengths,
-      Qa: _JS_WebRequest_Release,
-      Cg: _JS_WebRequest_Send,
-      Eg: _JS_WebRequest_SetRedirectLimit,
-      Dg: _JS_WebRequest_SetRequestHeader,
-      Fg: _JS_WebRequest_SetTimeout,
+      Hg: _JS_WebRequest_Create,
+      Ig: _JS_WebRequest_GetResponseMetaData,
+      Jg: _JS_WebRequest_GetResponseMetaDataLengths,
+      Ra: _JS_WebRequest_Release,
+      Dg: _JS_WebRequest_Send,
+      Fg: _JS_WebRequest_SetRedirectLimit,
+      Eg: _JS_WebRequest_SetRequestHeader,
+      Gg: _JS_WebRequest_SetTimeout,
       T: _SocketClose,
-      sa: _SocketCreate,
+      ta: _SocketCreate,
       t: _SocketError,
       V: _SocketRecv,
       U: _SocketRecvLength,
       W: _SocketSend,
       X: _SocketState,
-      Tf: ___dlsym,
-      ue: ___syscall__newselect,
-      bf: ___syscall_accept4,
-      Mf: ___syscall_bind,
-      rd: ___syscall_chmod,
-      vf: ___syscall_connect,
-      ed: ___syscall_dup3,
-      Ad: ___syscall_faccessat,
+      Vf: ___dlsym,
+      ve: ___syscall__newselect,
+      cf: ___syscall_accept4,
+      Of: ___syscall_bind,
+      td: ___syscall_chmod,
+      xf: ___syscall_connect,
+      fd: ___syscall_dup3,
+      Bd: ___syscall_faccessat,
       k: ___syscall_fcntl64,
-      Rg: ___syscall_fstat64,
-      jg: ___syscall_ftruncate64,
-      kd: ___syscall_getcwd,
-      hd: ___syscall_getdents64,
-      fd: ___syscall_getpeername,
-      ff: ___syscall_getsockname,
-      Ef: ___syscall_getsockopt,
+      Tg: ___syscall_fstat64,
+      lg: ___syscall_ftruncate64,
+      ld: ___syscall_getcwd,
+      id: ___syscall_getdents64,
+      gd: ___syscall_getpeername,
+      gf: ___syscall_getsockname,
+      Gf: ___syscall_getsockopt,
       Yb: ___syscall_ioctl,
-      ef: ___syscall_listen,
-      tg: ___syscall_lstat64,
-      jd: ___syscall_mkdirat,
-      zg: ___syscall_newfstatat,
+      ff: ___syscall_listen,
+      ug: ___syscall_lstat64,
+      kd: ___syscall_mkdirat,
+      Bg: ___syscall_newfstatat,
       Fc: ___syscall_openat,
-      Gd: ___syscall_pipe,
-      of: ___syscall_poll,
-      $c: ___syscall_readlinkat,
-      Ce: ___syscall_recvfrom,
-      cd: ___syscall_recvmsg,
-      md: ___syscall_renameat,
-      id: ___syscall_rmdir,
-      dd: ___syscall_sendmsg,
-      Je: ___syscall_sendto,
+      Id: ___syscall_pipe,
+      qf: ___syscall_poll,
+      ad: ___syscall_readlinkat,
+      De: ___syscall_recvfrom,
+      dd: ___syscall_recvmsg,
+      nd: ___syscall_renameat,
+      jd: ___syscall_rmdir,
+      ed: ___syscall_sendmsg,
+      Le: ___syscall_sendto,
       kb: ___syscall_socket,
-      Jg: ___syscall_stat64,
+      Lg: ___syscall_stat64,
       Tc: ___syscall_statfs64,
-      ad: ___syscall_symlink,
-      Uc: ___syscall_truncate64,
-      nd: ___syscall_unlinkat,
-      ld: ___syscall_utimensat,
-      Ic: __emscripten_get_now_is_monotonic,
-      Zd: __gmtime_js,
-      be: __localtime_js,
-      fe: __mktime_js,
-      Yc: __munmap_js,
-      he: __tzset_js,
+      bd: ___syscall_symlink,
+      Vc: ___syscall_truncate64,
+      od: ___syscall_unlinkat,
+      md: ___syscall_utimensat,
+      Jc: __emscripten_get_now_is_monotonic,
+      _d: __gmtime_js,
+      de: __localtime_js,
+      ge: __mktime_js,
+      Zc: __munmap_js,
+      ie: __tzset_js,
       a: _abort,
       uc: _dlopen,
-      td: _emscripten_cancel_main_loop,
-      qd: _emscripten_clear_interval,
+      ud: _emscripten_cancel_main_loop,
+      rd: _emscripten_clear_interval,
       n: _emscripten_date_now,
       bb: _emscripten_debugger,
-      Cd: _emscripten_exit_fullscreen,
-      yd: _emscripten_exit_pointerlock,
-      wd: _emscripten_get_canvas_element_size,
-      ua: _emscripten_get_fullscreen_status,
-      xa: _emscripten_get_gamepad_status,
-      ah: _emscripten_get_heap_max,
+      Dd: _emscripten_exit_fullscreen,
+      zd: _emscripten_exit_pointerlock,
+      xd: _emscripten_get_canvas_element_size,
+      va: _emscripten_get_fullscreen_status,
+      ya: _emscripten_get_gamepad_status,
+      bh: _emscripten_get_heap_max,
       d: _emscripten_get_now,
-      gh: _emscripten_get_now_res,
-      ya: _emscripten_get_num_gamepads,
-      ud: _emscripten_html5_remove_all_event_listeners,
-      le: _emscripten_is_webgl_context_lost,
+      hh: _emscripten_get_now_res,
+      za: _emscripten_get_num_gamepads,
+      vd: _emscripten_html5_remove_all_event_listeners,
+      me: _emscripten_is_webgl_context_lost,
       c: _emscripten_log,
-      Dd: _emscripten_request_fullscreen,
-      zd: _emscripten_request_pointerlock,
-      bd: _emscripten_resize_heap,
-      za: _emscripten_sample_gamepad_data,
+      Ed: _emscripten_request_fullscreen,
+      Ad: _emscripten_request_pointerlock,
+      cd: _emscripten_resize_heap,
+      Aa: _emscripten_sample_gamepad_data,
       qb: _emscripten_set_blur_callback_on_thread,
-      ta: _emscripten_set_canvas_element_size,
-      Jd: _emscripten_set_focus_callback_on_thread,
-      Kd: _emscripten_set_fullscreenchange_callback_on_thread,
+      ua: _emscripten_set_canvas_element_size,
+      Kd: _emscripten_set_focus_callback_on_thread,
+      Ld: _emscripten_set_fullscreenchange_callback_on_thread,
       Nb: _emscripten_set_gamepadconnected_callback_on_thread,
       Mb: _emscripten_set_gamepaddisconnected_callback_on_thread,
-      Md: _emscripten_set_interval,
+      Nd: _emscripten_set_interval,
       $: _emscripten_set_keydown_callback_on_thread,
       Z: _emscripten_set_keypress_callback_on_thread,
       _: _emscripten_set_keyup_callback_on_thread,
-      od: _emscripten_set_main_loop_timing,
+      pd: _emscripten_set_main_loop_timing,
       Ub: _emscripten_set_mousedown_callback_on_thread,
       Tb: _emscripten_set_mousemove_callback_on_thread,
       Vb: _emscripten_set_mouseup_callback_on_thread,
-      Id: _emscripten_set_pointerlockchange_callback_on_thread,
+      Jd: _emscripten_set_pointerlockchange_callback_on_thread,
       Ob: _emscripten_set_touchcancel_callback_on_thread,
       Qb: _emscripten_set_touchend_callback_on_thread,
       Pb: _emscripten_set_touchmove_callback_on_thread,
       Rb: _emscripten_set_touchstart_callback_on_thread,
       Sb: _emscripten_set_wheel_callback_on_thread,
-      ne: _emscripten_webgl_create_context,
-      me: _emscripten_webgl_destroy_context,
+      oe: _emscripten_webgl_create_context,
+      ne: _emscripten_webgl_destroy_context,
       aa: _emscripten_webgl_enable_extension,
-      ke: _emscripten_webgl_get_current_context,
-      qe: _emscripten_webgl_init_context_attributes,
+      le: _emscripten_webgl_get_current_context,
+      re: _emscripten_webgl_init_context_attributes,
       ba: _emscripten_webgl_make_context_current,
-      th: _environ_get,
-      vh: _environ_sizes_get,
+      uh: _environ_get,
+      wh: _environ_sizes_get,
       b: _exit,
       Q: _fd_close,
-      wc: _fd_fdstat_get,
+      xc: _fd_fdstat_get,
       rb: _fd_read,
-      cf: _fd_seek,
-      Za: _fd_write,
-      gd: _getaddrinfo,
-      Lg: _gethostbyaddr,
-      Mg: _gethostbyname,
+      df: _fd_seek,
+      _a: _fd_write,
+      hd: _getaddrinfo,
+      Mg: _gethostbyaddr,
+      Ng: _gethostbyname,
       lb: _getnameinfo,
       Ag: _glActiveTexture,
-      Bg: _glAttachShader,
+      Cg: _glAttachShader,
       dc: _glBeginQuery,
       ja: _glBindAttribLocation,
-      Pa: _glBindBuffer,
-      Ge: _glBindBufferBase,
-      De: _glBindBufferRange,
-      wg: _glBindFramebuffer,
-      xg: _glBindRenderbuffer,
-      ye: _glBindSampler,
-      yg: _glBindTexture,
-      Ze: _glBindVertexArray,
-      xc: _glBlendEquation,
+      Qa: _glBindBuffer,
+      He: _glBindBufferBase,
+      Ee: _glBindBufferRange,
+      xg: _glBindFramebuffer,
+      yg: _glBindRenderbuffer,
+      ze: _glBindSampler,
+      zg: _glBindTexture,
+      _e: _glBindVertexArray,
+      wc: _glBlendEquation,
       yc: _glBlendEquationSeparate,
       zc: _glBlendFuncSeparate,
-      Qe: _glBlitFramebuffer,
-      ug: _glBufferData,
-      vg: _glBufferSubData,
-      sg: _glCheckFramebufferStatus,
-      og: _glClear,
-      te: _glClearBufferfi,
-      se: _glClearBufferfv,
-      re: _glClearBufferuiv,
-      pg: _glClearColor,
-      qg: _glClearDepthf,
-      rg: _glClearStencil,
-      Ca: _glClientWaitSync,
-      Oa: _glColorMask,
-      ng: _glCompileShader,
-      lg: _glCompressedTexImage2D,
-      Ve: _glCompressedTexImage3D,
-      mg: _glCompressedTexSubImage2D,
-      Ye: _glCompressedTexSubImage3D,
-      Ie: _glCopyBufferSubData,
+      Re: _glBlitFramebuffer,
+      vg: _glBufferData,
+      wg: _glBufferSubData,
+      tg: _glCheckFramebufferStatus,
+      pg: _glClear,
+      ue: _glClearBufferfi,
+      te: _glClearBufferfv,
+      se: _glClearBufferuiv,
+      qg: _glClearColor,
+      rg: _glClearDepthf,
+      sg: _glClearStencil,
+      Da: _glClientWaitSync,
+      Pa: _glColorMask,
+      og: _glCompileShader,
+      mg: _glCompressedTexImage2D,
+      We: _glCompressedTexImage3D,
+      ng: _glCompressedTexSubImage2D,
+      Ze: _glCompressedTexSubImage3D,
+      Je: _glCopyBufferSubData,
       kg: _glCopyTexImage2D,
       vc: _glCopyTexSubImage2D,
-      ig: _glCreateProgram,
-      hg: _glCreateShader,
-      gg: _glCullFace,
-      fg: _glDeleteBuffers,
-      eg: _glDeleteFramebuffers,
-      dg: _glDeleteProgram,
+      jg: _glCreateProgram,
+      ig: _glCreateShader,
+      hg: _glCullFace,
+      gg: _glDeleteBuffers,
+      fg: _glDeleteFramebuffers,
+      eg: _glDeleteProgram,
       cc: _glDeleteQueries,
-      cg: _glDeleteRenderbuffers,
-      xe: _glDeleteSamplers,
-      bg: _glDeleteShader,
+      dg: _glDeleteRenderbuffers,
+      ye: _glDeleteSamplers,
+      cg: _glDeleteShader,
       _b: _glDeleteSync,
-      ag: _glDeleteTextures,
-      $e: _glDeleteVertexArrays,
+      bg: _glDeleteTextures,
+      af: _glDeleteVertexArrays,
       ia: _glDepthFunc,
       ha: _glDepthMask,
-      $f: _glDetachShader,
-      _f: _glDisable,
-      Zf: _glDisableVertexAttribArray,
-      Wf: _glDrawArrays,
-      Le: _glDrawArraysInstanced,
-      He: _glDrawBuffers,
-      Xf: _glDrawElements,
+      ag: _glDetachShader,
+      $f: _glDisable,
+      _f: _glDisableVertexAttribArray,
+      Xf: _glDrawArrays,
+      Me: _glDrawArraysInstanced,
+      Ie: _glDrawBuffers,
+      Yf: _glDrawElements,
       Ke: _glDrawElementsInstanced,
-      Yf: _glEnable,
-      Vf: _glEnableVertexAttribArray,
+      Zf: _glEnable,
+      Wf: _glEnableVertexAttribArray,
       ec: _glEndQuery,
       Zb: _glFenceSync,
-      Sf: _glFinish,
+      Tf: _glFinish,
       tc: _glFlush,
-      Pe: _glFlushMappedBufferRange,
+      Qe: _glFlushMappedBufferRange,
       l: _glFramebufferRenderbuffer,
       i: _glFramebufferTexture2D,
       da: _glFramebufferTextureLayer,
       ga: _glFrontFace,
-      Rf: _glGenBuffers,
+      Sf: _glGenBuffers,
       Nf: _glGenFramebuffers,
       bc: _glGenQueries,
-      Of: _glGenRenderbuffers,
-      we: _glGenSamplers,
-      Qf: _glGenTextures,
-      af: _glGenVertexArrays,
-      Pf: _glGenerateMipmap,
-      Lf: _glGetActiveAttrib,
-      Na: _glGetActiveUniform,
-      Ea: _glGetActiveUniformBlockName,
-      B: _glGetActiveUniformBlockiv,
-      A: _glGetActiveUniformsiv,
-      Kf: _glGetAttribLocation,
+      Pf: _glGenRenderbuffers,
+      xe: _glGenSamplers,
+      Rf: _glGenTextures,
+      bf: _glGenVertexArrays,
+      Qf: _glGenerateMipmap,
+      Mf: _glGetActiveAttrib,
+      Oa: _glGetActiveUniform,
+      Fa: _glGetActiveUniformBlockName,
+      A: _glGetActiveUniformBlockiv,
+      z: _glGetActiveUniformsiv,
+      Lf: _glGetAttribLocation,
       Wb: _glGetBufferSubData,
-      Jf: _glGetError,
-      If: _glGetFramebufferAttachmentParameteriv,
-      Oe: _glGetIntegeri_v,
-      Ma: _glGetIntegerv,
-      Ae: _glGetInternalformativ,
+      Kf: _glGetError,
+      Jf: _glGetFramebufferAttachmentParameteriv,
+      Pe: _glGetIntegeri_v,
+      Na: _glGetIntegerv,
+      Be: _glGetInternalformativ,
       $b: _glGetProgramBinary,
-      Gf: _glGetProgramInfoLog,
+      Hf: _glGetProgramInfoLog,
       p: _glGetProgramiv,
       fc: _glGetQueryObjectuiv,
-      df: _glGetQueryiv,
+      ef: _glGetQueryiv,
       Uf: _glGetRenderbufferParameteriv,
-      Cf: _glGetShaderInfoLog,
-      Af: _glGetShaderPrecisionFormat,
+      Df: _glGetShaderInfoLog,
+      Bf: _glGetShaderPrecisionFormat,
       Ff: _glGetShaderSource,
-      Df: _glGetShaderiv,
-      Bf: _glGetString,
-      Se: _glGetStringi,
-      xf: _glGetTexParameteriv,
-      Be: _glGetUniformBlockIndex,
-      Da: _glGetUniformIndices,
+      Ef: _glGetShaderiv,
+      Cf: _glGetString,
+      Te: _glGetStringi,
+      yf: _glGetTexParameteriv,
+      Ce: _glGetUniformBlockIndex,
+      Ea: _glGetUniformIndices,
       K: _glGetUniformLocation,
       sc: _glGetUniformiv,
-      yf: _glGetVertexAttribiv,
-      Ga: _glInvalidateFramebuffer,
-      zf: _glIsEnabled,
-      _e: _glIsVertexArray,
+      zf: _glGetVertexAttribiv,
+      Ha: _glInvalidateFramebuffer,
+      Af: _glIsEnabled,
+      $e: _glIsVertexArray,
       wf: _glLinkProgram,
-      Me: _glMapBufferRange,
-      La: _glPixelStorei,
+      Ne: _glMapBufferRange,
+      Ma: _glPixelStorei,
       rc: _glPolygonOffset,
       ac: _glProgramBinary,
-      ve: _glProgramParameteri,
-      Fe: _glReadBuffer,
+      we: _glProgramParameteri,
+      Ge: _glReadBuffer,
       u: _glReadPixels,
-      uf: _glRenderbufferStorage,
-      Re: _glRenderbufferStorageMultisample,
-      ze: _glSamplerParameteri,
-      Ka: _glScissor,
-      sf: _glShaderSource,
-      tf: _glStencilFuncSeparate,
-      qf: _glStencilMask,
-      rf: _glStencilOpSeparate,
-      nf: _glTexImage2D,
-      We: _glTexImage3D,
+      vf: _glRenderbufferStorage,
+      Se: _glRenderbufferStorageMultisample,
+      Ae: _glSamplerParameteri,
+      La: _glScissor,
+      tf: _glShaderSource,
+      uf: _glStencilFuncSeparate,
+      rf: _glStencilMask,
+      sf: _glStencilOpSeparate,
+      of: _glTexImage2D,
+      Xe: _glTexImage3D,
       pf: _glTexParameterf,
-      Ja: _glTexParameteri,
-      mf: _glTexParameteriv,
-      Te: _glTexStorage2D,
-      Ue: _glTexStorage3D,
-      lf: _glTexSubImage2D,
-      Xe: _glTexSubImage3D,
+      Ka: _glTexParameteri,
+      nf: _glTexParameteriv,
+      Ue: _glTexStorage2D,
+      Ve: _glTexStorage3D,
+      mf: _glTexSubImage2D,
+      Ye: _glTexSubImage3D,
       gc: _glUniform1fv,
       ea: _glUniform1i,
       hc: _glUniform1iv,
@@ -17072,179 +17323,179 @@ var unityFramework = (() => {
       jc: _glUniform2fv,
       kc: _glUniform2iv,
       lc: _glUniform2uiv,
-      Ia: _glUniform3fv,
+      Ja: _glUniform3fv,
       mc: _glUniform3iv,
       nc: _glUniform3uiv,
-      C: _glUniform4fv,
+      B: _glUniform4fv,
       oc: _glUniform4iv,
       pc: _glUniform4uiv,
-      Fa: _glUniformBlockBinding,
+      Ga: _glUniformBlockBinding,
       qc: _glUniformMatrix3fv,
       fa: _glUniformMatrix4fv,
-      Ne: _glUnmapBuffer,
-      gf: _glUseProgram,
-      Hf: _glValidateProgram,
-      hf: _glVertexAttrib4f,
-      jf: _glVertexAttrib4fv,
-      Ee: _glVertexAttribIPointer,
-      kf: _glVertexAttribPointer,
-      Ha: _glViewport,
-      jh: _navigator_gpu_get_preferred_canvas_format,
+      Oe: _glUnmapBuffer,
+      hf: _glUseProgram,
+      If: _glValidateProgram,
+      jf: _glVertexAttrib4f,
+      kf: _glVertexAttrib4fv,
+      Fe: _glVertexAttribIPointer,
+      lf: _glVertexAttribPointer,
+      Ia: _glViewport,
+      kh: _navigator_gpu_get_preferred_canvas_format,
       Hd: _navigator_gpu_request_adapter_async,
-      wa: _strftime,
-      Xc: _strftime_l,
+      xa: _strftime,
+      Yc: _strftime_l,
       $a: _wgpu_adapter_or_device_get_features,
       ab: _wgpu_adapter_or_device_get_limits,
-      Fd: _wgpu_adapter_request_device_async,
+      Gd: _wgpu_adapter_request_device_async,
       Lc: _wgpu_buffer_get_mapped_range,
       Oc: _wgpu_buffer_map_async,
-      Wa: _wgpu_buffer_read_mapped_range,
+      Xa: _wgpu_buffer_read_mapped_range,
       Kc: _wgpu_buffer_unmap,
-      hh: _wgpu_canvas_context_configure,
+      ih: _wgpu_canvas_context_configure,
       na: _wgpu_canvas_context_get_current_texture,
-      kh: _wgpu_canvas_get_webgpu_context,
-      Jc: _wgpu_command_encoder_begin_compute_pass,
+      lh: _wgpu_canvas_get_webgpu_context,
+      Ic: _wgpu_command_encoder_begin_compute_pass,
       oa: _wgpu_command_encoder_begin_render_pass,
       qa: _wgpu_command_encoder_copy_buffer_to_buffer,
-      oh: _wgpu_command_encoder_copy_texture_to_buffer,
+      ph: _wgpu_command_encoder_copy_texture_to_buffer,
       Mc: _wgpu_command_encoder_copy_texture_to_texture,
-      mh: _wgpu_compute_pass_encoder_dispatch_workgroups,
-      lh: _wgpu_compute_pass_encoder_dispatch_workgroups_indirect,
+      nh: _wgpu_compute_pass_encoder_dispatch_workgroups,
+      mh: _wgpu_compute_pass_encoder_dispatch_workgroups_indirect,
       pa: _wgpu_device_create_bind_group,
       o: _wgpu_device_create_bind_group_layout,
-      F: _wgpu_device_create_buffer,
+      E: _wgpu_device_create_buffer,
       g: _wgpu_device_create_command_encoder,
-      _a: _wgpu_device_create_command_encoder_simple,
-      nh: _wgpu_device_create_compute_pipeline,
+      Pc: _wgpu_device_create_command_encoder_simple,
+      oh: _wgpu_device_create_compute_pipeline,
       x: _wgpu_device_create_pipeline_layout,
       O: _wgpu_device_create_render_pipeline,
-      uh: _wgpu_device_create_sampler,
+      vh: _wgpu_device_create_sampler,
       v: _wgpu_device_create_shader_module,
-      $g: _wgpu_device_create_texture,
+      ah: _wgpu_device_create_texture,
       y: _wgpu_device_get_queue,
-      ph: _wgpu_device_pop_error_scope_async,
-      qh: _wgpu_device_push_error_scope,
-      ih: _wgpu_device_set_uncapturederror_callback,
+      qh: _wgpu_device_pop_error_scope_async,
+      rh: _wgpu_device_push_error_scope,
+      jh: _wgpu_device_set_uncapturederror_callback,
       w: _wgpu_encoder_end,
-      Ya: _wgpu_encoder_finish,
+      Za: _wgpu_encoder_finish,
       N: _wgpu_encoder_pop_debug_group,
-      Ua: _wgpu_encoder_push_debug_group,
+      Va: _wgpu_encoder_push_debug_group,
       P: _wgpu_encoder_set_bind_group,
       m: _wgpu_encoder_set_pipeline,
       M: _wgpu_is_valid_object,
       f: _wgpu_object_destroy,
       e: _wgpu_object_set_label,
-      fh: _wgpu_queue_submit_multiple_and_destroy,
-      Xa: _wgpu_queue_submit_one_and_destroy,
+      gh: _wgpu_queue_submit_multiple_and_destroy,
+      Ya: _wgpu_queue_submit_one_and_destroy,
       r: _wgpu_queue_write_buffer,
       Gc: _wgpu_queue_write_texture,
-      E: _wgpu_render_commands_mixin_draw,
+      D: _wgpu_render_commands_mixin_draw,
       Hc: _wgpu_render_commands_mixin_draw_indexed,
-      Ta: _wgpu_render_commands_mixin_draw_indexed_indirect,
-      Sa: _wgpu_render_commands_mixin_draw_indirect,
-      sh: _wgpu_render_commands_mixin_set_index_buffer,
+      Ua: _wgpu_render_commands_mixin_draw_indexed_indirect,
+      Ta: _wgpu_render_commands_mixin_draw_indirect,
+      th: _wgpu_render_commands_mixin_set_index_buffer,
       Nc: _wgpu_render_commands_mixin_set_vertex_buffer,
-      dh: _wgpu_render_pass_encoder_set_scissor_rect,
-      rh: _wgpu_render_pass_encoder_set_stencil_reference,
-      ch: _wgpu_render_pass_encoder_set_viewport,
-      eh: _wgpu_texture_create_view,
-      Va: _wgpu_texture_create_view_simple,
+      eh: _wgpu_render_pass_encoder_set_scissor_rect,
+      sh: _wgpu_render_pass_encoder_set_stencil_reference,
+      dh: _wgpu_render_pass_encoder_set_viewport,
+      fh: _wgpu_texture_create_view,
+      Wa: _wgpu_texture_create_view_simple,
     };
     var asm = createWasm();
     var ___wasm_call_ctors = function () {
-      return (___wasm_call_ctors = Module["asm"]["xh"]).apply(null, arguments);
+      return (___wasm_call_ctors = Module["asm"]["yh"]).apply(null, arguments);
     };
     var _GetFakemodTimeInSeconds = (Module["_GetFakemodTimeInSeconds"] =
       function () {
         return (_GetFakemodTimeInSeconds = Module["_GetFakemodTimeInSeconds"] =
-          Module["asm"]["yh"]).apply(null, arguments);
+          Module["asm"]["zh"]).apply(null, arguments);
       });
     var _ReleaseKeys = (Module["_ReleaseKeys"] = function () {
       return (_ReleaseKeys = Module["_ReleaseKeys"] =
-        Module["asm"]["zh"]).apply(null, arguments);
+        Module["asm"]["Ah"]).apply(null, arguments);
     });
     var _GetCopyBufferAsCStr = (Module["_GetCopyBufferAsCStr"] = function () {
       return (_GetCopyBufferAsCStr = Module["_GetCopyBufferAsCStr"] =
-        Module["asm"]["Ah"]).apply(null, arguments);
+        Module["asm"]["Bh"]).apply(null, arguments);
     });
     var _getMetricsInfo = (Module["_getMetricsInfo"] = function () {
       return (_getMetricsInfo = Module["_getMetricsInfo"] =
-        Module["asm"]["Bh"]).apply(null, arguments);
+        Module["asm"]["Ch"]).apply(null, arguments);
     });
     var _SendMessageNumber = (Module["_SendMessageNumber"] = function () {
       return (_SendMessageNumber = Module["_SendMessageNumber"] =
-        Module["asm"]["Ch"]).apply(null, arguments);
+        Module["asm"]["Dh"]).apply(null, arguments);
     });
     var _SendMessageString = (Module["_SendMessageString"] = function () {
       return (_SendMessageString = Module["_SendMessageString"] =
-        Module["asm"]["Dh"]).apply(null, arguments);
+        Module["asm"]["Eh"]).apply(null, arguments);
     });
     var _SendMessage = (Module["_SendMessage"] = function () {
       return (_SendMessage = Module["_SendMessage"] =
-        Module["asm"]["Eh"]).apply(null, arguments);
+        Module["asm"]["Fh"]).apply(null, arguments);
     });
     var _SetFullscreen = (Module["_SetFullscreen"] = function () {
       return (_SetFullscreen = Module["_SetFullscreen"] =
-        Module["asm"]["Fh"]).apply(null, arguments);
+        Module["asm"]["Gh"]).apply(null, arguments);
     });
     var _ConnectToProfiler = (Module["_ConnectToProfiler"] = function () {
       return (_ConnectToProfiler = Module["_ConnectToProfiler"] =
-        Module["asm"]["Gh"]).apply(null, arguments);
+        Module["asm"]["Hh"]).apply(null, arguments);
     });
     var _StopProfiling = (Module["_StopProfiling"] = function () {
       return (_StopProfiling = Module["_StopProfiling"] =
-        Module["asm"]["Hh"]).apply(null, arguments);
+        Module["asm"]["Ih"]).apply(null, arguments);
     });
     var _IsConnectedToProfiler = (Module["_IsConnectedToProfiler"] =
       function () {
         return (_IsConnectedToProfiler = Module["_IsConnectedToProfiler"] =
-          Module["asm"]["Ih"]).apply(null, arguments);
+          Module["asm"]["Jh"]).apply(null, arguments);
       });
     var _main = (Module["_main"] = function () {
-      return (_main = Module["_main"] = Module["asm"]["Jh"]).apply(
+      return (_main = Module["_main"] = Module["asm"]["Kh"]).apply(
         null,
         arguments,
       );
     });
     var _SendPasteEvent = (Module["_SendPasteEvent"] = function () {
       return (_SendPasteEvent = Module["_SendPasteEvent"] =
-        Module["asm"]["Kh"]).apply(null, arguments);
+        Module["asm"]["Lh"]).apply(null, arguments);
     });
     var ___errno_location = function () {
-      return (___errno_location = Module["asm"]["Lh"]).apply(null, arguments);
+      return (___errno_location = Module["asm"]["Mh"]).apply(null, arguments);
     };
     var _htonl = function () {
-      return (_htonl = Module["asm"]["Mh"]).apply(null, arguments);
+      return (_htonl = Module["asm"]["Nh"]).apply(null, arguments);
     };
     var _htons = function () {
-      return (_htons = Module["asm"]["Nh"]).apply(null, arguments);
+      return (_htons = Module["asm"]["Oh"]).apply(null, arguments);
     };
     var _ntohs = function () {
-      return (_ntohs = Module["asm"]["Oh"]).apply(null, arguments);
+      return (_ntohs = Module["asm"]["Ph"]).apply(null, arguments);
     };
     var _malloc = function () {
-      return (_malloc = Module["asm"]["Ph"]).apply(null, arguments);
+      return (_malloc = Module["asm"]["Qh"]).apply(null, arguments);
     };
     var _free = function () {
-      return (_free = Module["asm"]["Qh"]).apply(null, arguments);
+      return (_free = Module["asm"]["Rh"]).apply(null, arguments);
     };
     var _emscripten_builtin_memalign = function () {
-      return (_emscripten_builtin_memalign = Module["asm"]["Rh"]).apply(
+      return (_emscripten_builtin_memalign = Module["asm"]["Sh"]).apply(
         null,
         arguments,
       );
     };
     var ___trap = function () {
-      return (___trap = Module["asm"]["Sh"]).apply(null, arguments);
+      return (___trap = Module["asm"]["Th"]).apply(null, arguments);
     };
     var stackSave = function () {
-      return (stackSave = Module["asm"]["Th"]).apply(null, arguments);
+      return (stackSave = Module["asm"]["Uh"]).apply(null, arguments);
     };
     var stackRestore = function () {
-      return (stackRestore = Module["asm"]["Uh"]).apply(null, arguments);
+      return (stackRestore = Module["asm"]["Vh"]).apply(null, arguments);
     };
     var stackAlloc = function () {
-      return (stackAlloc = Module["asm"]["Vh"]).apply(null, arguments);
+      return (stackAlloc = Module["asm"]["Wh"]).apply(null, arguments);
     };
     Module["addRunDependency"] = addRunDependency;
     Module["removeRunDependency"] = removeRunDependency;

@@ -64,7 +64,7 @@ const proj = path.resolve(here, "..");
 const PINNED = "3.9.6";
 const MIN_WINDOW = 250;
 const MAX_WINDOW = 350;
-const TODAY = "2026-10-13";
+const TODAY = "2026-10-29";
 const ROOT = ""; // root-served capture: served path == disk rel
 
 const sha256 = (buf) => crypto.createHash("sha256").update(buf).digest("hex");

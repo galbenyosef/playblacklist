@@ -51,9 +51,10 @@
     GS_Korea: "Korea",
     GS_Shipment: "Shipment",
     GS_Hangar: "Hangar",
+    GS_Paris: "Paris",
   };
   const mapName = (m) => MAPS[m] || String(m || "").replace(/^GS_|^RT2_/, "");
-  const MODES = { tdm: "TDM", ffa: "DM", bomb: "BOMB" };
+  const MODES = { tdm: "TDM", ffa: "DM", bomb: "BOMB", elim: "ELIM" };
   const TIER_CLASS = [
     "t-common",
     "t-uncommon",

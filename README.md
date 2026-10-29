@@ -11,20 +11,21 @@ Source: https://playblacklist.com/
 
 - **Unity 6 WebGL build (6000.4.4f1, IL2CPP)** — `/api/build` resolves the deployed
   build: loader `game/Build/game.loader.js` (createUnityInstance bootstrap), data
-  `game.data.br` (67.9 MB, `UnityWebData1.0` archive with the IL2CPP metadata),
-  framework `game.framework.js.br` (372 KB engine framework) and code
-  `game.wasm.br` (50.5 MB wasm). The origin serves the `*.br` payloads
+  `game.data.br` (71.3 MB, `UnityWebData1.0` archive with the IL2CPP metadata),
+  framework `game.framework.js.br` (377 KB engine framework) and code
+  `game.wasm.br` (50.8 MB wasm). The origin serves the `*.br` payloads
   **browser-decoded** (identity; the hcdn edge re-compresses per
   `Accept-Encoding`), so the capture holds the plain streams and a naive static
   server serves them as-is — no `Content-Encoding` juggling (the Unity loader
   accepts data without a compression marker; only still-compressed bodies are
   rejected).
 - **StreamingAssets UnityFS asset bundles** — `game/StreamingAssets/Bundles/`:
-  `weapons/weapons` is the AssetBundleManifest whose table lists all **130**
+  `weapons/weapons` is the AssetBundleManifest whose table lists all **134**
   per-weapon bundles + `weapons_common.bundle` (animations, gun audio, textures,
-  materials, shaders, meshes — 328 container entries), and `maps.json` names the
-  **eight** deployed scene bundles (`gs_*.bundle`, 16–26 MB each). Both manifest
-  sources were parsed to derive the closure, then every listed file fetched.
+  materials, shaders, meshes), and `maps.json` names the **eight** deployed
+  scene bundles (`gs_*.bundle`, 0.9–26.9 MB each) plus the shared
+  `maps_common.bundle` (26.7 MB, new 2026-10-29). Both manifest sources were
+  parsed to derive the closure, then every listed file fetched.
 - **Hand-written site shell** — plain ES5/ES6, no bundler, no framework:
   `js/site.js` (build status + leaderboard tables), `js/launch.js` (launch gate
   against `/api/launch`), `js/nav.js` (account header), `js/play.js` (Unity
@@ -53,16 +54,16 @@ Unity build at `/play` (v2.1.8 at capture time, HUD text "V2.1.8 · UNITY 6
 BUILD"); the site around it is a small server-rendered shell (landing page with
 the launch countdown and leaderboards, about, leaderboard, account pages).
 
-The capture is the whole runtime closure: **384 files, 344.5 MiB
-(361,261,039 bytes)** — 5 pages + the two live-endpoint JSON snapshots
+The capture is the whole runtime closure: **389 files, 357.0 MiB
+(374,292,801 bytes)** — 5 pages + the two live-endpoint JSON snapshots
 (`api/build`, `api/launch`), 7 site scripts, 2 stylesheets, 222 images, the four
-Unity player files and all 141 StreamingAssets files (weapon index +
-`weapons_common` + 130 weapon bundles + `maps.json` + 8 map bundles). The
-weapons closure came from the AssetBundleManifest inside `weapons/weapons`
-(parsed once with UnityPy), the maps closure from `maps.json`; a browser
-network-log pass while actually playing (boot → guest → lobby → live
-bomb-defusal match) confirmed every request the client makes is one of the
-captured files, with zero 404s. `GS_Korea` is named in the client's scene
+Unity player files and all 146 StreamingAssets files (weapon index +
+`weapons_common` + 134 weapon bundles + `maps.json` + 8 map bundles +
+`maps_common.bundle`). The weapons closure came from the AssetBundleManifest
+inside `weapons/weapons` (parsed once with UnityPy), the maps closure from
+`maps.json`; a browser network-log pass while actually playing (boot → guest →
+lobby → live bomb-defusal match) confirmed every request the client makes is one
+of the captured files, with zero 404s. `GS_Korea` is named in the client's scene
 metadata but is not deployed (`gs_korea.bundle` → 404, absent from `maps.json`)
 — recorded as a finding, nothing to capture. `/countdown` is a 302 to `/play`
 (no document of its own).
@@ -92,45 +93,47 @@ not the service.
 - `game/Build/` — `game.loader.js`, `game.data.br`, `game.framework.js.br`,
   `game.wasm.br` (byte-exact; the `.br` names are upstream's, the bytes are the
   browser-decoded streams)
-- `game/StreamingAssets/Bundles/` — `maps.json`, 8 `gs_*.bundle`, and
-  `weapons/` with the index bundle, `weapons_common.bundle` and 130
-  `w<slot>_<id>.bundle` files
-- `.upstream/manifest.json` — Gen-A sha256 record for all 384 captured files
+- `game/StreamingAssets/Bundles/` — `maps.json`, `maps_common.bundle`, 8
+  `gs_*.bundle`, and `weapons/` with the index bundle, `weapons_common.bundle`
+  and 134 `w<slot>_<id>.bundle` files
+- `.upstream/manifest.json` — Gen-A sha256 record for all 389 captured files
 - `readable/` — prettified derived layer (pinned prettier 3.9.6, module API to
   a fixed point): the 7 site scripts, the Unity loader, the Unity framework
-  (17,332 lines) and the 2 stylesheets as `*.pretty.js|css`, plus the two
+  (17,583 lines) and the 2 stylesheets as `*.pretty.js|css`, plus the two
   inline prelaunch-gate twins and `inline-map.json` (byte ranges + sha256)
 - `src/` + `split-spec.json` — 7 statement-aligned slices of the site scripts
   with an exact 2-line provenance header each, and the derivation record
-  (13 sections, 368 notRendered payload records)
+  (13 sections, 373 notRendered payload records)
 - `tools/derive.mjs` — rebuild `readable/` + `src/` + `split-spec.json`
 - `tools/capture.mjs` — the closure capture (site + build + StreamingAssets,
   scan-to-fixpoint, rank-icon probe, sanity hashes)
 - `tools/verify.mjs` — re-hash the capture against the manifest
 - `tools/update.mjs` — read-only drift probe against the live origin
 - `tools/audit.js` — integrity gate for the derived layers (`AUDIT PASS`)
-- `docs/cover.png`, `docs/boot-2026-10-13.png` — cover + boot evidence, both
-  captured in actual gameplay against the served mirror (live bomb-defusal
-  match, enemy in frame, killfeed, HUD)
+- `docs/cover.png`, `docs/boot-2026-10-13.png`, `docs/boot-2026-10-27.png`,
+  `docs/boot-2026-10-29-refresh.png` — cover + boot evidence (2026-10-13/27 in
+  actual gameplay, 2026-10-29 the refreshed capture's sign-in screen)
 
 ## Assets
 
-- **game build payloads** — `game/Build/`: `game.data.br` (67.9 MB Unity data
-  archive: IL2CPP metadata, shared assets, resources), `game.wasm.br` (50.5 MB
-  wasm), `game.framework.js.br` (372 KB framework), `game.loader.js` (27 KB)
-- **weapons (bundles)** — 130 per-weapon UnityFS bundles + `weapons_common.bundle`
-  (20.6 MB) + the `weapons` index bundle: `game/StreamingAssets/Bundles/weapons/`
+- **game build payloads** — `game/Build/`: `game.data.br` (71.3 MB Unity data
+  archive: IL2CPP metadata, shared assets, resources), `game.wasm.br` (50.8 MB
+  wasm), `game.framework.js.br` (377 KB framework), `game.loader.js` (27 KB)
+- **weapons (bundles)** — 134 per-weapon UnityFS bundles + `weapons_common.bundle`
+  (24.9 MB) + the `weapons` index bundle: `game/StreamingAssets/Bundles/weapons/`
   (`w1_*` … `w5_*` — the bundle files carry the weapon models, skins, animations,
   gun audio and HUD/item art; `weapons_common` holds the shared animation clips,
   ogg audio, textures, materials, shaders and meshes)
-- **maps (bundles)** — 8 scene bundles, 16–26 MB each:
-  `game/StreamingAssets/Bundles/gs_{ancient,desnowoot,forge,hangar,orbital,shipment,urbanwarfare,zook}.bundle`
-  (Greywoot ships as `GS_DeSnowoot`)
+- **maps (bundles)** — 8 scene bundles, 0.9–26.9 MB each, plus the shared
+  `maps_common.bundle` (26.7 MB):
+  `game/StreamingAssets/Bundles/gs_{ancient,desnowoot,forge,hangar,orbital,paris,shipment,zook}.bundle`
+  (Greywoot ships as `GS_DeSnowoot`; Paris is new 2026-10-29, UrbanWarfare is no
+  longer named by `maps.json`)
 - **images** — 222 file(s): `img/` (hero-squad.webp, community-leader-1200.jpg,
   community-leader.jpg, backdrop.jpg), `img/weapons/` (10 landing-page gun
   renders), `img/maps/` (8 map thumbnails), `img/ranks/` (200 rank badges)
 - **audio** — inside `game/StreamingAssets/Bundles/weapons/weapons_common.bundle`
-  (97 AudioClips, ogg; nothing loose on disk)
+  (98 AudioClips, ogg; nothing loose on disk)
 - **fonts** — exterior only: Rajdhani served by Google Fonts
   (`fonts.googleapis.com`/`fonts.gstatic.com` stay CDN — socker precedent); the
   favicon is `favicon.svg`
@@ -161,7 +164,7 @@ node tools/check-exports.mjs   # the derived layer still exports every public na
 node tools/derive.mjs --check          # the derived layer is current? (compares a fresh rebuild; writes NOTHING)
 ```
 
-Last run: `384 files checked, 0 problems` and `AUDIT PASS`.
+Last run: `389 files checked, 0 problems` and `AUDIT PASS` (2026-10-29 refresh).
 
 ## Updating from upstream
 
@@ -170,7 +173,7 @@ node tools/update.mjs     # read-only drift probe: what changed upstream
 ```
 
 The probe never rewrites the capture — a mirror is a point-in-time snapshot.
-Note it re-downloads the whole closure (~345 MB) to compare sha256; the two
+Note it re-downloads the whole closure (~357 MB) to compare sha256; the two
 endpoint snapshots (`api/build`, `api/launch`) are `dynamic` and presence-only.
 A refresh means re-running `tools/capture.mjs` into a clean tree (copying every
 replaced file into `legacy/<date>/` first), re-cutting
@@ -178,7 +181,47 @@ replaced file into `legacy/<date>/` first), re-cutting
 `node tools/derive.mjs` (which re-parses the new AssetBundleManifest with
 UnityPy if the weapon set changed — the bundle list is embedded in the tool).
 Known noise: none — `node tools/update.mjs` prints
-`up to date: 384 captured files identical upstream`.
+`up to date: 389 captured files identical upstream`.
+
+### 2026-10-29 refresh
+
+The fleet drift probe (2026-10-29) found 166 of 384 captured files changed
+upstream — the origin redeployed on 2026-10-28 (`api/build` `builtAt`
+`2026-10-28T07:23:33.960Z`). Re-captured with `tools/capture.mjs`, which now
+also fetches the shared `maps_common.bundle` named by `maps.json` and carries
+the four new weapon bundles parsed from the live AssetBundleManifest.
+
+- Before: 384 files, 344.5 MiB (361,261,039 bytes), manifest 2026-10-12.
+- After: 389 files, 357.0 MiB (374,292,801 bytes).
+- Changed: 166 of 384 — the four `game/Build` payloads, the weapons index,
+  `maps.json`, all 8 old map bundles, all 136 weapon bundles, `js/account.js`,
+  `js/leaderboard.js` and all 22 `img/` files. The other pages are byte-identical
+  apart from `play/index.html`'s per-request CSP nonce; the two `dynamic`
+  endpoint snapshots were re-cut (`api/build` is now
+  `builtAt 2026-10-28T07:23:33.960Z`, `downloadBytes 59,026,597`). `css/*`,
+  `js/play.js`, `js/site.js`, `js/nav.js`, `js/launch.js`, `js/ads.js` and the
+  200 rank icons were unchanged.
+- Added (+6): `gs_paris.bundle` (new map), `maps_common.bundle` (new shared
+  bundle), `w2_17.bundle`, `w5_23.bundle`, `w5_24.bundle`, `w5_25.bundle`
+  (weapons manifest 131 → 135 entries).
+- Dropped (-1): `game/StreamingAssets/Bundles/gs_urbanwarfare.bundle` — still
+  served (HTTP 200) but no longer named by `maps.json`, so it left the closure.
+  `img/maps/urban-warfare.jpg` stays: the unchanged pages still reference it.
+  The new `GS_Paris` has no thumbnail (`img/maps/paris.jpg` is 404 upstream), so
+  `img/maps/` still holds 8 files.
+- `tools/capture.mjs` sanity `EXPECT` hashes re-baselined to the new payloads
+  (independently fetched) and `maps_common.bundle` added to them.
+- Gates: `verify.mjs` → `389 files checked, 0 problems`; `audit.js` →
+  `AUDIT PASS` (13 sections, 373 notRendered); `check-exports.mjs` →
+  `no public export name lost`; `derive.mjs --check` → `DERIVE CHECK PASS`.
+  Drift probe after the refresh: `389 checked, 0 changed, 0 missing`.
+- Preserved: derived layers of the replaced capture and the changed text
+  artifacts in `legacy/2026-10-29/` (`readable/`, `src/`, `split-spec.json`,
+  `js/account.js`, `js/leaderboard.js`, the old `.upstream/manifest.json`,
+  `_mirror-report.json` and the before-probe JSON). The replaced 343 MiB of
+  binary capture files stay recoverable from git history rather than being
+  duplicated into `legacy/`.
+- Boot: see the 2026-10-29 boot test below.
 
 ### 2026-10-12 capture / 2026-10-13 readable+src derivation
 
@@ -264,6 +307,26 @@ off-origin requests were Google Fonts and Unity Services telemetry.
 - Claim check: confirms the documented offline behaviour for the
   sign-in → guest → server-picker stages; it refutes no existing claim. The
   lobby was not entered (that needs the live realtime service).
+
+## Boot test (2026-10-29 refresh)
+
+- Entry: `http://127.0.0.1:4717/play` served by `tools/serve.mjs`, headless
+  Chrome in an isolated `boot-playblacklist-refresh` session launched with
+  `--host-resolver-rules=MAP * 127.0.0.1` (all hosts resolve to loopback).
+- Outcome: **rendered** — the refreshed Unity build booted from the mirror's
+  own bytes to the BLACKLIST sign-in screen (SIGN IN / CREATE ACCOUNT / GUEST
+  tabs, `V2.1.8 · UNITY 6 BUILD`, ACCOUNT SERVER offline indicator).
+- Evidence: body 0 chars (the whole UI is canvas-rendered); canvas 1262x568;
+  console 899 messages, 0 errors, 4 benign warnings (Unity persistentDataPath
+  sync, compressed-audio `getFrequency`); the local server answered 13 requests,
+  all HTTP 200 — `/play`, `/css/*`, `/js/ads.js`, `/js/play.js`,
+  `/img/backdrop.jpg`, `/favicon.svg`, `/api/build` and all four
+  `game/Build` payloads. No off-origin request reached the network;
+  screenshot `docs/boot-2026-10-29-refresh.png`.
+- Scope: the guest flow was not re-exercised here (the 2026-10-27 record covers
+  sign-in → guest → server picker); this run asserts the refreshed build
+  renders. The listener (PID 41192) was killed, port 4717 confirmed closed
+  (`netstat` empty, curl connection refused), and the browser session closed.
 
 ## Mirror conventions
 

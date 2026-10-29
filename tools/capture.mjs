@@ -84,7 +84,7 @@ const MAPS = [
 const BUILD_FILES = ["loaderUrl", "dataUrl", "frameworkUrl", "codeUrl"];
 
 // All weapon bundle names, read from the AssetBundleManifest inside
-// /game/StreamingAssets/Bundles/weapons/weapons with UnityPy (2026-10-12).
+// /game/StreamingAssets/Bundles/weapons/weapons with UnityPy (2026-10-29).
 // The client resolves weapons through that manifest, so this is the full
 // weapon closure; refresh by re-parsing the manifest if the index changes.
 const WEAPON_BUNDLES = [
@@ -92,7 +92,7 @@ const WEAPON_BUNDLES = [
   "w1_14.bundle", "w1_15.bundle", "w1_16.bundle", "w1_17.bundle", "w1_18.bundle", "w1_19.bundle",
   "w1_2.bundle", "w1_20.bundle", "w1_3.bundle", "w1_4.bundle", "w1_5.bundle", "w1_6.bundle",
   "w1_7.bundle", "w1_8.bundle", "w1_9.bundle", "w2_0.bundle", "w2_13.bundle", "w2_14.bundle",
-  "w2_15.bundle", "w2_16.bundle", "w3_0.bundle", "w3_1.bundle", "w3_12.bundle", "w3_13.bundle",
+  "w2_15.bundle", "w2_16.bundle", "w2_17.bundle", "w3_0.bundle", "w3_1.bundle", "w3_12.bundle", "w3_13.bundle",
   "w3_14.bundle", "w3_15.bundle", "w3_16.bundle", "w3_17.bundle", "w3_18.bundle", "w3_19.bundle",
   "w3_20.bundle", "w3_21.bundle", "w3_22.bundle", "w3_23.bundle", "w3_24.bundle", "w3_25.bundle",
   "w3_26.bundle", "w3_27.bundle", "w3_28.bundle", "w3_29.bundle", "w3_3.bundle", "w3_30.bundle",
@@ -109,18 +109,20 @@ const WEAPON_BUNDLES = [
   "w4_82.bundle", "w4_83.bundle", "w4_84.bundle", "w4_86.bundle", "w4_87.bundle", "w4_88.bundle",
   "w4_89.bundle", "w4_94.bundle", "w4_95.bundle", "w4_96.bundle", "w4_97.bundle", "w4_98.bundle",
   "w5_0.bundle", "w5_1.bundle", "w5_15.bundle", "w5_16.bundle", "w5_17.bundle", "w5_18.bundle",
-  "w5_19.bundle", "w5_21.bundle", "w5_22.bundle", "w5_7.bundle", "weapons_common.bundle",
+  "w5_19.bundle", "w5_21.bundle", "w5_22.bundle", "w5_23.bundle", "w5_24.bundle", "w5_25.bundle",
+  "w5_7.bundle", "weapons_common.bundle",
 ];
 
 // Sanity hashes for the biggest payloads, taken independently (curl, identity
 // encoding = browser-decoded bytes). The capture must reproduce them exactly.
 const EXPECT = {
-  "game/Build/game.data.br": "d4ef38ad711a7974b88cffd14d1a2cd273a6d78f07105348504c61947fb09e52",
-  "game/Build/game.wasm.br": "15c2b60cf8adc646637b0ec3c54359d518d9c650c62d9ee8f8e9bbfd03a51ae1",
-  "game/Build/game.framework.js.br": "a7842848366e6df68d67648de49f5b48c70080257d59cb50389d840984bbdc59",
-  "game/Build/game.loader.js": "64cc1acc53da86b9eb97888f3112a8ad2fda6e8e6a5e4fed1e4cd47c91a7447c",
-  "game/StreamingAssets/Bundles/maps.json": "e9917a479534cff01cd75c7469b37d273f9e596be1c245170b1079d39d8bf1df",
-  "game/StreamingAssets/Bundles/weapons/weapons": "58695078a1682bd237c276d3f98b0c7537fb2c76fbe1032f5b085e41e873953c",
+  "game/Build/game.data.br": "be379da6cccdde1aaa747d81b1134959a08c4185d955a808a504ed67a92feb48",
+  "game/Build/game.wasm.br": "2aad7a308edd1392f99df516ce02616996ab14b58719b4633c71888f0dd4c4fc",
+  "game/Build/game.framework.js.br": "254a022d1abab85bbe735cd1c31edee5b25209dc3d56960a83fbeb7c55951e12",
+  "game/Build/game.loader.js": "442a71053f53a13f62a3d7f5bcfe63dd29d80b18db8c02b8537fc88cec71ea13",
+  "game/StreamingAssets/Bundles/maps.json": "a4cc1cc4f11ecbc2c2bf5ac7d2ff1e99dd20283aefb2caa64fd1e8d98bf6b1fd",
+  "game/StreamingAssets/Bundles/maps_common.bundle": "ce4e13c919c01699883da9c1b5aed6a9c55f50a728bf6b741b543d8b35bb9c2a",
+  "game/StreamingAssets/Bundles/weapons/weapons": "237188f51e64bef40ff0a45454e95a4f57d66d9b58c4696b07276d8814a9c85a",
 };
 
 const sha256 = (b) => crypto.createHash("sha256").update(b).digest("hex");
@@ -191,6 +193,12 @@ await capture("/game/StreamingAssets/Bundles/maps.json", "game/StreamingAssets/B
 const mapsRaw = JSON.parse(fs.readFileSync(path.join(proj, "game/StreamingAssets/Bundles/maps.json"), "utf8"));
 for (const m of mapsRaw.maps) {
   const n = `gs_${m.scene.replace(/^GS_/, "").toLowerCase()}.bundle`;
+  await capture(`/game/StreamingAssets/Bundles/${n}`, `game/StreamingAssets/Bundles/${n}`);
+}
+// maps.json also names a shared bundle (`common`); the client loads it with
+// the scene bundles, so it is part of the map closure (added 2026-10-29).
+if (mapsRaw.common) {
+  const n = `${mapsRaw.common}.bundle`;
   await capture(`/game/StreamingAssets/Bundles/${n}`, `game/StreamingAssets/Bundles/${n}`);
 }
 await capture("/game/StreamingAssets/Bundles/weapons/weapons", "game/StreamingAssets/Bundles/weapons/weapons");

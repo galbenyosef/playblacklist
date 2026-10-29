@@ -1,5 +1,5 @@
 // js__leaderboard 01 — state
-// Lines 1-333 of readable/js__leaderboard.pretty.js (statement-aligned).
+// Lines 1-334 of readable/js__leaderboard.pretty.js (statement-aligned).
 // /leaderboard: players (sortable) and clans from the stats API; click a row for the player's profile or the clan roster.
 (() => {
   const API = "/api/v1";
@@ -40,11 +40,12 @@
     GS_Korea: "Korea",
     GS_Shipment: "Shipment",
     GS_Hangar: "Hangar",
+    GS_Paris: "Paris",
   };
   const mapName = (m) => MAPS[m] || String(m || "").replace(/^GS_|^RT2_/, "");
   // the API stores Deathmatch as "ffa": players see DM
   const modeName = (m) =>
-    ({ ffa: "DM", tdm: "TDM", bomb: "BOMB" })[m] ||
+    ({ ffa: "DM", tdm: "TDM", bomb: "BOMB", elim: "ELIM" })[m] ||
     String(m || "").toUpperCase();
   const hours = (sec) =>
     sec >= 3600

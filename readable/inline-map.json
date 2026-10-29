@@ -3,7 +3,7 @@
     "index.html",
     "leaderboard/index.html"
   ],
-  "generated": "2026-10-13",
+  "generated": "2026-10-29",
   "note": "byte ranges + sha256 of every inline <script>/<style> content block in the captured HTML documents; twins are the prettified (prettier 3.9.6, module API) renderings and are never shipped to a browser.",
   "blocks": [
     {

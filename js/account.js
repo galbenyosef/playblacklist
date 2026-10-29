@@ -17,9 +17,9 @@
     return Math.round(s / 86400) + ' d ago';
   };
   // match rows store the game's scene name (the game's MapCatalog names, as on the leaderboard)
-  const MAPS = { GS_Zook: 'Zook', GS_UrbanWarfare: 'Urban Warfare', GS_DeSnowoot: 'Greywoot', GS_Orbital: 'Orbital', GS_Ancient: 'Ancient', GS_Forge: 'Forge', GS_Enlightment: 'Zonnieville', GS_Backyard: 'Backyard', GS_Korea: 'Korea', GS_Shipment: 'Shipment', GS_Hangar: 'Hangar' };
+  const MAPS = { GS_Zook: 'Zook', GS_UrbanWarfare: 'Urban Warfare', GS_DeSnowoot: 'Greywoot', GS_Orbital: 'Orbital', GS_Ancient: 'Ancient', GS_Forge: 'Forge', GS_Enlightment: 'Zonnieville', GS_Backyard: 'Backyard', GS_Korea: 'Korea', GS_Shipment: 'Shipment', GS_Hangar: 'Hangar', GS_Paris: 'Paris' };
   const mapName = (m) => MAPS[m] || String(m || '').replace(/^GS_|^RT2_/, '');
-  const MODES = { tdm: 'TDM', ffa: 'DM', bomb: 'BOMB' };
+  const MODES = { tdm: 'TDM', ffa: 'DM', bomb: 'BOMB', elim: 'ELIM' };
   const TIER_CLASS = ['t-common', 't-uncommon', 't-rare', 't-epic', 't-legendary', 't-staff'];
   const badge = (level) => {
     const lv = Math.min(200, Math.max(1, Number(level) || 1));

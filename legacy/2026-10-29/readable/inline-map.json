@@ -1,0 +1,32 @@
+{
+  "sources": [
+    "index.html",
+    "leaderboard/index.html"
+  ],
+  "generated": "2026-10-13",
+  "note": "byte ranges + sha256 of every inline <script>/<style> content block in the captured HTML documents; twins are the prettified (prettier 3.9.6, module API) renderings and are never shipped to a browser.",
+  "blocks": [
+    {
+      "file": "readable/index-inline-1.pretty.js",
+      "source": "index.html",
+      "section": "index-inline-1.js",
+      "kind": "script",
+      "block": 1,
+      "byteStart": 1011,
+      "byteEnd": 1116,
+      "bytes": 105,
+      "sha256": "18c29bbc99a0e65e7559bbd7f75d15dc4ea20de0c89290cb9afb56a65a950785"
+    },
+    {
+      "file": "readable/leaderboard__index-inline-1.pretty.js",
+      "source": "leaderboard/index.html",
+      "section": "leaderboard__index-inline-1.js",
+      "kind": "script",
+      "block": 1,
+      "byteStart": 890,
+      "byteEnd": 995,
+      "bytes": 105,
+      "sha256": "18c29bbc99a0e65e7559bbd7f75d15dc4ea20de0c89290cb9afb56a65a950785"
+    }
+  ]
+}
